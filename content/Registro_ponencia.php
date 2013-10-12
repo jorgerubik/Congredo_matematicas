@@ -35,4 +35,5 @@
 		<legend>Resumen</legend>
 		<textarea rows="6" cols="50" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}"> </textarea>
 	</fieldset>
+	<input type="submit" name="enviar" value="enviar">
 </form>
