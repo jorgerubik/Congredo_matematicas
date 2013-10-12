@@ -20,13 +20,9 @@
 				<th>Autor</th>
 				<th>Coautor 1</th>
 				<th>Coautor 2</th>
-				<th>Coautor 3</th>
-				<th>Coautor 4</th>
 			</tr>
 			<tr>
 				<th>Correo electrónico</th>
-				<td></td>
-				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -36,13 +32,9 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td></td>
 			</tr>
 			<tr>
 				<th>Nombre</th>
-				<td></td>
-				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -52,13 +44,9 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td></td>
 			</tr>
 			<tr>
 				<th>Segundo Apellido</th>
-				<td></td>
-				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -68,13 +56,9 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td></td>
 			</tr>
 			<tr>
 				<th>País</th>
-				<td></td>
-				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -84,13 +68,9 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td></td>
 			</tr>
 			<tr>
 				<th>Requiere constancia</th>
-				<td><input type="checkbox"></td>
-				<td><input type="checkbox"></td>
 				<td><input type="checkbox"></td>
 				<td><input type="checkbox"></td>
 				<td><input type="checkbox"></td>

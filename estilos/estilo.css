@@ -213,11 +213,14 @@ table{
     text-align: center;
     width: 100%;
 }
+/*estilo para las tablas del registro de trabajos tanto de ponencia, taller, cartel y curso*/
 .autores{
 	font-size: 12px; important!
+	text-align: left; important!
 }
 th{
 	font-size: 12px;
+	text-align: left;
 }
 .tarifa{
 	text-align: center ; important!
