@@ -1,4 +1,4 @@
-		<div class="cajatexto">
+		<div class="cajatextoscroll">
 			<h1>Ponencias orales</h1>
 			El ponente deberá llegar 15 minutos antes del inicio del bloque de ponencias y entregará su presentación al coordinador de sala. <br>
 			Se dispondrá de un máximo de 20 minutos para exponer oralmente su trabajo, seguidos de una sesión de 5 minutos de preguntas y respuestas. <br>
