@@ -55,7 +55,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td>Contraseña</td>
+				<th>Contraseña</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -63,7 +63,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td>Nombre</td>
+				<th>Nombre</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -71,7 +71,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td>Primer Apellido</td>
+				<th>Primer Apellido</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -79,7 +79,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td>Segundo Apellido</td>
+				<th>Segundo Apellido</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -87,7 +87,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td>Institución</td>
+				<th>Institución</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -95,7 +95,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td>País</td>
+				<th>País</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -103,7 +103,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td>Estado</td>
+				<th>Estado</th>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -111,7 +111,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td>Requiere constancia</td>
+				<th>Requiere constancia</th>
 				<td></td>
 				<td></td>
 				<td></td>
