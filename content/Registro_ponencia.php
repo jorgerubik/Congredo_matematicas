@@ -4,8 +4,8 @@
 		<legend>Título (maximo 15 palabras)</legend>
 		<input type="text" maxleght="15">
 		<legend>Categoría:</legend>
-		<input type="radio" name="investigacion" value="investigacion">Investigación <br>
-		<input type="radio" name="experiencia" value="experiencia"> Experiencia en aula
+		<input type="radio" name="categoria" value="investigacion">Investigación <br>
+		<input type="radio" name="categoria" value="experiencia"> Experiencia en aula
 	</fieldset>
 	<fieldset>	
 		<legend>Modalidad</legend>
@@ -112,18 +112,18 @@
 			</tr>
 			<tr>
 				<th>Requiere constancia</th>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><input type="checkbox"></td>
+				<td><input type="checkbox"></td>
+				<td><input type="checkbox"></td>
+				<td><input type="checkbox"></td>
+				<td><input type="checkbox"></td>
 			</tr>
 		</table>
 	</fieldset>
 	<fieldset>
 		<legend>Desea enviar otro trabajo</legend>
-		<input type="radio"> Sí <br>
-		<input type="radio"> No <br>
+		<input type="radio" name="otro" value="si"> Sí <br>
+		<input type="radio" name="otro" value="no"> No <br>
 	</fieldset>
 	<input type="submit" name="enviar" value="enviar">
 </form>
