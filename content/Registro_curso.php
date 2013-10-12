@@ -23,15 +23,15 @@
 			</tr>
 			<tr>
 				<th>Correo electrónico</th>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><input type="text" size="15"></td>
+				<td><input type="text" size="15"></td>
+				<td><input type="text" size="15"></td>
 			</tr>
 			<tr>
 				<th>Contraseña</th>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><input type="password" size="15"></td>
+				<td><input type="password" size="15"></td>
+				<td><input type="password" size="15"></td>
 			</tr>
 			<tr>
 				<th>Nombre</th>
