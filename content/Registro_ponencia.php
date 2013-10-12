@@ -35,5 +35,90 @@
 		<legend>Resumen</legend>
 		<textarea rows="6" cols="50" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}"> </textarea>
 	</fieldset>
+	<fieldset>
+		<legend>Autores</legend>
+		<table border="1">
+			<tr>
+				<th>Datos</th>
+				<th>Autor</th>
+				<th>Coautor 1</th>
+				<th>Coautor 2</th>
+				<th>Coautor 3</th>
+				<th>Coautor 4</th>
+			</tr>
+			<tr>
+				<th>Correo electrónico</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Contraseña</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Nombre</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Primer Apellido</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Segundo Apellido</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Institución</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>País</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Estado</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Requiere constancia</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</fieldset>
 	<input type="submit" name="enviar" value="enviar">
 </form>
