@@ -213,6 +213,12 @@ table{
     text-align: center;
     width: 100%;
 }
+.autores{
+	font-size: 12px; important!
+}
+th{
+	font-size: 12px;
+}
 .tarifa{
 	text-align: center ; important!
 }
