@@ -6,9 +6,14 @@
 if ($_SERVER['REQUEST_METHOD']=='POST') { // ¿Nos mandan datos por el formulario?
     include('php_lib/config.ini.php'); //incluimos configuración
     include('php_lib/login.lib.php'); //incluimos las funciones
-
+    include('nivel_usuario');
     //verificamos el usuario y contraseña mandados
-    if (login($_POST['id'],$_POST['pass'])) {
+    
+    if ( (login($_POST['id'],$_POST['pass'])) && ($validacion == 1) ) {
+         header('Location: admin.php');
+
+    }  
+    elseif ( login($_POST['id'],$_POST['pass']) ) {
 
        //acciones a realizar cuando un usuario se identifica
        //EJ: almacenar en memoria sus datos, registrar un acceso a una tabla de datos
@@ -16,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST') { // ¿Nos mandan datos por el formulari
 
         //saltamos al inicio del área restringida
         header('Location: registro_trabajos.php');
+    
+     
+        
         die();
     } else {
         //acciones a realizar en un intento fallido

@@ -17,8 +17,8 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure = "ssl";
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465;
-$mail->Username = "ness.reaper@gmail.com"; //ness.reaper@gmail.com
-$mail->Password = "ask514ion497"; //ask514ion497
+$mail->Username = "jorgedionicio.rubik@gmail.com"; //ness.reaper@gmail.com
+$mail->Password = "descartesakant"; //ask514ion497
 
 
 

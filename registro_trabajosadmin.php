@@ -1,6 +1,9 @@
 <?php
-	include "script/nivel_usuario.php";
-	include "script/script_login.php";
+/* 
+ * Ejemplo de una página asegurada
+ * Simplemente hay que añadir esta línea de PHP al principio.
+ */
+require('php_lib/include-pagina-restringida.php'); //el incude para vericar que estoy logeado. Si falla salta a la página de login.php
 ?>
 <!doctype html>
 <html lang="en">
@@ -9,9 +12,12 @@
 		<?php
 			include_once "page/head.php";
 		?>
-		
-		
-				
+
+		<script>
+		<?php
+		include "script/script_formulario.php";
+		?>
+		</script>		
 	</head>
 
 	<body>
@@ -26,14 +32,14 @@
 		<!--Barra de navegación -->
 		<section id="nav">
 			<?php
-				include "page/menu.php";
+				include "page/menuadmin.php";
 			?>
 		</section>
 		
 		<!--sección de contenido -->
 		<section id="seccion" class="formatocentro">
 			<?php
-				include "content/Login.php";
+				include "content/RegistroTrabajos.php";
 			?>
 		</section>		
 		
