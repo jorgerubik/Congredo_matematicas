@@ -1,16 +1,16 @@
 <form action="registro_curso_exitoso.php" method="post" autocomplete="off" class="forms">
 	<fieldset id="ponencia">
 		<legend>Formulario de registro</legend>
-		<legend>Título (maximo 15 palabras)</legend>
+		<legend>Título (máximo 15 palabras)</legend>
 		<input type="text" maxleght="15" id="Titulo" name="Titulo" >
 	</fieldset>
 	<fieldset>
-		<legend>Contenido</legend>
-		<textarea rows="6" id="Contenido" name="Contenido" value="Contenido" cols="70" maxlength="300" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}"> </textarea>
+		<legend>Contenido (máximo 300 palabras)</legend>
+		<textarea rows="6" id="Contenido_area" name="Contenido" value="Contenido" cols="70"  required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" > </textarea>
 	</fieldset>
 	<fieldset>
-		<legend>Materiales</legend>
-		<textarea rows="4" cols="50" required id="Materiales" name="Materiales" value="Materiales" ></textarea>
+		<legend>Materiales (máximo 100 palabras)</legend>
+		<textarea rows="4" cols="50" required id="Contenido_area1" name="Materiales" value="Materiales" ></textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Autores</legend>

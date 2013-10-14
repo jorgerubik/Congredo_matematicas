@@ -1,16 +1,16 @@
-<form action="#" method="post" autocomplete="off" class="forms">
+<form action="registro_taller_exitoso.php" method="post" autocomplete="off" class="forms">
 	<fieldset id="ponencia">
 		<legend>Formulario de registro</legend>
 		<legend>Título (maximo 15 palabras)</legend>
-		<input type="text" maxleght="15">
+		<input type="text" maxleght="15" id="Titulo" name="Titulo" >
 	</fieldset>
 	<fieldset>
 		<legend>Contenido</legend>
-		<textarea rows="6" cols="50" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}"> </textarea>
+		<textarea rows="6" id="Contenido_area" name="Contenido" value="Contenido" cols="70" maxlength="300" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}"> </textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Materiales</legend>
-		<textarea rows="4" cols="50" required></textarea>
+		<textarea rows="4" cols="50" required id="Contenido_area1" name="Materiales" value="Materiales" ></textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Autores</legend>
@@ -22,16 +22,16 @@
 				<th>Coautor 2</th>
 			</tr>
 			<tr>
-				<th>Correo electrónico</th>
-				<td></td>
-				<td></td>
-				<td></td>
+				<th>id_autor</th>
+				<td><input type="text" size="15" id="Autor" name="Autor" ></td>
+				<td><input type="text" size="15"></td>
+				<td><input type="text" size="15"></td>
 			</tr>
 			<tr>
 				<th>Contraseña</th>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><input type="password" size="15"></td>
+				<td><input type="password" size="15"></td>
+				<td><input type="password" size="15"></td>
 			</tr>
 			<tr>
 				<th>Nombre</th>

@@ -1,7 +1,7 @@
-<?php
-	include "script/nivel_usuario.php";
-	include "script/script_login.php";
-?>
+
+<!-- // 	include "script/nivel_usuario.php";
+// 	 include "script/script_login.php";
+ -->
 <!doctype html>
 <html lang="en">
 	<head>

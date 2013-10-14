@@ -56,9 +56,12 @@ require('script/conexion.php');
 
 //defino variables del formulario de registro general
 	$titulo = htmlspecialchars($_POST['Titulo']);
-	$contenido = htmlspecialchars($_POST['Contenido']);
-	$materiales = htmlspecialchars($_POST['Materiales']);
+	$categoria = htmlspecialchars($_POST['Categoria']);
+	$modalidad = htmlspecialchars($_POST['Modalidad']);
 	$id_autores = htmlspecialchars($_POST['Autor']);
+	$resumen = htmlspecialchars($_POST['Resumen']);
+	$referencias = htmlspecialchars($_POST['Referencias']);
+
 //conexión con servidor
 	$host = "localhost";
 	$user = "root";
@@ -94,7 +97,7 @@ require('script/conexion.php');
 				}	
 	
 		//insertando los datos
-		$query = "INSERT INTO ponencias_taller VALUES(NULL, '$id_autores', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ')";
+		$query = "INSERT INTO ponencias_cartel VALUES(NULL, '$id_autores', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', ' ', ' ', ' ', ' ', ' ')";
 		exe_query($query);
 		
 		echo "Se ha introducido satisfactoriamente el registro <br>";

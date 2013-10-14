@@ -1,6 +1,6 @@
 <FIELDSET>
 			<LEGEND class="font_titulos">Cerrar sesión</LEGEND>
-				<a href="logout.php">Cerrar sesión</a>
+				<a href="aut_logout.php">Cerrar sesión</a>
 		</FIELDSET>
 
 		<ul id="menu" class="font_titulos">

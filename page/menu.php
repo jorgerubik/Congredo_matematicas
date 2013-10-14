@@ -1,14 +1,14 @@
-		<form action="login.php" method="post" autocomplete="off" class="forms">	
-			<FIELDSET>
-				<LEGEND class="font_titulos">Acceso a usuarios<br/>registrados</LEGEND>
+		<form action="registro_trabajos.php" method="post" autocomplete="off" class="forms">	
+			<FIELDSET id="login">
+				<LEGEND class="font_titulos">Acceso a usuarios registrados</LEGEND>
 				<legend class="font_titulos">Usuario:</legend>
-				<input type="text" id="usuario" maxlength="16" size="16" name="id">
+				<input type="text" id="usuario" name="user"  maxlength="16" size="16" >
 				<legend class="font_titulos">Contraseña:</legend>
-				<input type="password" id="Password" maxlength="16" size="16" name="pass">
-				<input type="submit" name="Ingresar" value="Ingresar" id="Ingresar"><br/>
+				<input type="password" id="Password" maxlength="16" size="16" name="pass"><br>
+				<input type="submit" name="Ingresar" value="Ingresar" id="Ingresar"><br>
 				<a href="registro_general.php">Regístrese aquí</a>
-			</FIELDSET>
-		</form>
+		</FIELDSET>
+		</form>		
 		<ul id="menu" class="font_titulos">
 			<li><a href="index.php"><b>Inicio</b></a></li>
 			<li><a href="convocatoria.php"><b>Convocatoria</b></a></li>			
@@ -35,7 +35,7 @@
 				</ul>
 			</li>
 			
-			<li><a href="registro_trabajos.php"><b>Registro de trabajos</b></a></li>
+			<li><a href="login.php"><b>Registro de trabajos</b></a></li>
 			<li><a href="presentacion_trabajos.php"><b>Presentaci&oacute;n de trabajos</b></a></li>
 		</ul>
 	
