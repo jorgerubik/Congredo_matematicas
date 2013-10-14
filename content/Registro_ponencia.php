@@ -33,11 +33,11 @@
 	</fieldset>
 	<fieldset>
 		<legend>Resumen (máximo 300 palabras)</legend>
-		<textarea rows="6" cols="50" id="Contenido_area" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}"> </textarea>
+		<textarea rows="6" cols="50" id="Contenido_area" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" onkeypress="wordCount();"> </textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Referencias (máximo 30 palabras)</legend>
-		<textarea row="6" cols="50" id="Contenido_area1" required ></textarea>
+		<textarea row="6" cols="50" id="Contenido_area2" onkeypress="wordCountb();" required ></textarea>
 	</fieldset>
 
 	<fieldset>

@@ -6,11 +6,11 @@
 	</fieldset>
 	<fieldset>
 		<legend>Contenido (máximo 300 palabras)</legend>
-		<textarea rows="6" id="Contenido_area" name="Contenido" value="Contenido" cols="70"  required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" > </textarea>
+		<textarea rows="6" id="Contenido_area" name="Contenido" value="Contenido" cols="70"  required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" onkeypress="wordCount();"> </textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Materiales (máximo 100 palabras)</legend>
-		<textarea rows="4" cols="50" required id="Contenido_area1" name="Materiales" value="Materiales" ></textarea>
+		<textarea rows="4" cols="50" required id="Contenido_area1" name="Materiales" value="Materiales" onkeypress="wordCounta();" ></textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Autores</legend>
