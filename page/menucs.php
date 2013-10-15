@@ -1,8 +1,10 @@
-Bienvenido:<br> <? echo $_SESSION['usuario_login'] ?><br>
-<FIELDSET>
+		<FIELDSET>
+			Bienvenido:<br> <? echo $_SESSION['usuario_login'] ?><br>
 
-			<LEGEND class="font_titulos">Cerrar sesión</LEGEND>
-				<a href="aut_logout.php">Cerrar sesión</a>
+
+			<form action="aut_logout.php" method="post">
+				<button type="submit">Cerrar sesión</button>
+			</form>
 		</FIELDSET>
 
 		<ul id="menu" class="font_titulos">
