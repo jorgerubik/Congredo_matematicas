@@ -198,16 +198,16 @@ a:active {
 
 /*estilo de botones de registrotrabajos.html*/
 #boton{
-	height: 100px;
-	width: 400px;
-	background: #BD8C00;
+	height: 80px;
+	width: 500px;
+	background: #022248; 
 	border-radius: 10px;
-	border-color: #BD8C00;
+	border-color: #022248;
 	margin-top: 5px;
-	margin-left: 80px;
+	margin-left: 20px;
 	border-style: solid;
 	font-size: 20px;
-	
+	color: #BD8C00;
 }
 
 table{			

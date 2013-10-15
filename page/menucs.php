@@ -1,4 +1,6 @@
+Bienvenido:<br> <? echo $_SESSION['usuario_login'] ?><br>
 <FIELDSET>
+
 			<LEGEND class="font_titulos">Cerrar sesión</LEGEND>
 				<a href="aut_logout.php">Cerrar sesión</a>
 		</FIELDSET>
