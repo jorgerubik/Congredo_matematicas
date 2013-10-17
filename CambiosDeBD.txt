@@ -1,0 +1,13 @@
+Cambiar datos en:
+aut_config.ini.php //datos de la conexión
+aut_verifica.inic.php //solo si cambia el nombre de tabla usuario_rol
+buscar.php //datos de conexión y nombre de tabla rol si cambia
+registroexitoso.php //datos de conexión y nombre de tablas por si cambia
+registro_ponencia_confirmacion.php //datos de conexión
+registro_ponencia_exitoso.php //datos de conexión
+registro_cartel_confirmacion.php //datos de conexion
+registro_cartel_exitoso.php //datos de conexion
+registro_taller_confirma.php //datos de conexion
+registro_taller_exitoso.php //datos de conexion
+registro_curso_confirma.php //datos de conexion
+registro_curso_exitoso.php //datos de conexion
