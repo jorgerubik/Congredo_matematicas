@@ -11,3 +11,6 @@ registro_taller_confirma.php //datos de conexion
 registro_taller_exitoso.php //datos de conexion
 registro_curso_confirma.php //datos de conexion
 registro_curso_exitoso.php //datos de conexion
+baja_rol_exitoso //datos de conexión
+alta_rol_exitoso //datos de conexión
+cambio_rol_exitoso //datos de conexión

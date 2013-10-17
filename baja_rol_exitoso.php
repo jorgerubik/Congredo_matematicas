@@ -49,7 +49,7 @@ exit;
 		<section id="seccion" class="formatocentro">
 		<?php
 	$id_usuario = htmlspecialchars($_POST['id_usuario']);
-	$id_rol = 0;
+	$rol_final = 0;
 	
 
 	$host = "localhost";
@@ -83,9 +83,20 @@ exit;
 					}
 					return $r;
 					
-				}	
-				$query="UPDATE usuario_rol SET id_rol = REPLACE( id_rol,  '$id_rol',  '$rol_final' ) WHERE id_usuario =  '$id_usuario' AND id_rol =  '$id_rol';";
+				}
+				$query = "SELECT id_rol FROM usuario_rol WHERE id_usuario = '".$id_usuario."'";
+				$id_rol = exe_query($query);
+				$row = mysql_fetch_assoc($id_rol);
+				$rol = $row['id_rol'];
+				
+
+				
+				$query="UPDATE usuario_rol SET id_rol = REPLACE( id_rol,  '$rol',  '$rol_final' ) WHERE id_usuario =  '$id_usuario' AND id_rol =  '$rol';";
+				exe_query($query);
+		echo "Se ha registrado el cambio";
+		mysql_close();
 		?>
+
 		</section>		
 		
 		<!-- aside de la página -->

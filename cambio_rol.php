@@ -49,9 +49,20 @@ exit;
 		
 		<!--sección de contenido -->
 		<section id="seccion" class="formatocentro">
-			<?php
-				echo "Aquí se dan cambios de rol";
-			?>
+			
+				<form action="cambio_rol_exitoso.php" method="post">
+				<fieldset>
+					<legend>Cambio de rol</legend>
+					<legend>Id_usuario:</legend>
+					<input type="text" name="id_usuario" id="id_usuario">
+					<legend>Seleccione los roles nuevos del usuario:</legend>
+					<input type="checkbox" id="asignar_roles" name="roles" value=4>Asignar roles
+					<input type="checkbox" id="evaluador" name="evaluador" value=2>Comite Evaluador
+					<input type="checkbox" id="revisor" name="revisor" value=1>Comite Revisor
+				</fieldset>
+				<input type="submit" name="enviar" value="enviar">
+			</form>
+			
 		</section>		
 		
 		<!-- aside de la página -->
