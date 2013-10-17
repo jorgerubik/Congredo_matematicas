@@ -5,13 +5,13 @@
 //  clus@hotpop.com
 // ------------------------------------------
 require("aut_verifica.inc.php");
-$nivel_acceso=10; // Nivel de acceso para esta página.
+$nivel_acceso=-1; // Nivel de acceso para esta página.
 // se chequea si el usuario tiene un nivel inferior
 // al del nivel de acceso definido para esta página.
 // Si no es correcto, se mada a la página que lo llamo con
 // la variable de $error_login definida con el nº de error segun el array de
 // aut_mensaje_error.inc.php
-if ($nivel_acceso <= $_SESSION['usuario_nivel']){
+if ($nivel_acceso >= $_SESSION['usuario_nivel']){
 header ("Location: $redir?error_login=5");
 exit;
 }
@@ -55,15 +55,22 @@ require ('script/utiles.php');
 require('script/conexion.php');
 
 //defino variables del formulario de registro general
-	$titulo = htmlspecialchars($_POST['Titulo']);
-	$contenido = htmlspecialchars($_POST['Contenido']);
-	$materiales = htmlspecialchars($_POST['Materiales']);
-	$id_autores = htmlspecialchars($_POST['Autor']);
+	$id_taller = htmlspecialchars($_POST['id_taller']);
+	$titulo = htmlspecialchars($_POST['titulo_confirma']);
+	$contenido = htmlspecialchars($_POST['contenido_confirma']);
+	$materiales = htmlspecialchars($_POST['materiales_confirma']);
+	$id_autor = htmlspecialchars($_POST['id_autor_conf']);
+	$id_coautor1 = htmlspecialchars($_POST['id_coautor1_conf']);
+	$id_coautor2 = htmlspecialchars($_POST['id_coautor2_conf']);
+	$requiere = $_POST['requiere_autor'];
+	$requiere1 = $_POST['requiere_coautor1'];
+	$requiere2 = $_POST['requiere_coautor2'];
+	
 //conexión con servidor
 	$host = "localhost";
 	$user = "root";
 	$pass = "0515delux!";
-	$db = "congresomatematicas";
+	$db = "congresomat";
 
 //conectar con el servidor
 	$conn = mysql_connect($host, $user, $pass);
@@ -94,14 +101,28 @@ require('script/conexion.php');
 				}	
 	
 		//insertando los datos
-		$query = "INSERT INTO ponencias_taller VALUES(NULL, '$id_autores', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ')";
+		$query = "INSERT INTO ponencias_taller VALUES('$id_taller', '$id_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ')";
 		exe_query($query);
+		$query="INSERT INTO autores VALUES ('$id_autor', '$id_taller', '$requiere')";
+				exe_query($query);
+				if ($id_coautor1 != "") {
+					$query="INSERT INTO autores VALUES ('$id_coautor1', '$id_taller', '$requiere1')";
+					exe_query($query);
+				}
+				if ($id_coautor2 != ""){
+					$query="INSERT INTO autores VALUES ('$id_coautor2', '$id_taller', '$requiere2')";
+					exe_query($query);
+				}
 		
 		echo "Se ha introducido satisfactoriamente el registro <br>";
 		
 		
 	mysql_close();
 ?>
+<br>
+<a href="registro_taller.php">Agregar otro taller</a>
+<br>
+<a href="registro_trabajos.php">Ir al menú principal</a>
 </section>		
 		
 		<!-- aside de la página -->

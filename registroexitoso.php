@@ -53,7 +53,7 @@ require('script/conexion.php');
 	$host = "localhost";
 	$user = "root";
 	$pass = "0515delux!";
-	$db = "congresomatematicas";
+	$db = "congresomat";
 
 //conectar con el servidor
 	$conn = mysql_connect($host, $user, $pass);
@@ -115,7 +115,7 @@ require('script/conexion.php');
 		exe_query($query);
 		$query = "INSERT INTO trayectoria_laboral VALUES('$id_usuario', '$institucion', '$pais', '$estado')";
 		exe_query($query);
-		$query = "INSERT INTO roles VALUES('$id_usuario', '9')";
+		$query = "INSERT INTO usuario_rol VALUES('$id_usuario', '0')";
 		exe_query($query);
 		echo "Se ha introducido satisfactoriamente el registro <br>";
 		echo "<br> Usuario: $id_usuario";

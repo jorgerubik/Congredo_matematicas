@@ -15,6 +15,6 @@ $sql_host="localhost";  // Host, nombre del servidor o IP del servidor Mysql.
 $sql_usuario="root";        // Usuario de Mysql
 $sql_pass="0515delux!";           // contraseña de Mysql
 
-$sql_db="congresomatematicas";     // Base de datos que se usará.
+$sql_db="congresomat";     // Base de datos que se usará.
 $sql_tabla="usuarios"; // Nombre de la tabla que contendrá los datos de los usuarios
 ?>

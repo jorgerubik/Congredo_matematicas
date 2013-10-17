@@ -1,9 +1,9 @@
 <div class="cajatextoscroll">
-	<form action="registro_cartel_exitoso.php" method="post" autocomplete="off" class="forms">
+	<form action="registro_cartel_confirmacion.php" method="post" autocomplete="off" class="forms">
 		<fieldset id="ponencia">
 			<legend>Formulario de registro</legend>
 			<legend>Título (maximo 15 palabras)</legend>
-			<input type="text" maxleght="15" name="Titulo" id="Titulo" required >
+			<input type="text" maxleght="15" name="Titulo_cartel" id="titulo_cartel" required >
 			<legend>Categoría:</legend>
 			<input type="radio" name="Categoria" value="investigacion">Investigación <br>
 			<input type="radio" name="Categoria" value="experiencia"> Experiencia en aula
@@ -11,7 +11,7 @@
 		<fieldset>	
 			<legend>Modalidad (Solo seleccionar una)</legend>
 			<legend>Enseñanza de las matemáticas</legend>
-			<select id="Modalidad">
+			<select id="Modalidad" name="modalidad">
 				<option value=""></option>
 				<option value="AC">Aprendizaje cooperativo (AC) </option>
 				<option value="ID">Innovación didáctica y metodológica  (ID)</option>
@@ -24,7 +24,7 @@
 				<option value="PN">Pensamiento numérico y simbólico (PN)</option>
 			</select>
 			<legend>Aplicación de las matemáticas</legend>
-			<select id="Modalidad">
+			<select id="Modalidad" name="modalidad">
 				<option value=""></option>
 				<option value="AE">Análisis estadístico y diseño de experimentos (AE)</option>
 				<option value="MS">Modelación y simulación (MS)</option>
@@ -44,92 +44,42 @@
 			<legend>Autores</legend>
 			<table border="1" id="autores">
 				<tr>
-					<th>Datos</th>
 					<th>Autor</th>
-					<th>Coautor 1</th>
-					<th>Coautor 2</th>
-					<th>Coautor 3</th>
-					<th>Coautor 4</th>
-				</tr>
-				<tr>
-					<th>Id_autor</th>
-					<td><input type="text" size="15" id="Autor" name="Autor" ></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Contraseña</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Nombre</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Primer Apellido</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Segundo Apellido</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Institución</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>País</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Estado</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
+					<th>Id_usuario</th>
 					<th>Requiere constancia</th>
-					<td><input type="checkbox"></td>
-					<td><input type="checkbox"></td>
-					<td><input type="checkbox"></td>
-					<td><input type="checkbox"></td>
-					<td><input type="checkbox"></td>
+					
+				</tr>
+				<tr>
+					<th>Autor</th>
+					<td><input type="text" id="id_ponente" name="Id_autor" maxlenght="10" required></td>
+					<td><input type="radio" name="requiere" id="requiere" value="SI" >Si <input type="radio" name="requiere" id="requiere" value="NO">No</td>
+				</tr>
+				<tr>
+					<th>Coautor 1</th>
+					<td><input type="text" id="id_ponente" name="Id_coautor1" maxlenght="10"></td>
+					<td><input type="radio" name="requiere1" id="requiere1" value="SI">Si <input type="radio" name="requiere1" id="requiere1" value="NO">No</td>
+					
+				</tr>
+				<tr>
+					<th>Coautor 2</th>
+					<td><input type="text" id="id_ponente" name="Id_coautor2" maxlenght="10"></td>
+					<td><input type="radio" name="requiere2" id="requiere2" value="SI" >Si <input type="radio" name="requiere2" id="requiere2" value="NO">No</td>
+				</tr>
+				<tr>
+					<th>Coautor 3</th>
+					<td><input type="text" id="id_ponente" name="Id_coautor3" maxlenght="10"></td>
+					<td><input type="radio" name="requiere3" id="requiere3" value="SI" >Si <input type="radio" name="requiere3" id="requiere3" value="NO">No</td>
+				</tr>
+				<tr>
+					<th>Coautor 4</th>
+					<td><input type="text" id="id_ponente" name="Id_coautor4" maxlenght="10"></td>
+					<td><input type="radio" name="requiere4" id="requiere4" value="SI" >Si <input type="radio" name="requiere4" id="requiere4" value="NO">No</td>
 				</tr>
 			</table>
+			<input type="text" id="id_cartel" name="id_cartel" maxlength="10" size="10"  style="visibility:hidden;" />
+
 		</fieldset>
-		<fieldset>
-			<legend>Desea enviar otro trabajo</legend>
-			<input type="radio" name="otro" value="si"> Sí <br>
-			<input type="radio" name="otro" value="no"> No <br>
-		</fieldset>
+		
 		<input type="submit" name="enviar" value="enviar">
 	</form>
 </div>

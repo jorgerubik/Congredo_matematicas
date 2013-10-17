@@ -3,7 +3,7 @@ $email= htmlspecialchars($_POST['Email']);
 
 $variable1=htmlspecialchars($_POST['id_usuario']);
 $variable2=$_POST['Password1'];
-
+//utf8_decode($variable1); 
 //$username= $_POST['username'];
 echo "$username";
 
@@ -29,7 +29,8 @@ $mail->Subject = "Confirmacion de acceso.";
 $mail->AltBody = "";
 //$mail->MsgHTML("Hola, te doy mi nuevo numero<br><b>xxxx</b>.");
 $mail->MsgHTML('<html>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<meta http-equiv="Content-Type" content="text/html;" charset="utf-8"/> 
+<meta charset="UTF-8">
 <style>
 body {
   margin: 0px;
@@ -175,7 +176,7 @@ body {
 			 <font color="#4000FF"> <h3>Gracias por registrarse. </h3></font><br>
 			
 
-			<font color="black"><h3> Su Usuario : '.$variable1.'</h3></font><br><br>
+			<font color="black"><h3> Su Usuario : '.utf8_decode($variable1).'</h3></font><br><br>
 			<font color="black"><h3> Su Contrase&ntilde;a : '.$variable2.' </h3></font>
                       <br><br><br><br>
                       <font color="black"><h4>

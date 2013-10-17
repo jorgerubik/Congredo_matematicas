@@ -1,134 +1,85 @@
-<form action="#" method="post" autocomplete="off" class="forms">
-	<fieldset id="ponencia">
-		<legend>Formulario de registro</legend>
-		<legend>Título (maximo 15 palabras)</legend>
-		<input type="text" maxleght="15">
-		<legend>Categoría:</legend>
-		<input type="radio" name="categoria" value="investigacion">Investigación <br>
-		<input type="radio" name="categoria" value="experiencia"> Experiencia en aula
-	</fieldset>
-	<fieldset>	
-		<legend>Modalidad</legend>
-		<legend>Enseñanza de las matemáticas</legend>
-		<select>
-			<option value=""></option>
-			<option value="">Aprendizaje cooperativo (AC) </option>
-			<option value="">Innovación didáctica y metodológica  (ID)</option>
-			<option value="">Entorno al aprendizaje (EA)</option>
-			<option value="">Historia (HM)</option>
-			<option value="">Resolución de problemas y habilidades (RP)</option>
-			<option value="">Uso de las TIC´s (UT) </option>
-			<option value="">Experiencias docentes (ED)</option>
-			<option value="">Enseñando con manipulables (EM)</option>
-			<option value="">Pensamiento numérico y simbólico (PN)</option>
-		</select>
-		<legend>Aplicación de las matemáticas</legend>
-		<select>
-			<option value=""></option>
-			<option value="">Análisis estadístico y diseño de experimentos (AE)</option>
-			<option value="">Modelación y simulación (MS)</option>
-			<option value="">Optimización (OP)</option>
-			<option value="">Vinculación con otras disciplinas (VD)</option>
-		</select>
-	</fieldset>
-	<fieldset>
-		<legend>Resumen (máximo 300 palabras)</legend>
-		<textarea rows="6" cols="50" id="Contenido_area" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" onkeypress="wordCount();"> </textarea>
-	</fieldset>
-	<fieldset>
-		<legend>Referencias (máximo 30 palabras)</legend>
-		<textarea row="6" cols="50" id="Contenido_area2" onkeypress="wordCountb();" required ></textarea>
-	</fieldset>
+<div class="cajatextoscroll">
+	<form action="registro_ponencia_confirmacion.php" method="post" autocomplete="off" class="forms">
+		<fieldset id="ponencia">
+			<legend>Formulario de registro</legend>
+			<legend>Título (maximo 15 palabras)</legend>
+			<input type="text" maxleght="15" name="Titulo_ponencia" id="titulo_ponencia">
+			<legend>Categoría:</legend>
+			<input type="radio" name="Categoria" value="investigacion">Investigación <br>
+			<input type="radio" name="Categoria" value="experiencia"> Experiencia en aula
+		</fieldset>
+		<fieldset>	
+			<legend>Modalidad</legend>
+			<legend>Enseñanza de las matemáticas</legend>
+			<select ID="ensenanza" name="modalidad">
+				<option value=""></option>
+				<option value="AC">Aprendizaje cooperativo (AC) </option>
+				<option value="ID">Innovación didáctica y metodológica  (ID)</option>
+				<option value="EA">Entorno al aprendizaje (EA)</option>
+				<option value="HM">Historia (HM)</option>
+				<option value="RP">Resolución de problemas y habilidades (RP)</option>
+				<option value="UT">Uso de las TIC´s (UT) </option>
+				<option value="ED">Experiencias docentes (ED)</option>
+				<option value="EM">Enseñando con manipulables (EM)</option>
+				<option value="PN">Pensamiento numérico y simbólico (PN)</option>
+			</select>
+			<legend>Aplicación de las matemáticas</legend>
+			<select id="aplicacion" name="modalidad">
+				<option value=""></option>
+				<option value="AE">Análisis estadístico y diseño de experimentos (AE)</option>
+				<option value="MS">Modelación y simulación (MS)</option>
+				<option value="OP">Optimización (OP)</option>
+				<option value="VD">Vinculación con otras disciplinas (VD)</option>
+			</select>
+		</fieldset>
+		<fieldset>
+			<legend>Resumen (máximo 300 palabras)</legend>
+			<textarea rows="6" cols="50" name="Resumen" id="Contenido_area" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" > </textarea>
+		</fieldset>
+		<fieldset>
+			<legend>Referencias (máximo 30 palabras)</legend>
+			<textarea row="6" cols="50" id="Contenido_area2" name="Referencias"  required ></textarea>
+		</fieldset>
 
-	<fieldset>
-		<legend>Autores</legend>
-		<table border="1" id="autores">
-			<tr>
-				<th>Datos</th>
-				<th>Autor</th>
-				<th>Coautor 1</th>
-				<th>Coautor 2</th>
-				<th>Coautor 3</th>
-				<th>Coautor 4</th>
-			</tr>
-			<tr>
-				<th>Correo electrónico</th>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Contraseña</th>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Nombre</th>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Primer Apellido</th>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Segundo Apellido</th>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Institución</th>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>País</th>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Estado</th>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Requiere constancia</th>
-				<td><input type="checkbox"></td>
-				<td><input type="checkbox"></td>
-				<td><input type="checkbox"></td>
-				<td><input type="checkbox"></td>
-				<td><input type="checkbox"></td>
-			</tr>
-		</table>
-	</fieldset>
-	<fieldset>
-		<legend>Desea enviar otro trabajo</legend>
-		<input type="radio" name="otro" value="si"> Sí <br>
-		<input type="radio" name="otro" value="no"> No <br>
-	</fieldset>
-	<input type="submit" name="enviar" value="enviar">
+		<fieldset>
+			<legend>Autores</legend>
+			<table border="1" id="autores">
+				<tr>
+					<th>Autor</th>
+					<th>Id_usuario</th>
+					<th>Requiere constancia</th>
+					
+				</tr>
+				<tr>
+					<th>Autor</th>
+					<td><input type="text" id="id_ponente" name="Id_autor" maxlenght="10" required></td>
+					<td><input type="radio" name="requiere" id="requiere" value="SI" >Si <input type="radio" name="requiere" id="requiere" value="NO">No</td>
+				</tr>
+				<tr>
+					<th>Coautor 1</th>
+					<td><input type="text" id="id_ponente" name="Id_coautor1" maxlenght="10"></td>
+					<td><input type="radio" name="requiere1" id="requiere1" value="SI">Si <input type="radio" name="requiere1" id="requiere1" value="NO">No</td>
+					
+				</tr>
+				<tr>
+					<th>Coautor 2</th>
+					<td><input type="text" id="id_ponente" name="Id_coautor2" maxlenght="10"></td>
+					<td><input type="radio" name="requiere2" id="requiere2" value="SI" >Si <input type="radio" name="requiere2" id="requiere2" value="NO">No</td>
+				</tr>
+				<tr>
+					<th>Coautor 3</th>
+					<td><input type="text" id="id_ponente" name="Id_coautor3" maxlenght="10"></td>
+					<td><input type="radio" name="requiere3" id="requiere3" value="SI" >Si <input type="radio" name="requiere3" id="requiere3" value="NO">No</td>
+				</tr>
+				<tr>
+					<th>Coautor 4</th>
+					<td><input type="text" id="id_ponente" name="Id_coautor4" maxlenght="10"></td>
+					<td><input type="radio" name="requiere4" id="requiere4" value="SI" >Si <input type="radio" name="requiere4" id="requiere4" value="NO">No</td>
+				</tr>
+			</table>
+			<input type="text" id="id_ponencia" name="id_ponencia" maxlength="10" size="10"  style="visibility:hidden;" />
+		</fieldset>
+		
+		<input type="submit" name="enviar" value="enviar"  >
 </form>
+</div>

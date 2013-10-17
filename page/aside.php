@@ -58,7 +58,7 @@
 					<b>Unidad de Seminarios Jaime Keller Torres en Campo 4</b><br/><br/>
 					
                                         <b class="font_titulos">DIRECCI&Oacute;N</b><br/> 
-                                        Km 2.5 carretera Cuautitl&aacute;n-teoloyuc&aacute;n, San Sebasti&aacute;n Xhala, 
+                                        Km 2.5 carretera Cuautitl&aacute;n-Teoloyucan, San Sebasti&aacute;n Xhala, 
                                         Cuautitl&aacute;n Izcall&iacute;, <br/>
                                         Estado de M&eacute;xico. <br/>C.P. 54714.<br/><br/>
                                         Para mayores <br>informes o dudas<br> acudir al<br> Departamento de Matem&aacute;ticas <br><b>Edificio A8 Campo 4.</b><br/><br/>

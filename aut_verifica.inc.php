@@ -56,11 +56,11 @@ if (isset($_POST['user']) && isset($_POST['pass'])) {
 // redireccionamos a la pagina de error.
 $db_conexion= mysql_connect("$sql_host", "$sql_usuario", "$sql_pass") or die(header ("Location:  $redir?error_login=0"));
 mysql_select_db("$sql_db");
-
+mysql_query("SET NAMES utf8");
 // realizamos la consulta a la BD para chequear datos del Usuario.
 $usuario_consulta = mysql_query("SELECT id_usuario,nombre_usuario,contrasena FROM $sql_tabla WHERE id_usuario='".$_POST['user']."'") or die(header ("Location:  $redir?error_login=1"));
 //-------realizo la consulta para el rol-------------
-$usuario_consulta2 = mysql_query("SELECT rol FROM roles WHERE id_usuario='".$_POST['user']."'") or die(header ("Location:  $redir?error_login=1"));
+$usuario_consulta2 = mysql_query("SELECT id_rol FROM usuario_rol WHERE id_usuario='".$_POST['user']."'") or die(header ("Location:  $redir?error_login=1"));
  // miramos el total de resultado de la consulta (si es distinto de 0 es que existe el usuario)
  if (mysql_num_rows($usuario_consulta) != 0) {
 
@@ -113,7 +113,7 @@ $usuario_consulta2 = mysql_query("SELECT rol FROM roles WHERE id_usuario='".$_PO
     $_SESSION['usuario_id']=$usuario_datos['id_usuario'];
     
     // definimos usuario_nivel con el Nivel de acceso del usuario de nuestra BD de usuarios
-    $_SESSION['usuario_nivel']=$usuario_datos2['rol'];
+    $_SESSION['usuario_nivel']=$usuario_datos2['id_rol'];
     
     //definimos usuario_nivel con el Nivel de acceso del usuario de nuestra BD de usuarios
     $_SESSION['usuario_login']=$usuario_datos['nombre_usuario'];
