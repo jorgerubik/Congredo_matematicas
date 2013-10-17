@@ -80,8 +80,8 @@ USE congresomat;
 # Catalogo de tipos de congresista
 #
 CREATE TABLE tipos_congresista (
-	id_tipo_congresista	VARCHAR(5)	NOT NULL,
-	descripcion			VARCHAR(25)	NOT NULL,
+	id_tipo_congresista	VARCHAR(5),
+	descripcion			VARCHAR(25),
 
 	PRIMARY KEY(id_tipo_congresista)
 ) ENGINE = InnoDB;
@@ -89,23 +89,20 @@ CREATE TABLE tipos_congresista (
 # Catálogo de pagos para cada tipo de congresista
 #
 CREATE TABLE tipos_pago (
-	id_tipo_pago		VARCHAR(3)	NOT NULL,
-	id_tipo_congresista	VARCHAR(5)	NOT NULL,
-	fecha_pago_inicio	DATE 		NOT NULL,
-	fecha_pago_fin		DATE 		NOT NULL,
-	costo				VARCHAR(8)	NOT NULL,
+	id_tipo_pago		VARCHAR(3),
+	id_tipo_congresista	VARCHAR(5),
+	fecha_pago_inicio	DATE,
+	fecha_pago_fin		DATE,
+	costo				VARCHAR(8),
 
-	PRIMARY KEY (id_tipo_pago),
-
-	FOREIGN KEY (id_tipo_congresista)
-		REFERENCES tipos_congresista(id_tipo_congresista)
+	PRIMARY KEY (id_tipo_pago)
 ) ENGINE = InnoDB;
 
 # Catálogo de categorías para ponencia oral y cartel (investigación o experiencia en aula)
 #
 CREATE TABLE categorias (
-	id_categoria	VARCHAR(3)	NOT NULL,
-	descripcion		VARCHAR(25)	NOT NULL,
+	id_categoria	VARCHAR(3),
+	descripcion		VARCHAR(25),
 
 	PRIMARY KEY (id_categoria)
 ) ENGINE = InnoDB;
@@ -113,8 +110,8 @@ CREATE TABLE categorias (
 # Catálogo de áreas para ponencia oral y cartel (enseñanza o aplicación de las matemáticas)
 #
 CREATE TABLE areas (
-	id_area		VARCHAR(3)	NOT NULL,
-	descripcion	VARCHAR(35)	NOT NULL,
+	id_area		VARCHAR(3),
+	descripcion	VARCHAR(35),
 
 	PRIMARY KEY (id_area)
 ) ENGINE = InnoDB;
@@ -122,13 +119,32 @@ CREATE TABLE areas (
 # Catálogo de modalidades de cada area
 #
 CREATE TABLE modalidades (
-	id_modalidad	VARCHAR(3)	NOT NULL,
-	descripcion		VARCHAR(50)	NOT NULL,
-	id_area			VARCHAR(3)  NOT NULL,
+	id_modalidad	VARCHAR(3),
+	descripcion		VARCHAR(50),
+	id_area			VARCHAR(3),
 
-	PRIMARY KEY (id_modalidad),
-	FOREIGN KEY (id_area)
-		REFERENCES areas(id_area)
+	PRIMARY KEY (id_modalidad)
+	
+) ENGINE = InnoDB;
+
+# Catálogo de las actividades y las fechas correspondientes
+#
+CREATE TABLE calendario (
+	actividad		VARCHAR(10),
+	fecha_inicio	DATE,
+	fecha_fin		DATE,
+	hora_inicio		TIME,
+	hora_fin		TIME
+) ENGINE = InnoDB;
+
+# Catálogo de los roles de los usuarios
+#
+CREATE TABLE roles (
+	id_rol		VARCHAR(3),
+	descripcion VARCHAR(15),
+	activo		VARCHAR(2),
+	
+	PRIMARY KEY (id_rol)
 ) ENGINE = InnoDB;
 
 ####################################################################################
@@ -144,9 +160,9 @@ CREATE TABLE modalidades (
 # Datos de registro de grupos
 #
 CREATE TABLE grupos (
-	id_grupo				VARCHAR(4)	NOT NULL,
-	id_institucion			VARCHAR(5)	NOT NULL,
-	cantidad_miembros_grupo	SMALLINT	NOT NULL,
+	id_grupo				VARCHAR(4),
+	id_institucion			VARCHAR(5),
+	cantidad_miembros_grupo	SMALLINT,
 
 	PRIMARY KEY (id_grupo)
 	) ENGINE = InnoDB;
@@ -154,13 +170,13 @@ CREATE TABLE grupos (
 # Datos de registro de usuarios
 #
 CREATE TABLE usuarios (
-	id_usuario 			VARCHAR(15) NOT NULL,
-	RFC 				VARCHAR(13) NOT NULL,
-	contrasena 			VARCHAR(16) NOT NULL,
-	nombre_usuario		VARCHAR(40)	NOT NULL,
-	apellido_paterno	VARCHAR(25)	NOT NULL,
-	apellido_materno	VARCHAR(25)	NOT NULL,
-	email 				VARCHAR(50) NOT NULL,
+	id_usuario 			VARCHAR(15),
+	RFC 				VARCHAR(13),
+	contrasena 			VARCHAR(16),
+	nombre_usuario		VARCHAR(40),
+	apellido_paterno	VARCHAR(25),
+	apellido_materno	VARCHAR(25),
+	email 				VARCHAR(50),
 
 	PRIMARY KEY (id_usuario)
 ) ENGINE = InnoDB;
@@ -169,8 +185,8 @@ CREATE TABLE usuarios (
 # Trayectoria academica de usuarios
 #
 CREATE TABLE trayectoria_academica (
-	id_usuario		VARCHAR(15)	NOT NULL,
-	id_grado		VARCHAR(20)	NOT NULL,
+	id_usuario		VARCHAR(15),
+	id_grado		VARCHAR(20),
 
 	PRIMARY KEY (id_usuario)
 ) ENGINE = InnoDB;
@@ -178,10 +194,10 @@ CREATE TABLE trayectoria_academica (
 # Trayectoria laboral de usuarios
 #
 CREATE TABLE trayectoria_laboral (
-	id_usuario		VARCHAR(15)	NOT NULL,
-	id_institucion	VARCHAR(5)	NOT NULL,
-	id_pais 		VARCHAR(20)	NOT NULL,
-	id_estado		VARCHAR(50)	NOT NULL,
+	id_usuario		VARCHAR(15),
+	id_institucion	VARCHAR(5),
+	id_pais 		VARCHAR(20),
+	id_estado		VARCHAR(50),
 
 	PRIMARY KEY (id_usuario)
 ) ENGINE = InnoDB;
@@ -189,8 +205,8 @@ CREATE TABLE trayectoria_laboral (
 # Tabla para distinguir que tipo de congresista es cada usuario (un usuario puede ser mas de un tipo)
 #
 CREATE TABLE inscripcion_congresistas (
-	id_usuario			VARCHAR(15)	NOT NULL,
-	id_tipo_congresista VARCHAR(3) NOT NULL,
+	id_usuario			VARCHAR(15),
+	id_tipo_congresista VARCHAR(3),
 
 	PRIMARY KEY (id_usuario, id_tipo_congresista)
 ) ENGINE = InnoDB;
@@ -198,29 +214,22 @@ CREATE TABLE inscripcion_congresistas (
 # Registro de pagos de congresistas
 #
 CREATE TABLE pagos (
-	id_usuario			VARCHAR(15)	NOT NULL,
-	id_tipo_pago		VARCHAR(3)	NOT NULL,
-    pago_aprobado		BIT			NOT NULL,
+	id_usuario			VARCHAR(15),
+	id_tipo_pago		VARCHAR(3),
+    pago_aprobado		BIT,
 
-    PRIMARY KEY (id_usuario),
-
-	FOREIGN KEY (id_usuario)
-		REFERENCES usuarios(id_usuario),
-	FOREIGN KEY (id_tipo_pago)
-		REFERENCES tipos_pago (id_tipo_pago)
+    PRIMARY KEY (id_usuario)
 ) ENGINE = InnoDB;
 
 # Tabla donde se almacenarán las imágenes de los comprobantes de pago que los congresistas envíen
 #
 CREATE TABLE comprobantes_pago (
-	folio_comprobante	INT			NOT NULL AUTO_INCREMENT,
-	id_usuario			VARCHAR(15)	NOT NULL,
-	imagen_comprobante	MEDIUMBLOB	NOT NULL,
-	formato_comprobante	VARCHAR(10)	NOT NULL,
+	folio_comprobante	INT			 AUTO_INCREMENT,
+	id_usuario			VARCHAR(15),
+	imagen_comprobante	MEDIUMBLOB,
+	formato_comprobante	VARCHAR(10),
 
-	PRIMARY KEY (folio_comprobante),
-	FOREIGN KEY (id_usuario)
-		REFERENCES usuarios(id_usuario)
+	PRIMARY KEY (folio_comprobante)
 ) ENGINE = InnoDB;
 
 
@@ -233,76 +242,81 @@ CREATE TABLE comprobantes_pago (
 # Registro de resumenes y extensos las ponencias orales
 #
 CREATE TABLE ponencias_oral (
-	id_ponencia_oral	 VARCHAR(5)	 NOT NULL,
-	id_usuario			 VARCHAR(15) NOT NULL,
-	id_categoria		 VARCHAR(3)  NOT NULL,
-	id_modalidad		 VARCHAR(3)  NOT NULL,
-	titulo_oral			 TEXT		 NOT NULL,
-	resumen_oral		 TEXT		 NOT NULL,
-	referencias_oral	 TEXT		 NOT NULL,
-	aceptado_oral		 BIT/*BOOL*/ NOT NULL,
-	extenso_oral		 MEDIUMBLOB	 NOT NULL,
-	formato_extenso_oral VARCHAR(10) NOT NULL,
+	id_ponencia_oral	 VARCHAR(15),
+	id_usuario			 VARCHAR(15),
+	id_categoria		 VARCHAR(3),
+	id_modalidad		 VARCHAR(3),
+	titulo_oral			 TEXT,
+	resumen_oral		 TEXT,
+	referencias_oral	 TEXT,
+	aceptado_oral		 BIT/*BOOL*/,
+	extenso_oral		 MEDIUMBLOB,
+	formato_extenso_oral VARCHAR(10),
 
-	PRIMARY KEY (id_ponencia_oral),
-
-	FOREIGN KEY (id_usuario)
-		REFERENCES usuarios(id_usuario),
-	FOREIGN KEY (id_categoria)
-		REFERENCES categorias(id_categoria),
-	FOREIGN KEY (id_modalidad)
-		REFERENCES modalidades(id_modalidad)
+	PRIMARY KEY (id_ponencia_oral)
 ) ENGINE = InnoDB;
 
 # Registro de resumenes y carteles para las ponencias de cartel
 #
 CREATE TABLE ponencias_cartel (
-	id_ponencia_cartel	 	VARCHAR(5)	NOT NULL,
-	id_usuario			 	VARCHAR(15)	NOT NULL,
-	id_categoria		 	VARCHAR(3)  NOT NULL,
-	id_modalidad		 	VARCHAR(3)  NOT NULL,
-	titulo_cartel			TEXT		NOT NULL,
-	resumen_cartel		 	TEXT		NOT NULL,
-	referencias_cartel	 	TEXT		NOT NULL,
-	aceptado_cartel		 	BIT/*BOOL*/ NOT NULL,
-	archivo_cartel		    MEDIUMBLOB	NOT NULL,
-	formato_archivo_cartel	VARCHAR(10) NOT NULL,
-	lugar_cartel			VARCHAR(30)	NOT NULL,
-	fecha_cartel			DATE 		NOT NULL,
+	id_ponencia_cartel	 	VARCHAR(15),
+	id_usuario			 	VARCHAR(15),
+	id_categoria		 	VARCHAR(3),
+	id_modalidad		 	VARCHAR(3),
+	titulo_cartel			TEXT,
+	resumen_cartel		 	TEXT,
+	referencias_cartel	 	TEXT,
+	aceptado_cartel		 	BIT/*BOOL*/,
+	archivo_cartel		    MEDIUMBLOB,
+	formato_archivo_cartel	VARCHAR(10),
+	lugar_cartel			VARCHAR(30),
+	fecha_cartel			DATE,
 
-	PRIMARY KEY (id_ponencia_cartel),
-
-	FOREIGN KEY (id_usuario)
-		REFERENCES usuarios(id_usuario),
-	FOREIGN KEY (id_categoria)
-		REFERENCES categorias(id_categoria),
-	FOREIGN KEY (id_modalidad)
-		REFERENCES modalidades(id_modalidad)
+	PRIMARY KEY (id_ponencia_cartel)
 ) ENGINE = InnoDB;
 
-# Registro de talleres y cursos (material solicitado, fecha, hora y lugar del taller)
+# Registro de talleres (material solicitado, fecha, hora y lugar del taller)
 #
 CREATE TABLE ponencias_taller (
-	id_ponencia_taller	VARCHAR(5)	NOT NULL,
-	id_usuario			VARCHAR(15)	NOT NULL,
-	titulo_taller		TEXT		NOT NULL,
+	id_ponencia_taller	VARCHAR(15),
+	id_usuario			VARCHAR(15),
+	titulo_taller		TEXT,
  -- contenido_taller			 
-	resumen_taller		TEXT		NOT NULL,
-	referencias_taller	TEXT		NOT NULL,
-	aceptado_taller		BIT			NOT NULL,
-	material_taller		TEXT		NOT NULL,
-	fecha_taller_ini	DATE 		NOT NULL,
-	fecha_taller_fin	DATE 		NOT NULL,
-	hora_taller_ini		TIME 		NOT NULL,
-	hora_taller_fin		TIME		NOT NULL,
-	edificio_taller		VARCHAR(4)	NOT NULL,
+	resumen_taller		TEXT,
+	referencias_taller	TEXT,
+	aceptado_taller		BIT,
+	material_taller		TEXT,
+	fecha_taller_ini	DATE,
+	fecha_taller_fin	DATE,
+	hora_taller_ini		TIME,
+	hora_taller_fin		TIME,
+	edificio_taller		VARCHAR(4),
 
-
-	PRIMARY KEY (id_ponencia_taller),
-
-	FOREIGN KEY (id_usuario)
-		REFERENCES usuarios(id_usuario)
+	PRIMARY KEY (id_ponencia_taller)
 ) ENGINE = InnoDB;
+
+# Registro de cursos (material solicitado, fecha, hora y lugar del taller)
+#
+CREATE TABLE ponencias_curso (
+	id_ponencia_curso	VARCHAR(15),
+	id_usuario			VARCHAR(15),
+	titulo_curso		TEXT,
+ -- contenido_curso			 
+	resumen_curso		TEXT,
+	referencias_curso	TEXT,
+	aceptado_curso		BIT,
+	material_curso		TEXT,
+	fecha_curso_ini		DATE,
+	fecha_curso_fin		DATE,
+	hora_curso_ini		TIME,
+	hora_curso_fin		TIME,
+	edificio_curso		VARCHAR(4),
+
+	PRIMARY KEY (id_ponencia_curso)
+) ENGINE = InnoDB;
+
+
+
 
 ################################################################
 # 			TABLAS PARA REGISTRO DE PONENCIAS FINAL            #
@@ -310,6 +324,26 @@ CREATE TABLE ponencias_taller (
 
 # Tabla para la idendificación de los autores de cada ponencia
 #
-#CREATE TABLE autores (
-#	
-#	) ENGINE = InnoDB;
+CREATE TABLE autores (
+	id_usuario VARCHAR(15),
+	id_trabajo VARCHAR(15),
+	constancia VARCHAR(2),
+	
+	PRIMARY KEY (id_usuario, id_trabajo)
+) ENGINE = InnoDB;
+
+
+
+
+################################################################
+#     	       TABLA PARA ADMINISTRAR USUARIOS                 #
+################################################################
+
+# Tabla para controlar los permisos de los usuarios
+#
+CREATE TABLE usuario_rol(
+	id_usuario VARCHAR(15),
+	id_rol VARCHAR(3),
+	
+	PRIMARY KEY (id_usuario, id_rol)
+) ENGINE = InnoDB;
