@@ -2,15 +2,15 @@
 	<fieldset id="ponencia">
 		<legend>Formulario de registro</legend>
 		<legend>Título (máximo 15 palabras)</legend>
-		<input type="text" maxleght="15" id="titulo_taller" name="titulo_taller" >
+		<input type="text"  id="Contenido_area3" name="titulo_curso" onblur="wordCountd();">
 	</fieldset>
 	<fieldset>
 		<legend>Contenido (máximo 300 palabras)</legend>
-		<textarea rows="6" id="Contenido_area" name="Contenido"  cols="70" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" onkeypress="wordCount();"> </textarea>
+		<textarea rows="6" id="Contenido_area" name="Contenido"  cols="70" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" onblur="wordCount();"> </textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Materiales (máximo 100 palabras)</legend>
-		<textarea rows="4" cols="50" required name="materiales" id="Contenido_area1" name="Materiales" value="Materiales" onkeypress="wordCounta();" ></textarea>
+		<textarea rows="4" cols="50" required name="materiales" id="Contenido_area1" name="Materiales" onblur="wordCountb();" ></textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Autores</legend>

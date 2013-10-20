@@ -199,12 +199,11 @@ a:active {
 /*estilo de botones de registrotrabajos.html*/
 #boton{
 	height: 80px;
-	width: 510px;
-	background: #022248; 
+	width: 470px;
 	border-radius: 10px;
 	border-color: #022248;
 	margin-top: 5px;
-	margin-left: 20px;
+	margin-left: 5px;
 	border-style: solid;
 	font-size: 20px;
 	color: #BD8C00;
@@ -236,8 +235,9 @@ th{
 .cajatextoscroll{
 	margin-left: 17px;
 	margin-right: 10px;
-	overflow-y: scroll;
+	overflow-y: auto;
 	max-height: 830px;
+
 }
 .cajatexto{
 	margin-left: 17px;

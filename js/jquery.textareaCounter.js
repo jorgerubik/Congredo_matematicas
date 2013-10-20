@@ -15,7 +15,7 @@
 			originalStyle: 'originalTextareaInfo',
 			warningStyle: 'warningTextareaInfo',  
 			warningNumber: 20,
-			displayFormat: '#input characters | #words words'
+			displayFormat: '#input letras | #words palabras'
 		};  
 		var options = $.extend(defaults, options);
 		

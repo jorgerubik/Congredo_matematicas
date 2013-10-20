@@ -21,6 +21,7 @@
 			El ponente tendrá que presentarse 20 minutos antes de su exposición en el registro para que el coordinador de talleres le entregue los materiales requeridos y lo ubiquen en la sala correspondiente de su presentación.<br>
 		
 		</div>	 -->
+		<div class="cajatextoscroll">
 		<div class="container">
 			<section class="ac-container">
 				<div>
@@ -46,3 +47,4 @@
 				</div>
 			</section>
         </div>
+    </div>

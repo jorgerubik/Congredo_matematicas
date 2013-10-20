@@ -3,7 +3,7 @@
 		<fieldset id="ponencia">
 			<legend>Formulario de registro</legend>
 			<legend>Título (maximo 15 palabras)</legend>
-			<input type="text" maxleght="15" name="Titulo_cartel" id="titulo_cartel" required >
+			<input type="text"  name="Titulo_cartel" id="Contenido_area3" required onblur="wordCountd();">
 			<legend>Categoría:</legend>
 			<input type="radio" name="Categoria" value="investigacion">Investigación <br>
 			<input type="radio" name="Categoria" value="experiencia"> Experiencia en aula
@@ -34,11 +34,11 @@
 		</fieldset>
 		<fieldset>
 			<legend>Resumen (máximo 300 palabras)</legend>
-			<textarea rows="6" cols="50" id="Contenido_area" name="Resumen" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" onkeypress="wordCount();"> </textarea>
+			<textarea rows="6" cols="50" id="Contenido_area" name="Resumen" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" onblur="wordCount();"> </textarea>
 		</fieldset>
 		<fieldset>
 			<legend>Referencias (máximo 30 palabras)</legend>
-			<textarea row="6" cols="50" name="Referencias" id="Contenido_area2" required  onkeypress="wordCountb();"></textarea>
+			<textarea row="6" cols="50" name="Referencias" id="Contenido_area2" required  onblur="wordCountc();"></textarea>
 		</fieldset>
 		<fieldset>
 			<legend>Autores</legend>
