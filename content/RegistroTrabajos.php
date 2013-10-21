@@ -1,5 +1,5 @@
 <div class="cajatextoscroll">
-	
+<div class="cajatexto">	
 	<h1 align="justify"> El registro de trabajos ser&aacute; liberado a partir del d&iacute;a 21 de Octubre del 2013</h1>
 
 	<!-- <p>Acceso Autorizado:</p>
@@ -13,20 +13,20 @@
 		<legend>Registro de trabajos</legend>
 		 <!--?//if (0 >= $_SESSION['usuario_nivel']){ ?-->
 		<form action="registro_asistente.php" method="post" class="forms">
-			<input type="submit" value="Asistente" id="boton">
+			<input type="image" src="imagenes/prueba.png" id="boton">
 		</form> 
 		<form action="registro_ponencia.php" method="post" autocomplete="off" class="forms">
-					<input type="image" src='imagenes/Ponencia3.png' id="boton"> <br>
-				</form>
-				<form action="registro_cartel.php" method="post" autocomplete="off" class="forms">	
-					<input type="image" src='imagenes/Cartel.png' id="boton"><br>
-				</form>	
-				<form action="registro_taller.php" method="post" autocomplete="off" class="forms"> 
-					<input type="image" src='imagenes/Taller.png' id="boton"><br>
-				</form>
-				<form action="registro_curso.php" method="post" autocomplete="off"  class="forms">	
-					<input type="submit" value="curso" id="boton"><br>
-				</form>
+			<input type="image" src="imagenes/Ponencia3.png" id="boton"> <br>
+		</form>
+		<form action="registro_cartel.php" method="post" autocomplete="off" class="forms">	
+			<input type="image" src="imagenes/Cartel.png" id="boton"><br>
+		</form>	
+		<form action="registro_taller.php" method="post" autocomplete="off" class="forms"> 
+			<input type="image" src="imagenes/Taller.png" id="boton"><br>
+		</form>
+		<form action="registro_curso.php" method="post" autocomplete="off"  class="forms">	
+			<input type="submit" value="curso" id="boton"><br>
+		</form>
 		<!--? } ?-->
 	</fieldset>
 	<?if(0 < $_SESSION['usuario_nivel']){ ?>
@@ -51,6 +51,7 @@
 			<? } ?>
 		</fieldset>
 	<? } ?>
+</div>
 </div>
 
 

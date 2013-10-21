@@ -1,4 +1,5 @@
-<div class="cajatextoscroll">
+<div  class="cajatextoscroll">
+	<div class="cajatexto">
 		<h1>Inscripción de participante</h1>
 		<p align="justify">La inscripción incluye: Material del evento (variará entre asistentes/ponentes y las personas que solo se inscriban a un curso), CD-ROM con las memorias del congreso, coctel de bienvenida, constancia de asistencia de 30 h y en su caso constancia de participación como ponente o asistente a curso o taller corto.</p>
 
@@ -48,5 +49,5 @@ Estudiantes de licenciatura, únicamente como asistentes y con derecho a un tall
 Cliente: Universidad Nacional Autónoma de México
 No. Cuenta CLABE: 
 Referencia: Nombre del ponente o asistente
-
+</div>
 </div>

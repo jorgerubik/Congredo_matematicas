@@ -1,7 +1,8 @@
 		<FIELDSET>
-			Bienvenido:<br> <? echo $_SESSION['usuario_login'] ?><br>
-			<form action="perfil.php" method="post">
-				<button type="submit">Perfil</button>
+			Bienvenido:<br> 
+			<a href="perfil.php"> <? echo $_SESSION['usuario_login'] ?></a><br>
+			<form action="editar_perfil.php" method="post">
+				<button type="submit">Editar Perfil</button>
 			</form>
 
 			<form action="aut_logout.php" method="post">

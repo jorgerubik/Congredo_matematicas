@@ -49,10 +49,9 @@ exit;
 		
 		<!--sección de contenido -->
 		<section id="seccion">
-			<br>
-			<form>
-				<button type="submit" >editar</button>
-			</form>
+			<div class="cajatextoscroll">
+				<div class="cajatexto">
+			
 <?php
 
 require ('script/utiles.php');
@@ -114,13 +113,135 @@ require('script/conexion.php');
 
 					while ($row = mysql_fetch_assoc($r)){
 						
-						echo "<tr><td> RFC:</td><td>".$row['RFC']."</td></tr><tr><td>Contraseña:</td><td> ".$row['contrasena']."</td></tr><tr><td>Nombre:</td><td>".$row['nombre_usuario']."</td></tr><tr><td>Apellido paterno:</td><td>".$row['apellido_paterno']."</td></tr><tr><td>Apellido materno:</td><td>".$row['apellido_materno']."</td></tr><tr><td>E-mail:</td><td> ".$row['email']."</td></tr>";
+						echo "<tr><td> RFC:</td><td>".$row['RFC'].
+							 "</td></tr><tr><td>Contraseña:</td><td> ".
+							 $row['contrasena'].
+							 "</td></tr><tr><td>Nombre:</td><td>".
+							 $row['nombre_usuario'].
+							 "</td></tr><tr><td>Apellido paterno:</td><td>".
+							 $row['apellido_paterno'].
+							 "</td></tr><tr><td>Apellido materno:</td><td>".
+							 $row['apellido_materno'].
+							 "</td></tr><tr><td>E-mail:</td><td> "
+							 .$row['email']."</td></tr>";
 
 					}
 					echo "</tbody> </table>";	
+
+		$query = "SELECT * FROM ponencias_taller WHERE id_usuario = '".$usuario."'";
+					$r = mysql_query($query);
+					if(!$r){
+						echo "No se pudo ejecutar el query: $query";
+						echo "<br>";
+						trigger_error(mysql_error(), E_USER_ERROR);
+					}
+					else{
+						echo " ";
+						
+					}
+					
+					echo "<h3>Talleres registrados: </h3>";
+					//echo "<table border='1'> <tbody>";
+					while ($row = mysql_fetch_assoc($r)){
+						echo "<table border='1'> <tbody>".
+							 "<tr><td>Id taller:</td><td>".$row['id_ponencia_taller'].
+							 "</td></tr><tr><td>Titulo Taller:</td><td>".
+							 $row['titulo_taller'].
+							 "</td></tr><tr><td>Resumen:</td><td>".
+							 $row['resumen_taller'].
+							 "</td></tr><tr><td>Material:</td><td>".
+							 $row['material_taller']."</td></tr>".
+							 "</tbody></table><br>";
+					}
+		$query = "SELECT * FROM ponencias_oral WHERE id_usuario = '".$usuario."'";
+					$r = mysql_query($query);
+					if(!$r){
+						echo "No se pudo ejecutar el query: $query";
+						echo "<br>";
+						trigger_error(mysql_error(), E_USER_ERROR);
+					}
+					else{
+						echo " ";
+						
+					}
+					
+					echo "<h3>Ponencias orales registradas: </h3>";
+					//echo "<table border='1'> <tbody>";
+					while ($row = mysql_fetch_assoc($r)){
+						echo "<table border='1'> <tbody>".
+							 "<tr><td>Id ponencia:</td><td>".$row['id_ponencia_oral'].
+							 "</td></tr><tr><td>Categoria:</td><td>".
+							 $row['id_categoria'].
+							 "</td></tr><tr><td>Modalidad:</td><td>".
+							 $row['id_modalidad'].
+							 "</td></tr><tr><td>Titulo Ponencia:</td><td>".
+							 $row['titulo_oral'].
+							 "</td></tr><tr><td>Resumen:</td><td>".
+							 $row['resumen_oral'].
+							 "</td></tr><tr><td>Referencias:</td><td>".
+							 $row['referencias_oral']."</td></tr>".
+							 "</tbody></table><br>";
+					}
+
+		$query = "SELECT * FROM ponencias_curso WHERE id_usuario = '".$usuario."'";
+					$r = mysql_query($query);
+					if(!$r){
+						echo "No se pudo ejecutar el query: $query";
+						echo "<br>";
+						trigger_error(mysql_error(), E_USER_ERROR);
+					}
+					else{
+						echo " ";
+						
+					}
+					
+					echo "<h3>Cursos registrados: </h3>";
+					//echo "<table border='1'> <tbody>";
+					while ($row = mysql_fetch_assoc($r)){
+						echo "<table border='1'> <tbody>".
+							 "<tr><td>Id curso:</td><td>".$row['id_ponencia_curso'].
+							 "</td></tr><tr><td>Titulo Curso:</td><td>".
+							 $row['titulo_curso'].
+							 "</td></tr><tr><td>Resumen:</td><td>".
+							 $row['resumen_curso'].
+							 "</td></tr><tr><td>Referencias:</td><td>".
+							 $row['referencias_curso']."</td></tr>".
+							 "</tbody></table><br>";
+					}	
+
+		$query = "SELECT * FROM ponencias_cartel WHERE id_usuario = '".$usuario."'";
+					$r = mysql_query($query);
+					if(!$r){
+						echo "No se pudo ejecutar el query: $query";
+						echo "<br>";
+						trigger_error(mysql_error(), E_USER_ERROR);
+					}
+					else{
+						echo " ";
+						
+					}
+					
+					echo "<h3>Carteles registrados: </h3>";
+					//echo "<table border='1'> <tbody>";
+					while ($row = mysql_fetch_assoc($r)){
+						echo "<table border='1'> <tbody>".
+							 "<tr><td>Id cartel:</td><td>".$row['id_ponencia_cartel'].
+							 "</td></tr><tr><td>Categoria:</td><td>".
+							 $row['id_categoria'].
+							 "</td></tr><tr><td>Modalidad:</td><td>".
+							 $row['id_modalidad'].
+							 "</td></tr><tr><td>Titulo Cartel:</td><td>".
+							 $row['titulo_cartel'].
+							 "</td></tr><tr><td>Resumen:</td><td>".
+							 $row['resumen_cartel'].
+							 "</td></tr><tr><td>Referencias:</td><td>".
+							 $row['referencias_cartel']."</td></tr>".
+							 "</tbody></table><br>";
+					}					
 	mysql_close();
 ?>
-
+	</div>
+	</div>
 </section>		
 		
 		<!-- aside de la página -->

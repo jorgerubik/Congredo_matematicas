@@ -1,4 +1,5 @@
-		<div class="cajatextoscroll">
+	<div class="cajatextoscroll">
+			<div class="cajatexto">
 			<h1>Modalidades</h1>
 			<p><strong>Enseñanza de las matemáticas</strong></p>
 
@@ -37,3 +38,4 @@
 			Las constancias son individuales por lo que el autor y coautores que requieran constancia de participación es necesario se registren y realicen el pago correspondiente.<br>
 			Se entregará constancia de asistencia al congreso por 30 h, cuando menos con una asistencia de 70%. <br>
 		</div>	
+	</div>

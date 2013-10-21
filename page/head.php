@@ -7,8 +7,31 @@
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/jquery.textareaCounter.js"></script>
 	<script type="text/javascript" src="js/modernizr.custom.29473.js"></script>
+	<script src="js/jquery.mousewheel.js"></script>
+    <script src="js/perfect-scrollbar.js"></script>
 	<meta name="keywords" content="accordion, css3, sibling selector, radio buttons, input, pseudo class" />
-	
+	<!-- scroll -->
+	<script>
+    function changeSize() {
+        // var width = parseInt($("#Width").val());
+        // var height = parseInt($("#Height").val());
+
+        // if(!width || isNaN(width)) {
+        //     width = 600;
+        // }
+        // if(!height || isNaN(height)) {
+        //     height = 400;
+        // }
+        // $(".cajatextoscroll").width(width).height(height);
+
+        // // update perfect scrollbar
+        // $('.cajatexoscroll').perfectScrollbar('update');
+    }
+    $(function() {
+        $('.cajatextoscroll').perfectScrollbar();
+    });
+</script>
+
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.slidershow').cycle({
@@ -106,6 +129,7 @@
 
  		  if(numeroPalabras >= 300){   
  		  	alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
+
  		  }	 
 		  
 		  
