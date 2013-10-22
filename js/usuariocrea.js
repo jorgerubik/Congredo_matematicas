@@ -16,7 +16,7 @@ $(document).ready(function()
 		ponencia=document.getElementById('titulo_ponencia').value.toUpperCase().substr(0,3);
 		aleatorio = Math.floor(Math.random() * 900) + 100;
 		cadena=ponencia+aleatorio;
-		$("#id_ponencia").val(cadena);
+		$("#id_trabajo").val(cadena);
 	});
 	
 	
@@ -25,20 +25,20 @@ $(document).ready(function()
 		ponencia=document.getElementById('titulo_cartel').value.toUpperCase().substr(0,3);
 		aleatorio = Math.floor(Math.random() * 900) + 100;
 		cadena=ponencia+aleatorio;
-		$("#id_cartel").val(cadena);
+		$("#id_trabajo").val(cadena);
 	});		
 //genera id para curso
 	$("#titulo_curso").keyup(function() {
 		ponencia=document.getElementById('titulo_curso').value.toUpperCase().substr(0,3);
 		aleatorio = Math.floor(Math.random() * 900) + 100;
 		cadena=ponencia+aleatorio;
-		$("#id_curso").val(cadena);
+		$("#id_trabajo").val(cadena);
 	});		
 //genera id para taller
 	$("#titulo_taller").keyup(function() {
 		ponencia=document.getElementById('titulo_taller').value.toUpperCase().substr(0,3);
 		aleatorio = Math.floor(Math.random() * 900) + 100;
 		cadena=ponencia+aleatorio;
-		$("#id_taller").val(cadena);
+		$("#id_trabajo").val(cadena);
 	});				
 })

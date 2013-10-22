@@ -233,7 +233,144 @@
  		  // y de palabras del area de texto de un formulario
 
  		  // Obtenemos el texto del area.
- 		  textoArea = document.getElementById("Contenido_area3").value;
+ 		  textoArea = document.getElementById("titulo_ponencia").value;
+		  
+ 		  // El numero de caracteres es su longitud
+ 		  numeroCaracteres = textoArea.length;
+		  
+ 		  // Eliminamos los caracteres en blanco del inicio y del final.
+ 		  // Como no tenemos funciones del tipo trim, rtrim y ltrim usamos
+ 		  // expresiones regulares
+ 		  // El ^ indica principio de cadena
+ 		  inicioBlanco = /^ /
+ 		  // El $ indica final de cadena
+ 		  finBlanco = / $/
+ 		  // El global (g) es para obtener todas las posibles combinaciones
+ 		  variosBlancos = /[ ]+/g
+
+ 		  textoArea = textoArea.replace(inicioBlanco,"");
+ 		  textoArea = textoArea.replace(finBlanco,"");
+ 		  textoArea = textoArea.replace(variosBlancos," ");
+
+		 
+ 		  // Creamos un array con las diferentes palabras. Teniendo en
+ 		  // cuenta que la separación entre palabras es el espacio en blanco.
+ 		  textoAreaDividido = textoArea.split(" ");
+ 		  numeroPalabras = textoAreaDividido.length;
+
+		  
+ 		  // Mostramos los datos.
+ 		  // Tendremos en cuenta si hay que escribir en plural o en singular.
+ 		  tC = (numeroCaracteres==1)?" carácter":" caracteres";
+ 		  tP = (numeroPalabras==1)?" palabra":" palabras";
+
+		  
+
+ 		  if(numeroPalabras >= 15){   
+ 		  	alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
+ 		  }	 
+		  
+		  
+ 		 }
+
+
+ 		 function wordCounte() {
+ 		  // Función que nos va a contar el número de caracteres
+ 		  // y de palabras del area de texto de un formulario
+
+ 		  // Obtenemos el texto del area.
+ 		  textoArea = document.getElementById("titulo_cartel").value;
+		  
+ 		  // El numero de caracteres es su longitud
+ 		  numeroCaracteres = textoArea.length;
+		  
+ 		  // Eliminamos los caracteres en blanco del inicio y del final.
+ 		  // Como no tenemos funciones del tipo trim, rtrim y ltrim usamos
+ 		  // expresiones regulares
+ 		  // El ^ indica principio de cadena
+ 		  inicioBlanco = /^ /
+ 		  // El $ indica final de cadena
+ 		  finBlanco = / $/
+ 		  // El global (g) es para obtener todas las posibles combinaciones
+ 		  variosBlancos = /[ ]+/g
+
+ 		  textoArea = textoArea.replace(inicioBlanco,"");
+ 		  textoArea = textoArea.replace(finBlanco,"");
+ 		  textoArea = textoArea.replace(variosBlancos," ");
+
+		 
+ 		  // Creamos un array con las diferentes palabras. Teniendo en
+ 		  // cuenta que la separación entre palabras es el espacio en blanco.
+ 		  textoAreaDividido = textoArea.split(" ");
+ 		  numeroPalabras = textoAreaDividido.length;
+
+		  
+ 		  // Mostramos los datos.
+ 		  // Tendremos en cuenta si hay que escribir en plural o en singular.
+ 		  tC = (numeroCaracteres==1)?" carácter":" caracteres";
+ 		  tP = (numeroPalabras==1)?" palabra":" palabras";
+
+		  
+
+ 		  if(numeroPalabras >= 15){   
+ 		  	alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
+ 		  }	 
+		  
+		  
+ 		 }
+
+
+ 		 function wordCountf() {
+ 		  // Función que nos va a contar el número de caracteres
+ 		  // y de palabras del area de texto de un formulario
+
+ 		  // Obtenemos el texto del area.
+ 		  textoArea = document.getElementById("titulo_curso").value;
+		  
+ 		  // El numero de caracteres es su longitud
+ 		  numeroCaracteres = textoArea.length;
+		  
+ 		  // Eliminamos los caracteres en blanco del inicio y del final.
+ 		  // Como no tenemos funciones del tipo trim, rtrim y ltrim usamos
+ 		  // expresiones regulares
+ 		  // El ^ indica principio de cadena
+ 		  inicioBlanco = /^ /
+ 		  // El $ indica final de cadena
+ 		  finBlanco = / $/
+ 		  // El global (g) es para obtener todas las posibles combinaciones
+ 		  variosBlancos = /[ ]+/g
+
+ 		  textoArea = textoArea.replace(inicioBlanco,"");
+ 		  textoArea = textoArea.replace(finBlanco,"");
+ 		  textoArea = textoArea.replace(variosBlancos," ");
+
+		 
+ 		  // Creamos un array con las diferentes palabras. Teniendo en
+ 		  // cuenta que la separación entre palabras es el espacio en blanco.
+ 		  textoAreaDividido = textoArea.split(" ");
+ 		  numeroPalabras = textoAreaDividido.length;
+
+		  
+ 		  // Mostramos los datos.
+ 		  // Tendremos en cuenta si hay que escribir en plural o en singular.
+ 		  tC = (numeroCaracteres==1)?" carácter":" caracteres";
+ 		  tP = (numeroPalabras==1)?" palabra":" palabras";
+
+		  
+
+ 		  if(numeroPalabras >= 15){   
+ 		  	alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
+ 		  }	 
+		  
+		  
+ 		 }
+
+ 		 function wordCountf() {
+ 		  // Función que nos va a contar el número de caracteres
+ 		  // y de palabras del area de texto de un formulario
+
+ 		  // Obtenemos el texto del area.
+ 		  textoArea = document.getElementById("titulo_taller").value;
 		  
  		  // El numero de caracteres es su longitud
  		  numeroCaracteres = textoArea.length;

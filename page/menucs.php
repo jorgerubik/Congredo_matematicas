@@ -1,6 +1,6 @@
 		<FIELDSET>
 			Bienvenido:<br> 
-			<a href="perfil.php"> <? echo $_SESSION['usuario_login'] ?></a><br>
+			<a href="perfil.php" id="perfil"><b> <? echo $_SESSION['usuario_login'] ?></b></a><br>
 			<form action="editar_perfil.php" method="post">
 				<button type="submit">Editar Perfil</button>
 			</form>

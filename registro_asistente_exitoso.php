@@ -49,40 +49,61 @@ exit;
 		
 		<!--sección de contenido -->
 		<section id="seccion">
-			<div class="cajatexto">
-				Si desea registrarse como asistente debe leer las siguientes clausulas:
-				<h3>Asistentes (Internos y Externos).</h3> 
- 
-				<table >
-				<tr><td>Hasta el 20 de febrero de 2014</td><td>	$   700.00</td></tr>
-				<tr><td>Del 21 de febrero al 29 de abril de 2014</td><td>$ 800.00</td></tr>
-				<tr><td>Del 30 de abril al 7 de mayo de 2014</td><td>$ 1 000.00</td></tr>			
-				</table>
-				<h3>Estudiantes</h3>
+<?php
 
-				<p class="parrafo" align="justify">
-				Estudiantes de licenciatura, únicamente como asistentes y con derecho a un taller o curso $ 250.00</p>
+require ('script/utiles.php');
+require('script/conexion.php');
 
-				<p class="parrafo" align="justify">Estudiantes de licenciatura, únicamente con derecho a un taller o curso (sólo se dará constancia de taller)  $ 100.00<br>
-				</p>
+//defino variables del formulario de registro general
+	$usuario = $_SESSION['usuario_id']; 
+	
 
-				<p class="parrafo" align="justify">A partir del 20 de febrero de 2014, se podrá realizar el pago de la inscripción de la siguiente forma:</p>
-				 
-				<p class="parrafo" align="justify"> a) Cajas de Campo 4 bajo el concepto de Sexto Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas.</p>
+	
+//conexión con servidor
+	$host = "localhost";
+	$user = "root";
+	$pass = "0515delux!";
+	$db = "congresomat";
 
+//conectar con el servidor
+	$conn = mysql_connect($host, $user, $pass);
 
-				<p class="parrafo" align="justify"> b) Transferencia electrónica</p>
-				<form action="registro_asistente_exitoso.php" method="post">
-					<fieldset>
-						<legend>Asistente:</legend>
-						<legend>Si leyó la información y desea ser asistente favor de aceptar:</legend>
-						<input type="submit" value="Acepto">
-					</fieldset>
-				</form>
+				if (!$conn) {
+					echo "No se posible conectar al servidor. <br>";
+					trigger_error(mysql_error(), E_USER_ERROR);
+				}
+				mysql_query("SET NAMES utf8");
+				# seleccionar BD
+				$rdb = mysql_select_db($db);
 
-			</div>
+				if (!$rdb) {
+					echo "No se puede seleccionar la BD. <br>";
+					trigger_error(mysql_error(), E_USER_ERROR);
+				}
+		////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
 
-		</section>		
+				function exe_query($query){
+					
+					$r = mysql_query($query);
+					if (!$r) {
+						echo "No se ejecutó el query: $query <br>";
+						trigger_error(mysql_error(), E_USER_ERROR);
+					}
+					return $r;
+					
+				}	
+				$query="INSERT INTO inscripcion_congresistas VALUES ('$usuario', 'asistente')";
+				exe_query($query);
+				
+	echo"Se ha registrado como asistente, recuerde pagar a tiempo la cuota que le corresponde";
+		
+		
+	mysql_close();
+?>
+<br>
+
+<a href="registro_trabajos.php">Ir al menú principal</a>
+</section>		
 		
 		<!-- aside de la página -->
 		<section id="aside">

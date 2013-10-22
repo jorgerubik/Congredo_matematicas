@@ -204,8 +204,8 @@ require('script/conexion.php');
 							 $row['titulo_curso'].
 							 "</td></tr><tr><td>Resumen:</td><td>".
 							 $row['resumen_curso'].
-							 "</td></tr><tr><td>Referencias:</td><td>".
-							 $row['referencias_curso']."</td></tr>".
+							 "</td></tr><tr><td>Materiales:</td><td>".
+							 $row['material_curso']."</td></tr>".
 							 "</tbody></table><br>";
 					}	
 

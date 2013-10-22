@@ -1,9 +1,61 @@
+
 <div class="cajatextoscroll">
-	<form action="registro_cartel_confirmacion.php" method="post" autocomplete="off" class="forms">
+	<div class="cajatexto">
+	<?php
+	$usuario = $_SESSION['usuario_id']; 
+	//conexión con servidor
+	$host = "localhost";
+	$user = "root";
+	$pass = "0515delux!";
+	$db = "congresomat";
+
+//conectar con el servidor
+	$conn = mysql_connect($host, $user, $pass);
+
+				if (!$conn) {
+					echo "No se posible conectar al servidor. <br>";
+					trigger_error(mysql_error(), E_USER_ERROR);
+				}
+				mysql_query("SET NAMES utf8");
+				# seleccionar BD
+				$rdb = mysql_select_db($db);
+
+				if (!$rdb) {
+					echo "No se puede seleccionar la BD. <br>";
+					trigger_error(mysql_error(), E_USER_ERROR);
+				}
+		////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
+
+				function exe_query($query){
+					
+					$r = mysql_query($query);
+					if (!$r) {
+						echo "No se ejecutó el query: $query <br>";
+						trigger_error(mysql_error(), E_USER_ERROR);
+					}
+					return $r;
+					
+				}	
+
+				$query = "SELECT COUNT(*) FROM autores WHERE id_usuario = '".$usuario."'";
+				$result=exe_query($query);
+				$row = mysql_fetch_array($result); 
+				
+				if ($row[0]>=5) {
+					# code...
+					echo "ha registrado el número límite de trabajos (5) si desea actualizar o dar de baja alguno, de click en los botones de abajo";
+				}
+				else{
+					
+				
+				
+				
+	?>
+	<form action="registro_cartel_confirmacion.php" method="post" autocomplete="on" class="forms">
 		<fieldset id="ponencia">
 			<legend>Formulario de registro</legend>
 			<legend>Título (maximo 15 palabras)</legend>
-			<input type="text"  name="Titulo_cartel" id="Contenido_area3" required onblur="wordCountd();">
+			<input type="text"  name="Titulo_cartel" id="titulo_cartel" required onblur="wordCounte();">
 			<legend>Categoría:</legend>
 			<input type="radio" name="Categoria" value="investigacion">Investigación <br>
 			<input type="radio" name="Categoria" value="experiencia"> Experiencia en aula
@@ -76,10 +128,14 @@
 					<td><input type="radio" name="requiere4" id="requiere4" value="SI" >Si <input type="radio" name="requiere4" id="requiere4" value="NO">No</td>
 				</tr>
 			</table>
-			<input type="text" id="id_cartel" name="id_cartel" maxlength="10" size="10"  style="visibility:hidden;" />
+			<input type="text" id="id_trabajo" name="id_cartel" maxlength="10" size="10"  style="visibility:hidden;" />
 
 		</fieldset>
 		
 		<input type="submit" name="enviar" id="enviar" value="enviar" >
 	</form>
 </div>
+</div>
+<?php
+}
+?>
