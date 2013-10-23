@@ -1,4 +1,6 @@
-		
+	<?php
+	echo date('Y-m-j');
+	?>		
 		<!-- formulario de registro -->
 		<form action="registroexitoso.php" method="post" class="cajatexto">
 		<!--datos de usurio -->

@@ -1,12 +1,15 @@
 		<FIELDSET>
 			Bienvenido:<br> 
-			<a href="perfil.php" id="perfil"><b> <? echo $_SESSION['usuario_login'] ?></b></a><br>
+			<b> <? echo $_SESSION['usuario_login'] ?></b>
+			<form action="perfil.php" method="post">
+				<button type="submit" id="boton_u">Perfil</button>
+			</form>
 			<form action="editar_perfil.php" method="post">
-				<button type="submit">Editar Perfil</button>
+				<button type="submit" id="boton_u">Editar Perfil</button>
 			</form>
 
 			<form action="aut_logout.php" method="post">
-				<button type="submit">Cerrar sesión</button>
+				<button type="submit" id="boton_u">Cerrar sesión</button>
 			</form>
 		</FIELDSET>
 

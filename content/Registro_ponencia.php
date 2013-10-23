@@ -41,7 +41,7 @@
 				
 				if ($row[0]>=5) {
 					# code...
-					echo "ha registrado el número límite de trabajos (5) si desea actualizar o dar de baja alguno, de click en los botones de abajo";
+					echo "Ha registrado el número límite de trabajos (5) si desea actualizar o dar de baja alguno, de click en editar perfil";
 				}
 				else{
 					
@@ -60,9 +60,10 @@
 		</fieldset>
 		<fieldset>	
 			<legend>Modalidad</legend>
-			<legend>Enseñanza de las matemáticas</legend>
+			
 			<select ID="ensenanza" name="modalidad">
-				<option value=""></option>
+				<option>Modalidad</option>
+				<option value="">------------Enseñanza de las matemáticas------------</option>
 				<option value="AC">Aprendizaje cooperativo (AC) </option>
 				<option value="ID">Innovación didáctica y metodológica  (ID)</option>
 				<option value="EA">Entorno al aprendizaje (EA)</option>
@@ -72,10 +73,7 @@
 				<option value="ED">Experiencias docentes (ED)</option>
 				<option value="EM">Enseñando con manipulables (EM)</option>
 				<option value="PN">Pensamiento numérico y simbólico (PN)</option>
-			</select>
-			<legend>Aplicación de las matemáticas</legend>
-			<select id="aplicacion" name="modalidad">
-				<option value=""></option>
+				<option>--------------Aplicación de las matemáticas--------------</option>
 				<option value="AE">Análisis estadístico y diseño de experimentos (AE)</option>
 				<option value="MS">Modelación y simulación (MS)</option>
 				<option value="OP">Optimización (OP)</option>

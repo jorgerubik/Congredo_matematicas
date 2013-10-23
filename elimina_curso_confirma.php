@@ -49,10 +49,22 @@ exit;
 		
 		<!--sección de contenido -->
 		<section id="seccion">
-			<?php
-			include "content/Editar_perfil.php";
-			?>
-		</section>		
+			<div class="cajatextoscroll">
+				<div class="cajatexto">
+			
+
+<form action="eliminar_curso.php">
+	<fieldset>
+		<legend>Eliminar</legend>
+		<legend>Esta seguro de eliminar el Curso</legend>
+		<input type="submit" value="si">
+		<legend>No</legend>
+		<a href="editar_trabajos.php">Regresar</a>
+	</fieldset>
+</form>
+		</div>
+	</div>
+</section>		
 		
 		<!-- aside de la página -->
 		<section id="aside">

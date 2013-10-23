@@ -108,22 +108,22 @@ require('script/conexion.php');
 				}	
 				$query="INSERT INTO ponencias_oral VALUES ('$id_ponencia', '$id_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL)";
 				exe_query($query);
-				$query="INSERT INTO autores VALUES ('$id_autor', '$id_ponencia', '$requiere')";
+				$query="INSERT INTO autores VALUES ('$id_autor', 'autor', 'T05', '$id_ponencia', '$requiere')";
 				exe_query($query);
 				if ($id_coautor1 != "") {
-					$query="INSERT INTO autores VALUES ('$id_coautor1', '$id_ponencia', '$requiere1')";
+					$query="INSERT INTO autores VALUES ('$id_coautor1', 'coautor1', 'T05', '$id_ponencia', '$requiere1')";
 					exe_query($query);
 				}
 				if ($id_coautor2 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor2', '$id_ponencia', '$requiere2')";
+					$query="INSERT INTO autores VALUES ('$id_coautor2', 'coautor2', 'T05', '$id_ponencia', '$requiere2')";
 					exe_query($query);
 				}
 				if ($id_coautor3 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor3', '$id_ponencia', '$requiere3')";
+					$query="INSERT INTO autores VALUES ('$id_coautor3', 'coautor3', 'T05', '$id_ponencia', '$requiere3')";
 					exe_query($query);
 				}
 				if ($id_coautor4 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor4', '$id_ponencia', '$requiere4')";
+					$query="INSERT INTO autores VALUES ('$id_coautor4', 'coautor4', 'T05', '$id_ponencia', '$requiere4')";
 					exe_query($query);
 				}
 	mysql_close();

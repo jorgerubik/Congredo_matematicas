@@ -103,14 +103,14 @@ require('script/conexion.php');
 		//insertando los datos
 		$query = "INSERT INTO ponencias_taller VALUES('$id_taller', '$id_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ')";
 		exe_query($query);
-		$query="INSERT INTO autores VALUES ('$id_autor', '$id_taller', '$requiere')";
+		$query="INSERT INTO autores VALUES ('$id_autor', 'autor', 'T07', '$id_taller', '$requiere')";
 				exe_query($query);
 				if ($id_coautor1 != "") {
-					$query="INSERT INTO autores VALUES ('$id_coautor1', '$id_taller', '$requiere1')";
+					$query="INSERT INTO autores VALUES ('$id_coautor1', 'coautor1', 'T07', '$id_taller', '$requiere1')";
 					exe_query($query);
 				}
 				if ($id_coautor2 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor2', '$id_taller', '$requiere2')";
+					$query="INSERT INTO autores VALUES ('$id_coautor2', 'coautor2', 'T07', '$id_taller', '$requiere2')";
 					exe_query($query);
 				}
 		

@@ -102,14 +102,14 @@ require('script/conexion.php');
 		//insertando los datos
 		$query = "INSERT INTO ponencias_curso VALUES('$id_curso', '$id_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ')";
 		exe_query($query);
-		$query="INSERT INTO autores VALUES ('$id_autor', '$id_curso', '$requiere')";
+		$query="INSERT INTO autores VALUES ('$id_autor', 'autor', 'T09', '$id_curso', '$requiere')";
 				exe_query($query);
 				if ($id_coautor1 != "") {
-					$query="INSERT INTO autores VALUES ('$id_coautor1', '$id_curso', '$requiere1')";
+					$query="INSERT INTO autores VALUES ('$id_coautor1', 'coautor1', 'T09', '$id_curso', '$requiere1')";
 					exe_query($query);
 				}
 				if ($id_coautor2 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor2', '$id_curso', '$requiere2')";
+					$query="INSERT INTO autores VALUES ('$id_coautor2', 'coautor2', 'T09', '$id_curso', '$requiere2')";
 					exe_query($query);
 				}
 		echo "Se ha introducido satisfactoriamente el registro <br>";

@@ -54,7 +54,7 @@ require('script/conexion.php');
 	$user = "root";
 	$pass = "0515delux!";
 	$db = "congresomat";
-
+	$fecha = date('Y-m-j');
 //conectar con el servidor
 	$conn = mysql_connect($host, $user, $pass);
 
@@ -107,9 +107,9 @@ require('script/conexion.php');
 		
 	else
 	{	
-		include("enviar.php");		
+				
 		//insertando los datos
-		$query = "INSERT INTO usuarios VALUES('$id_usuario', '$rfc', '$contra', '$nombre', '$primerap', '$segundoap', '$email')";
+		$query = "INSERT INTO usuarios VALUES('$id_usuario', '$rfc', '$contra', '$nombre', '$primerap', '$segundoap', '$email', '$fecha')";
 		exe_query($query);
 		$query = "INSERT INTO trayectoria_academica VALUES('$id_usuario', '$trayectoria')";
 		exe_query($query);
@@ -117,7 +117,8 @@ require('script/conexion.php');
 		exe_query($query);
 		$query = "INSERT INTO usuario_rol VALUES('$id_usuario', '0')";
 		exe_query($query);
-		echo "Se ha introducido satisfactoriamente el registro <br>";
+		include("enviar.php");
+		echo "<br>Se ha introducido satisfactoriamente el registro <br>";
 		echo "<br> Usuario: $id_usuario";
 		echo "<br> Contraseña: $contra";
 	}	

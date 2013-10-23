@@ -49,29 +49,25 @@ exit;
 		
 		<!--sección de contenido -->
 		<section id="seccion">
+			<div class="cajatextoscroll">
+				<div class="cajatexto">
+			
 <?php
 
 require ('script/utiles.php');
 require('script/conexion.php');
 
 //defino variables del formulario de registro general
-	$id_cartel = htmlspecialchars($_POST['id_cartel']);
+	$id_usuario = $_SESSION['usuario_id']; 
 	$titulo = htmlspecialchars($_POST['titulo_confirma']);
-	$categoria = $_POST['categoria_confirma'];
-	$modalidad = $_POST['modalidad_confirma'];
-	$resumen = htmlspecialchars($_POST['resumen_confirma']);
-	$referencias = htmlspecialchars($_POST['referencias_confirma']);
+	$contenido = htmlspecialchars($_POST['contenido_confirma']);
+	$materiales = htmlspecialchars($_POST['materiales_confirma']);
 	$id_autor = htmlspecialchars($_POST['id_autor_conf']);
 	$id_coautor1 = htmlspecialchars($_POST['id_coautor1_conf']);
 	$id_coautor2 = htmlspecialchars($_POST['id_coautor2_conf']);
-	$id_coautor3 = htmlspecialchars($_POST['id_coautor3_conf']);
-	$id_coautor4 = htmlspecialchars($_POST['id_coautor4_conf']);
 	$requiere = $_POST['requiere_autor'];
 	$requiere1 = $_POST['requiere_coautor1'];
 	$requiere2 = $_POST['requiere_coautor2'];
-	$requiere3 = $_POST['requiere_coautor3'];
-	$requiere4 = $_POST['requiere_coautor4'];
-
 	
 //conexión con servidor
 	$host = "localhost";
@@ -106,35 +102,46 @@ require('script/conexion.php');
 					return $r;
 					
 				}	
-				$query="INSERT INTO ponencias_cartel VALUES ('$id_cartel', '$id_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL)";
+	
+				$query = "SELECT * FROM ponencias_curso WHERE id_usuario = '".$id_usuario."'";
+				$cambio = exe_query($query);
+				$row = mysql_fetch_assoc($cambio);
+				$id_curso = $row['id_ponencia_curso'];
+
+				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor1'";
+				$cambio1 = exe_query($query);
+				$row1 = mysql_fetch_assoc($cambio1);
+				$coautor1 = $row1['id_usuario'];
+
+				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor2'";
+				$cambio2 = exe_query($query);
+				$row2 = mysql_fetch_assoc($cambio2);
+				$coautor2 = $row2['id_usuario'];
+				
+
+				//insertando los datos
+				$query = "UPDATE ponencias_curso SET id_usuario = '$id_autor', titulo_curso = '$titulo', resumen_curso = '$contenido', material_curso = '$materiales' WHERE id_ponencia_curso = '$id_curso' ";
 				exe_query($query);
-				$query="INSERT INTO autores VALUES ('$id_autor','autor', 'T06' , '$id_cartel', '$requiere')";
+				$query = "UPDATE autores SET id_usuario = '$id_autor', tipo_autor = 'autor', constancia = '$requiere' WHERE id_trabajo = '$id_taller' AND id_usuario = '$id_usuario'";
 				exe_query($query);
-				if ($id_coautor1 != "") {
-					$query="INSERT INTO autores VALUES ('$id_coautor1', 'coautor1', 'T06' , '$id_cartel', '$requiere1')";
+				if($id_coautor1 != ""){
+					$query = "UPDATE autores SET id_usuario = '$id_coautor1', tipo_autor = 'coautor1', constancia = '$requiere1' WHERE id_trabajo = '$id_curso' AND id_usuario = '$coautor1'";
 					exe_query($query);
 				}
-				if ($id_coautor2 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor2', 'coautor2', 'T06' , '$id_cartel', '$requiere2')";
+				if ($id_coautor2 != "") {
+					$query = "UPDATE autores SET id_usuario = '$id_coautor2', tipo_autor = 'coautor2', constancia = '$requiere2' WHERE id_trabajo = '$id_curso' AND id_usuario = '$coautor2'";
 					exe_query($query);
 				}
-				if ($id_coautor3 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor3', 'coautor3', 'T06' , '$id_cartel', '$requiere3')";
-					exe_query($query);
-				}
-				if ($id_coautor4 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor4', 'coautor4', 'T06' , '$id_cartel', '$requiere4')";
-					exe_query($query);
-				}
-	echo"Se an introducido satisfactoriamente sus datos";
-		
+							
+
+					
+		echo "Se ha introducido satisfactoriamente el cambio <br>";
 		
 	mysql_close();
 ?>
-<br>
-<a href="registro_cartel.php">Agregar otro cartel</a>
-<br>
-<a href="registro_trabajos.php">Ir al menú principal</a>
+		
+	</div>
+	</div>
 </section>		
 		
 		<!-- aside de la página -->

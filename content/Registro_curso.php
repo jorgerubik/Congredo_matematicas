@@ -40,7 +40,7 @@
 				
 				if ($row[0]>=5) {
 					# code...
-					echo "ha registrado el número límite de trabajos (5) si desea actualizar o dar de baja alguno, de click en los botones de abajo";
+					echo "Ha registrado el número límite de trabajos (5) si desea actualizar o dar de baja alguno, de click en editar perfil";
 				}
 				else{
 					
