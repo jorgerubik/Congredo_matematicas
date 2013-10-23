@@ -17,13 +17,13 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure = "ssl";
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465;
-$mail->Username = "jorgedionicio.rubik@gmail.com"; //ness.reaper@gmail.com
-$mail->Password = "descartesakant"; //ask514ion497
+$mail->Username = "congresomate6@gmail.com"; //ness.reaper@gmail.com
+$mail->Password = "chiquitamia"; //ask514ion497
 
 
 
 
-$mail->From = "uroboros_reaper@gmail.com";
+$mail->From = "congresomate6@gmail.com";
 $mail->FromName = "Congreso Matematicas";
 $mail->Subject = "Confirmacion de acceso.";
 $mail->AltBody = "";
@@ -186,7 +186,7 @@ body {
                       <font color="black"><h3>Contacto.</h3></font><br>
 			<font color="black"><h5>56 23 18 86</h5></font>
 			<font color="black"><h5>56 23 18 90</h5></font>	
-<a href="http://congresomatematicas.cuautitlan2.unam.mx">6&deg; Congreso Internacional para la aplicaci&oacute de matem&aacuteticas 2014</a>		
+<a href="http://congresomatematicas.cuautitlan2.unam.mx">6&deg; Congreso Internacional para la ense&ntilde;anza y aplicaci&oacute;n de las matem&aacute;ticas 2014</a>		
 </h4></font><br><br>
                     </td>
                   </tr>                 

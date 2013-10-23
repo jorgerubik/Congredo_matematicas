@@ -51,6 +51,7 @@ exit;
 		<section id="seccion">
 			<div class="cajatexto">
 				Si desea registrarse como asistente debe leer las siguientes clausulas:
+
 				<h3>Asistentes (Internos y Externos).</h3> 
  
 				<table >
@@ -72,6 +73,8 @@ exit;
 
 
 				<p class="parrafo" align="justify"> b) Transferencia electrónica</p>
+
+				<p class="parrafo" align="justify"><b>LE RECORDAMOS QUE DEBE CUMPLIR CON POR LO MENOS EL 70% DE ASISTENCIA AL CONGRESO PARA RECIBIR SU CONSTANCIA.</b></p>
 				<form action="registro_asistente_exitoso.php" method="post">
 					<fieldset>
 						<legend>Asistente:</legend>

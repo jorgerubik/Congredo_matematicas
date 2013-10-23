@@ -70,13 +70,9 @@ require('script/conexion.php');
 	$estado = strtoupper(htmlspecialchars($_POST['Estado']));
 	$fecha = date('Y-m-j');
 //conexión con servidor
-	$host = "localhost";
-	$user = "root";
-	$pass = "0515delux!";
-	$db = "congresomat";
-
+	require('script/bd.php');
 //conectar con el servidor
-	$conn = mysql_connect($host, $user, $pass);
+	$conn = mysql_connect("$host", "$user", "$pass");
 
 				if (!$conn) {
 					echo "No se posible conectar al servidor. <br>";

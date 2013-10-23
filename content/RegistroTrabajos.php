@@ -10,11 +10,17 @@
 	<!--Usuario Nivel de Acceso => <? //echo $_SESSION['usuario_nivel'] ?><br-->
 	<br>
 	<fieldset>
-		<legend>Registro de trabajos</legend>
-		 <!--?//if (0 >= $_SESSION['usuario_nivel']){ ?-->
+		<legend>Asistente</legend>
+		<legend>Si desea ser asistente del Congreso, de click en la imagen de abajo para conocer con lo que se debe cumplir:</legend>
 		<form action="registro_asistente.php" method="post" class="forms">
 			<input type="image" src="imagenes/Asistente.png" id="boton">
-		</form> 
+		</form>
+	</fieldset>
+	<fieldset>
+
+		<legend>Registro de trabajos</legend>
+		 <!--?//if (0 >= $_SESSION['usuario_nivel']){ ?-->
+		 
 		<form action="registro_ponencia.php" method="post" autocomplete="off" class="forms">
 			<input type="image" src="imagenes/Ponencia3.png" id="boton"> <br>
 		</form>

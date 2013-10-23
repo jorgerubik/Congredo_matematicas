@@ -76,14 +76,9 @@ require('script/conexion.php');
 	$requiere4 = $_POST['requiere_coautor4'];
 	
 //conexión con servidor
-	$host = "localhost";
-	$user = "root";
-	$pass = "0515delux!";
-	$db = "congresomat";
-
+	require('script/bd.php');
 //conectar con el servidor
-	$conn = mysql_connect($host, $user, $pass);
-
+	$conn = mysql_connect("$host", "$user", "$pass");
 				if (!$conn) {
 					echo "No se posible conectar al servidor. <br>";
 					trigger_error(mysql_error(), E_USER_ERROR);

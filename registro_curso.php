@@ -50,7 +50,50 @@ exit;
 		<!--sección de contenido -->
 		<section id="seccion" class="formatocentro">
 			<?php
+			$usuario = $_SESSION['usuario_id']; 
+	//conexión con servidor
+	require('script/bd.php');
+//conectar con el servidor
+	$conn = mysql_connect("$host", "$user", "$pass");
+
+				if (!$conn) {
+					echo "No se posible conectar al servidor. <br>";
+					trigger_error(mysql_error(), E_USER_ERROR);
+				}
+				mysql_query("SET NAMES utf8");
+				# seleccionar BD
+				$rdb = mysql_select_db($db);
+
+				if (!$rdb) {
+					echo "No se puede seleccionar la BD. <br>";
+					trigger_error(mysql_error(), E_USER_ERROR);
+				}
+		////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
+
+				function exe_query($query){
+					
+					$r = mysql_query($query);
+					if (!$r) {
+						echo "No se ejecutó el query: $query <br>";
+						trigger_error(mysql_error(), E_USER_ERROR);
+					}
+					return $r;
+					
+				}	
+
+				$query = "SELECT COUNT(*) FROM autores WHERE id_usuario = '".$usuario."'";
+				$result=exe_query($query);
+				$row = mysql_fetch_array($result); 
+				
+				if ($row[0]>=5) {
+					# code...
+					echo "Ha registrado el número límite de trabajos (5) si desea actualizar o dar de baja alguno, de click en editar perfil";
+				}
+				else{
+					
 				include "content/Registro_curso.php";
+			}
+			mysql_close();
 			?>
 		</section>		
 		
