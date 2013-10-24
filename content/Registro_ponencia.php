@@ -4,7 +4,7 @@
 		<fieldset id="ponencia">
 			<legend>Formulario de registro</legend>
 			<legend>Título (maximo 15 palabras)</legend>
-			<input type="text"  name="Titulo_ponencia" id="titulo_ponencia" onblur="wordCountd();">
+			<input type="text"  name="Titulo_ponencia" id="titulo_ponencia" onblur="wordCountd();" class="titulo_trabajo">
 			<legend>Categoría:</legend>
 			<input type="radio" name="Categoria" value="investigacion">Investigación <br>
 			<input type="radio" name="Categoria" value="experiencia"> Experiencia en aula

@@ -52,7 +52,7 @@
 					'originalStyle': 'originalTextareaInfo',
 					'warningStyle' : 'warningTextareaInfo',
 					'warningNumber': 40,
-					displayFormat: '#input letras | #words palabras'	
+					displayFormat: '#input caracteres | #words palabras'	
 				};
 				$('#Contenido_area').textareaCount(options);
 
@@ -61,7 +61,7 @@
 					'originalStyle': 'originalTextareaInfo',
 					'warningStyle' : 'warningTextareaInfo',
 					'warningNumber': 40,
-					displayFormat: '#input letras | #words palabras'	
+					displayFormat: '#input caracteres | #words palabras'	
 				};
 				$('#Contenido_area1').textareaCount(options2);
 
@@ -70,9 +70,18 @@
 					'originalStyle': 'originalTextareaInfo',
 					'warningStyle' : 'warningTextareaInfo',
 					'warningNumber': 40,
-					displayFormat: '#input letras | #words palabras'	
+					displayFormat: '#input caracteres | #words palabras'	
 				};
 				$('#Contenido_area2').textareaCount(options3);
+
+				var options4 = {
+					'maxCharacterSize': -2,
+					'originalStyle': 'originalTextareaInfo',
+					'warningStyle' : 'warningTextareaInfo',
+					'warningNumber': 40,
+					displayFormat: '#input caracteres | #words palabras'	
+				};
+				$('.titulo_trabajo').textareaCount(options4);
 				// var options3 = {
 				// 		'maxCharacterSize': 200,
 				// 		'originalStyle': 'originalTextareaInfo',
