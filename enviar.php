@@ -212,5 +212,5 @@ $mail->IsHTML(true);
 if(!$mail->Send()) {
   echo "Error: " . $mail->ErrorInfo;
 } else {
-  echo "Mensaje enviado correctamente";
+  echo "Se ha enviado un mensaje con su usuario y contraseña a la dirección de correo electrónico que registró. Favor de verificarlo. Es importante que lo conserve para accesar posteriormente al sistema.";
 }

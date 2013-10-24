@@ -118,8 +118,11 @@ require('script/conexion.php');
 		exe_query($query);
 		$query = "INSERT INTO usuario_rol VALUES('$id_usuario', '0')";
 		exe_query($query);
-		include("enviar.php");
+
 		echo "<br>Se ha introducido satisfactoriamente el registro <br>";
+		
+		include("enviar.php");
+		
 		echo "<br> Usuario: $id_usuario";
 		echo "<br> Contraseña: $contra";
 	}	
