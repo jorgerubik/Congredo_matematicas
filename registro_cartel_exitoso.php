@@ -106,19 +106,19 @@ require('script/conexion.php');
 				exe_query($query);
 				$query="INSERT INTO autores VALUES ('$rfc_autor','autor', 'T06' , '$id_cartel', '$requiere')";
 				exe_query($query);
-				if ($id_coautor1 != "") {
+				if ($rfc_coautor1 != "") {
 					$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T06' , '$id_cartel', '$requiere1')";
 					exe_query($query);
 				}
-				if ($id_coautor2 != ""){
+				if ($rfc_coautor2 != ""){
 					$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T06' , '$id_cartel', '$requiere2')";
 					exe_query($query);
 				}
-				if ($id_coautor3 != ""){
+				if ($rfc_coautor3 != ""){
 					$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T06' , '$id_cartel', '$requiere3')";
 					exe_query($query);
 				}
-				if ($id_coautor4 != ""){
+				if ($rfc_coautor4 != ""){
 					$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T06' , '$id_cartel', '$requiere4')";
 					exe_query($query);
 				}

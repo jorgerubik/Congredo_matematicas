@@ -61,11 +61,11 @@ require('script/conexion.php');
 	$modalidad = $_POST['modalidad_confirma'];
 	$resumen = htmlspecialchars($_POST['resumen_confirma']);
 	$referencias = htmlspecialchars($_POST['referencias_confirma']);
-	$id_autor = htmlspecialchars($_POST['id_autor_conf']);
-	$id_coautor1 = htmlspecialchars($_POST['id_coautor1_conf']);
-	$id_coautor2 = htmlspecialchars($_POST['id_coautor2_conf']);
-	$id_coautor3 = htmlspecialchars($_POST['id_coautor3_conf']);
-	$id_coautor4 = htmlspecialchars($_POST['id_coautor4_conf']);
+	$rfc_autor = htmlspecialchars($_POST['rfc_autor_conf']);
+	$rfc_coautor1 = htmlspecialchars($_POST['rfc_coautor1_conf']);
+	$rfc_coautor2 = htmlspecialchars($_POST['rfc_coautor2_conf']);
+	$rfc_coautor3 = htmlspecialchars($_POST['rfc_coautor3_conf']);
+	$rfc_coautor4 = htmlspecialchars($_POST['rfc_coautor4_conf']);
 	$requiere = $_POST['requiere_autor'];
 	$requiere1 = $_POST['requiere_coautor1'];
 	$requiere2 = $_POST['requiere_coautor2'];
@@ -102,28 +102,28 @@ require('script/conexion.php');
 					return $r;
 					
 				}	
-				$query="INSERT INTO ponencias_oral VALUES ('$id_ponencia', '$id_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL)";
+				$query="INSERT INTO ponencias_oral VALUES ('$id_ponencia', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL)";
 				exe_query($query);
-				$query="INSERT INTO autores VALUES ('$id_autor', 'autor', 'T05', '$id_ponencia', '$requiere')";
+				$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '$id_ponencia', '$requiere')";
 				exe_query($query);
-				if ($id_coautor1 != "") {
-					$query="INSERT INTO autores VALUES ('$id_coautor1', 'coautor1', 'T05', '$id_ponencia', '$requiere1')";
+				if ($rfc_coautor1 != "") {
+					$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05', '$id_ponencia', '$requiere1')";
 					exe_query($query);
 				}
-				if ($id_coautor2 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor2', 'coautor2', 'T05', '$id_ponencia', '$requiere2')";
+				if ($rfc_coautor2 != ""){
+					$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05', '$id_ponencia', '$requiere2')";
 					exe_query($query);
 				}
-				if ($id_coautor3 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor3', 'coautor3', 'T05', '$id_ponencia', '$requiere3')";
+				if ($rfc_coautor3 != ""){
+					$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05', '$id_ponencia', '$requiere3')";
 					exe_query($query);
 				}
-				if ($id_coautor4 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor4', 'coautor4', 'T05', '$id_ponencia', '$requiere4')";
+				if ($rfc_coautor4 != ""){
+					$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05', '$id_ponencia', '$requiere4')";
 					exe_query($query);
 				}
 	mysql_close();
-	echo"Se an introducido satisfactoriamente sus datos";
+	echo"Se han introducido satisfactoriamente sus datos";
 
 ?>
 <br>

@@ -4,7 +4,7 @@
 		<fieldset id="ponencia">
 			<legend>Formulario de registro</legend>
 			<legend>Título (maximo 15 palabras)</legend>
-			<input type="text"  name="Titulo_ponencia" id="titulo_ponencia" onblur="wordCountd();" class="titulo_trabajo">
+			<input type="text"  name="Titulo_ponencia" id="titulo_ponencia" onblur="wordCountd();">
 			<legend>Categoría:</legend>
 			<input type="radio" name="Categoria" value="investigacion">Investigación <br>
 			<input type="radio" name="Categoria" value="experiencia"> Experiencia en aula
@@ -45,34 +45,34 @@
 			<table border="1" id="autores">
 				<tr>
 					<th>Autor</th>
-					<th>Id_usuario</th>
+					<th>RFC</th>
 					<th>Requiere constancia</th>
 					
 				</tr>
 				<tr>
 					<th>Autor</th>
-					<td><input type="text" id="id_ponente" name="Id_autor" maxlenght="10" required></td>
+					<td><input type="text" id="id_ponente" name="rfc_autor" maxlength="13" required></td>
 					<td><input type="radio" name="requiere" id="requiere" value="SI" >Si <input type="radio" name="requiere" id="requiere" value="NO">No</td>
 				</tr>
 				<tr>
 					<th>Coautor 1</th>
-					<td><input type="text" id="id_ponente" name="Id_coautor1" maxlenght="10"></td>
+					<td><input type="text" id="id_ponente" name="rfc_coautor1" maxlength="13"></td>
 					<td><input type="radio" name="requiere1" id="requiere1" value="SI">Si <input type="radio" name="requiere1" id="requiere1" value="NO">No</td>
 					
 				</tr>
 				<tr>
 					<th>Coautor 2</th>
-					<td><input type="text" id="id_ponente" name="Id_coautor2" maxlenght="10"></td>
+					<td><input type="text" id="id_ponente" name="rfc_coautor2" maxlength="13"></td>
 					<td><input type="radio" name="requiere2" id="requiere2" value="SI" >Si <input type="radio" name="requiere2" id="requiere2" value="NO">No</td>
 				</tr>
 				<tr>
 					<th>Coautor 3</th>
-					<td><input type="text" id="id_ponente" name="Id_coautor3" maxlenght="10"></td>
+					<td><input type="text" id="id_ponente" name="rfc_coautor3" maxlength="13"></td>
 					<td><input type="radio" name="requiere3" id="requiere3" value="SI" >Si <input type="radio" name="requiere3" id="requiere3" value="NO">No</td>
 				</tr>
 				<tr>
 					<th>Coautor 4</th>
-					<td><input type="text" id="id_ponente" name="Id_coautor4" maxlenght="10"></td>
+					<td><input type="text" id="id_ponente" name="rfc_coautor4" maxlength="13"></td>
 					<td><input type="radio" name="requiere4" id="requiere4" value="SI" >Si <input type="radio" name="requiere4" id="requiere4" value="NO">No</td>
 				</tr>
 			</table>

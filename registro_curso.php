@@ -79,9 +79,15 @@ exit;
 					}
 					return $r;
 					
-				}	
+				}
 
-				$query = "SELECT COUNT(*) FROM autores WHERE id_usuario = '".$usuario."'";
+				$query_sacar_rfc = "SELECT RFC FROM usuarios WHERE id_usuario = '".$usuario."';";
+				$result_rfc=exe_query($query_sacar_rfc);
+				$row_rfc = mysql_fetch_array($result_rfc); 
+
+				$rfc = $row_rfc[0];	
+
+				$query = "SELECT COUNT(*) FROM autores WHERE RFC = '".$rfc."'";
 				$result=exe_query($query);
 				$row = mysql_fetch_array($result); 
 				

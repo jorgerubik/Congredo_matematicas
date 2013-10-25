@@ -4,7 +4,7 @@
 	<fieldset id="ponencia">
 		<legend>Formulario de registro</legend>
 		<legend>Título (máximo 15 palabras)</legend>
-		<input type="text"  id="titulo_taller" name="titulo_taller" onblur="wordCountg();" class="titulo_trabajo">
+		<input type="text"  id="titulo_taller" name="titulo_taller" onblur="wordCountg();">
 	</fieldset>
 	<fieldset>
 		<legend>Contenido (máximo 300 palabras)</legend>
@@ -19,24 +19,24 @@
 			<table border="1" id="autores">
 				<tr>
 					<th>Autor</th>
-					<th>Id_usuario</th>
+					<th>RFC</th>
 					<th>Requiere constancia</th>
 					
 				</tr>
 				<tr>
 					<th>Autor</th>
-					<td><input type="text" id="id_ponente" name="Id_autor" maxlenght="10" required></td>
+					<td><input type="text" id="id_ponente" name="rfc_autor" maxlength="13" required></td>
 					<td><input type="radio" name="requiere" id="requiere" value="SI" >Si <input type="radio" name="requiere" id="requiere" value="NO">No</td>
 				</tr>
 				<tr>
 					<th>Coautor 1</th>
-					<td><input type="text" id="id_ponente" name="Id_coautor1" maxlenght="10"></td>
+					<td><input type="text" id="id_ponente" name="rfc_coautor1" maxlength="13"></td>
 					<td><input type="radio" name="requiere1" id="requiere1" value="SI">Si <input type="radio" name="requiere1" id="requiere1" value="NO">No</td>
 					
 				</tr>
 				<tr>
 					<th>Coautor 2</th>
-					<td><input type="text" id="id_ponente" name="Id_coautor2" maxlenght="10"></td>
+					<td><input type="text" id="id_ponente" name="rfc_coautor2" maxlength="13"></td>
 					<td><input type="radio" name="requiere2" id="requiere2" value="SI" >Si <input type="radio" name="requiere2" id="requiere2" value="NO">No</td>
 				</tr>
 				

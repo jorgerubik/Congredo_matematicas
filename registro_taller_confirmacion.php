@@ -59,9 +59,9 @@ require('script/conexion.php');
 	$titulo = htmlspecialchars($_POST['titulo_taller']);
 	$contenido = htmlspecialchars($_POST['Contenido']);
 	$materiales = htmlspecialchars($_POST['materiales']);
-	$id_autor = htmlspecialchars($_POST['Id_autor']);
-	$id_coautor1 = htmlspecialchars($_POST['Id_coautor1']);
-	$id_coautor2 = htmlspecialchars($_POST['Id_coautor2']);
+	$rfc_autor = htmlspecialchars($_POST['rfc_autor']);
+	$rfc_coautor1 = htmlspecialchars($_POST['rfc_coautor1']);
+	$rfc_coautor2 = htmlspecialchars($_POST['rfc_coautor2']);
 	$requiere = $_POST['requiere'];
 	$requiere1 = $_POST['requiere1'];
 	$requiere2 = $_POST['requiere2'];
@@ -97,9 +97,9 @@ require('script/conexion.php');
 				}	
 	
 		//insertando los datos
-		$query = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE id_usuario = '".$id_autor."'";
-		$query1 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE id_usuario = '".$id_coautor1."'";
-		$query2 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE id_usuario = '".$id_coautor2."'";
+		$query = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_autor."'";
+		$query1 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor1."'";
+		$query2 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor2."'";
 		$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";
@@ -155,9 +155,9 @@ require('script/conexion.php');
 					echo " <legend> Materiales: </legend>";
 					echo "<textarea  rows='6' cols='50' name='materiales_confirma'>".$materiales."</textarea>";
 					echo "<table border='1'><tr><td>Id_usuario</td><td>Constancia</td></tr>";
-					echo "<tr><td><input type='text' name='id_autor_conf' value='".$id_autor."'></td><td><input type='text' name='requiere_autor' value='".$requiere."'></td></tr>";
-					echo "<tr><td><input type='text' name='id_coautor1_conf' value='".$id_coautor1."'></td><td><input type='text' name='requiere_coautor1' value='".$requiere1."'></td></tr>";
-					echo "<tr><td><input type='text' name='id_coautor2_conf' value='".$id_coautor2."'></td><td><input type='text' name='requiere_coautor2' value='".$requiere2."'></td></tr>";
+					echo "<tr><td><input type='text' name='rfc_autor_conf' value='".$rfc_autor."'></td><td><input type='text' name='requiere_autor' value='".$requiere."'></td></tr>";
+					echo "<tr><td><input type='text' name='rfc_coautor1_conf' value='".$rfc_coautor1."'></td><td><input type='text' name='requiere_coautor1' value='".$requiere1."'></td></tr>";
+					echo "<tr><td><input type='text' name='rfc_coautor2_conf' value='".$rfc_coautor2."'></td><td><input type='text' name='requiere_coautor2' value='".$requiere2."'></td></tr>";
 					echo "<input type='text' id='id_taller' name='id_taller' style='visibility:hidden;' value='".$id_taller."' />";
 					echo "</table></fieldset><input type='submit' name='enviar' value='enviar'></form>";
 	mysql_close();

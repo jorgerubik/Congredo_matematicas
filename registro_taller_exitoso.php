@@ -59,9 +59,9 @@ require('script/conexion.php');
 	$titulo = htmlspecialchars($_POST['titulo_confirma']);
 	$contenido = htmlspecialchars($_POST['contenido_confirma']);
 	$materiales = htmlspecialchars($_POST['materiales_confirma']);
-	$id_autor = htmlspecialchars($_POST['id_autor_conf']);
-	$id_coautor1 = htmlspecialchars($_POST['id_coautor1_conf']);
-	$id_coautor2 = htmlspecialchars($_POST['id_coautor2_conf']);
+	$rfc_autor = htmlspecialchars($_POST['rfc_autor_conf']);
+	$rfc_coautor1 = htmlspecialchars($_POST['rfc_coautor1_conf']);
+	$rfc_coautor2 = htmlspecialchars($_POST['rfc_coautor2_conf']);
 	$requiere = $_POST['requiere_autor'];
 	$requiere1 = $_POST['requiere_coautor1'];
 	$requiere2 = $_POST['requiere_coautor2'];
@@ -97,16 +97,16 @@ require('script/conexion.php');
 				}	
 	
 		//insertando los datos
-		$query = "INSERT INTO ponencias_taller VALUES('$id_taller', '$id_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ')";
+		$query = "INSERT INTO ponencias_taller VALUES('$id_taller', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ')";
 		exe_query($query);
-		$query="INSERT INTO autores VALUES ('$id_autor', 'autor', 'T07', '$id_taller', '$requiere')";
+		$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T07', '$id_taller', '$requiere')";
 				exe_query($query);
-				if ($id_coautor1 != "") {
-					$query="INSERT INTO autores VALUES ('$id_coautor1', 'coautor1', 'T07', '$id_taller', '$requiere1')";
+				if ($rfc_coautor1 != "") {
+					$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T07', '$id_taller', '$requiere1')";
 					exe_query($query);
 				}
-				if ($id_coautor2 != ""){
-					$query="INSERT INTO autores VALUES ('$id_coautor2', 'coautor2', 'T07', '$id_taller', '$requiere2')";
+				if ($rfc_coautor2 != ""){
+					$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T07', '$id_taller', '$requiere2')";
 					exe_query($query);
 				}
 		
