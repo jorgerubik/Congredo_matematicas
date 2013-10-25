@@ -205,34 +205,33 @@ CREATE TABLE trayectoria_laboral (
 
 # Tabla para distinguir que tipo de congresista es cada usuario (un usuario puede ser mas de un tipo)
 #
-CREATE TABLE inscripcion_congresistas (
-	id_usuario			VARCHAR(15),
-	id_tipo_congresista VARCHAR(3),
+-- CREATE TABLE inscripcion_congresistas (
+-- 	id_usuario			VARCHAR(15),
+-- 	id_tipo_congresista VARCHAR(3),
 
-	PRIMARY KEY (id_usuario, id_tipo_congresista)
-) ENGINE = InnoDB;
+-- 	PRIMARY KEY (id_usuario, id_tipo_congresista)
+-- ) ENGINE = InnoDB;
 
-# Registro de pagos de congresistas
-#
-CREATE TABLE pagos (
-	id_usuario			VARCHAR(15),
-	id_tipo_pago		VARCHAR(3),
-    pago_aprobado		BIT,
+-- # Registro de pagos de congresistas
+-- #
+-- CREATE TABLE pagos (
+-- 	id_usuario			VARCHAR(15),
+-- 	id_tipo_pago		VARCHAR(3),
+--     pago_aprobado		BIT,
 
-    PRIMARY KEY (id_usuario)
-) ENGINE = InnoDB;
+--     PRIMARY KEY (id_usuario)
+-- ) ENGINE = InnoDB;
 
-# Tabla donde se almacenarán las imágenes de los comprobantes de pago que los congresistas envíen
-#
-CREATE TABLE comprobantes_pago (
-	folio_comprobante	INT			 AUTO_INCREMENT,
-	id_usuario			VARCHAR(15),
-	imagen_comprobante	MEDIUMBLOB,
-	formato_comprobante	VARCHAR(10),
+-- # Tabla donde se almacenarán las imágenes de los comprobantes de pago que los congresistas envíen
+-- #
+-- CREATE TABLE comprobantes_pago (
+-- 	folio_comprobante	INT			 AUTO_INCREMENT,
+-- 	id_usuario			VARCHAR(15),
+-- 	imagen_comprobante	MEDIUMBLOB,
+-- 	formato_comprobante	VARCHAR(10),
 
-	PRIMARY KEY (folio_comprobante)
-) ENGINE = InnoDB;
-
+-- 	PRIMARY KEY (folio_comprobante)
+-- ) ENGINE = InnoDB;
 
 
 
@@ -244,7 +243,7 @@ CREATE TABLE comprobantes_pago (
 #
 CREATE TABLE ponencias_oral (
 	id_ponencia_oral	 VARCHAR(15),
-	id_usuario			 VARCHAR(15),
+	RFC			VARCHAR(13),
 	id_categoria		 VARCHAR(3),
 	id_modalidad		 VARCHAR(3),
 	titulo_oral			 TEXT,
@@ -261,7 +260,7 @@ CREATE TABLE ponencias_oral (
 #
 CREATE TABLE ponencias_cartel (
 	id_ponencia_cartel	 	VARCHAR(15),
-	id_usuario			 	VARCHAR(15),
+	RFC			VARCHAR(13),
 	id_categoria		 	VARCHAR(3),
 	id_modalidad		 	VARCHAR(3),
 	titulo_cartel			TEXT,
@@ -280,7 +279,7 @@ CREATE TABLE ponencias_cartel (
 #
 CREATE TABLE ponencias_taller (
 	id_ponencia_taller	VARCHAR(15),
-	id_usuario			VARCHAR(15),
+	RFC			VARCHAR(13),
 	titulo_taller		TEXT,
  -- contenido_taller			 
 	resumen_taller		TEXT,
@@ -300,7 +299,7 @@ CREATE TABLE ponencias_taller (
 #
 CREATE TABLE ponencias_curso (
 	id_ponencia_curso	VARCHAR(15),
-	id_usuario			VARCHAR(15),
+	RFC			VARCHAR(13),
 	titulo_curso		TEXT,
  -- contenido_curso			 
 	resumen_curso		TEXT,
@@ -326,13 +325,13 @@ CREATE TABLE ponencias_curso (
 # Tabla para la idendificación de los autores de cada ponencia
 #
 CREATE TABLE autores (
-	id_usuario			VARCHAR(13),
+	RFC 	VARCHAR(13),
 	tipo_autor VARCHAR(15),
 	id_tipo_congresista	VARCHAR(5),
 	id_trabajo VARCHAR(15),
 	constancia VARCHAR(2),
 	
-	PRIMARY KEY (id_usuario, id_trabajo)
+	PRIMARY KEY (RFC, id_trabajo)
 ) ENGINE = InnoDB;
 
 
