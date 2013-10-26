@@ -1,9 +1,9 @@
-
+  
 <form action="registro_curso_verifica.php" method="post" autocomplete="off" class="forms">
 	<fieldset id="ponencia">
 		<legend>Formulario de registro</legend>
 		<legend>Título (máximo 15 palabras)</legend>
-		<input type="text"  id="titulo_curso" name="titulo_curso" onblur="wordCountf();">
+		<input type="text"  id="titulo_curso" name="titulo_curso" onblur="wordCountf();" class="titulo_trabajo">
 	</fieldset>
 	<fieldset>
 		<legend>Contenido (máximo 300 palabras)</legend>

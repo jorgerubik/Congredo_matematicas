@@ -89,9 +89,15 @@ require('script/conexion.php');
 					return $r;
 					
 				}	
-	
+		$query_sacar_rfc = "SELECT RFC FROM usuarios WHERE id_usuario = '".$usuario."';";
+				$result_rfc=exe_query($query_sacar_rfc);
+				$row_rfc = mysql_fetch_array($result_rfc); 
+
+				$rfc = $row_rfc[0];		
+
+
 		//insertando los datos
-		$query = "SELECT * FROM ponencias_taller WHERE id_usuario = '".$usuario."'";
+		$query = "SELECT * FROM ponencias_taller WHERE RFC = '".$rfc."'";
 					$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";
@@ -136,7 +142,7 @@ require('script/conexion.php');
 		</fieldset>
 		<?php
 					}
-		$query = "SELECT * FROM ponencias_oral WHERE id_usuario = '".$usuario."'";
+		$query = "SELECT * FROM ponencias_oral WHERE RFC = '".$rfc."'";
 					$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";
@@ -186,7 +192,7 @@ require('script/conexion.php');
 					<?php		 
 					}
 
-		$query = "SELECT * FROM ponencias_curso WHERE id_usuario = '".$usuario."'";
+		$query = "SELECT * FROM ponencias_curso WHERE RFC = '".$rfc."'";
 					$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";
@@ -232,7 +238,7 @@ require('script/conexion.php');
 
 					}	
 
-		$query = "SELECT * FROM ponencias_cartel WHERE id_usuario = '".$usuario."'";
+		$query = "SELECT * FROM ponencias_cartel WHERE RFC = '".$rfc."'";
 					$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";

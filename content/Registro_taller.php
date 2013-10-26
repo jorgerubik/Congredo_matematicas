@@ -4,7 +4,7 @@
 	<fieldset id="ponencia">
 		<legend>Formulario de registro</legend>
 		<legend>Título (máximo 15 palabras)</legend>
-		<input type="text"  id="titulo_taller" name="titulo_taller" onblur="wordCountg();">
+		<input type="text"  id="titulo_taller" name="titulo_taller" onblur="wordCountg();" class="titulo_trabajo">
 	</fieldset>
 	<fieldset>
 		<legend>Contenido (máximo 300 palabras)</legend>

@@ -86,12 +86,14 @@ exit;
 				$row_rfc = mysql_fetch_array($result_rfc); 
 
 				$rfc = $row_rfc[0];	
-
-
-				$query = "SELECT COUNT(*) FROM autores WHERE RFC = '".$rfc."'";
-				$result=exe_query($query);
-				$row = mysql_fetch_array($result); 
 				
+				$query = "SELECT COUNT(*) FROM autores WHERE RFC = '".$rfc."';";
+				$result=exe_query($query);
+				$row = mysql_fetch_array($result);
+				$row_ca = $row[0];
+				
+					
+
 				if ($row[0]>=5) {
 					# code...
 					echo "Ha registrado el número límite de trabajos (5) si desea actualizar o dar de baja alguno, de click en editar perfil";

@@ -374,7 +374,7 @@
 		  
  		 }
 
- 		 function wordCountf() {
+ 		 function wordCountg() {
  		  // Función que nos va a contar el número de caracteres
  		  // y de palabras del area de texto de un formulario
 
