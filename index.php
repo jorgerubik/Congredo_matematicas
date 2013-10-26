@@ -2,7 +2,7 @@
 	include "script/script_login.php";
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="ES">
 	<head>
 		<title>6&deg; Congreso de Matem&aacute;ticas</title>
 		<?php

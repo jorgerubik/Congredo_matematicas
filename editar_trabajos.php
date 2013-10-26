@@ -170,7 +170,8 @@ require('script/conexion.php');
 							 "</td></tr><tr><td>Referencias:</td><td>".
 							 $row['referencias_oral']."</td></tr>".
 							 "</tbody></table><br>";
-
+							 $id_trabajo = $row['id_ponencia_oral'];
+							 
 					?>
 					<fieldset>
 			<legend>Acción a realizar:</legend>
@@ -178,6 +179,7 @@ require('script/conexion.php');
 				
 					<legend></legend>
 					<legend>Editar:</legend>
+				<?	echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'>" ?><br>
 					<input type="submit" value="Editar">
 				
 			</form>

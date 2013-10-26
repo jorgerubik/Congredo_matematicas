@@ -1,4 +1,5 @@
 	<meta charset="UTF-8">
+	<link href="imagenes/favicon.ico" type="image/x-icon" rel="shortcut icon">
 	<link rel="stylesheet" type="text/css" href="estilos/estilo.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.js"></script>

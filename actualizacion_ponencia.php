@@ -58,17 +58,17 @@ require ('script/utiles.php');
 require('script/conexion.php');
 
 //defino variables del formulario de registro general
-	$id_usuario = $_SESSION['usuario_id']; 
+	$usuario = $_SESSION['usuario_id']; 
 	$titulo = htmlspecialchars($_POST['titulo_confirma']);
 	$categoria = $_POST['categoria_confirma'];
 	$modalidad = $_POST['modalidad_confirma'];
 	$resumen = htmlspecialchars($_POST['resumen_confirma']);
 	$referencias = htmlspecialchars($_POST['referencias_confirma']);
-	$id_autor = htmlspecialchars($_POST['id_autor_conf']);
-	$id_coautor1 = htmlspecialchars($_POST['id_coautor1_conf']);
-	$id_coautor2 = htmlspecialchars($_POST['id_coautor2_conf']);
-	$id_coautor3 = htmlspecialchars($_POST['id_coautor3_conf']);
-	$id_coautor4 = htmlspecialchars($_POST['id_coautor4_conf']);
+	$rfc_autor = htmlspecialchars($_POST['rfc_autor_conf']);
+	$rfc_coautor1 = htmlspecialchars($_POST['rfc_coautor1_conf']);
+	$rfc_coautor2 = htmlspecialchars($_POST['rfc_coautor2_conf']);
+	$rfc_coautor3 = htmlspecialchars($_POST['rfc_coautor3_conf']);
+	$rfc_coautor4 = htmlspecialchars($_POST['rfc_coautor4_conf']);
 	$requiere = $_POST['requiere_autor'];
 	$requiere1 = $_POST['requiere_coautor1'];
 	$requiere2 = $_POST['requiere_coautor2'];
@@ -104,8 +104,13 @@ require('script/conexion.php');
 					return $r;
 					
 				}	
+				$query_sacar_rfc = "SELECT RFC FROM usuarios WHERE id_usuario = '".$usuario."';";
+				$result_rfc=exe_query($query_sacar_rfc);
+				$row_rfc = mysql_fetch_array($result_rfc); 
+
+				$rfc = $row_rfc[0];
 	
-				$query = "SELECT * FROM ponencias_oral WHERE id_usuario = '".$id_usuario."'";
+				$query = "SELECT * FROM ponencias_oral WHERE RFC = '".$rfc_usuario."'";
 				$cambio = exe_query($query);
 				$row = mysql_fetch_assoc($cambio);
 				$id_ponencia = $row['id_ponencia_oral'];
@@ -113,45 +118,45 @@ require('script/conexion.php');
 				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor1'";
 				$cambio1 = exe_query($query);
 				$row1 = mysql_fetch_assoc($cambio1);
-				$coautor1 = $row1['id_usuario'];
+				$coautor1 = $row1['RFC'];
 
 				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor2'";
 				$cambio2 = exe_query($query);
 				$row2 = mysql_fetch_assoc($cambio2);
-				$coautor2 = $row2['id_usuario'];
+				$coautor2 = $row2['RFC'];
 
 				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor3'";
 				$cambio3 = exe_query($query);
 				$row3 = mysql_fetch_assoc($cambio3);
-				$coautor3 = $row3['id_usuario'];
+				$coautor3 = $row3['RFC'];
 
 				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor4'";
 				$cambio4 = exe_query($query);
 				$row4 = mysql_fetch_assoc($cambio4);
-				$coautor4 = $row4['id_usuario'];
+				$coautor4 = $row4['RFC'];
 				
 
 				//insertando los datos
-				$query = "UPDATE ponencias_oral SET id_usuario = '$id_autor', titulo_oral = '$titulo', resumen_oral = '$contenido', referencias_oral = '$referencias', id_categoria = '$categoria', id_modalidad = '$modalidad' WHERE id_ponencia_oral = '$id_ponencia' ";
+				$query = "UPDATE ponencias_oral SET RFC = '$rfc_autor', titulo_oral = '$titulo', resumen_oral = '$contenido', referencias_oral = '$referencias', id_categoria = '$categoria', id_modalidad = '$modalidad' WHERE id_ponencia_oral = '$id_ponencia' ";
 				exe_query($query);
-				$query = "UPDATE autores SET id_usuario = '$id_autor', tipo_autor = 'autor', constancia = '$requiere' WHERE id_trabajo = '$id_ponencia' AND id_usuario = '$id_usuario'";
+				$query = "UPDATE autores SET RFC = '$rfc_autor', tipo_autor = 'autor', constancia = '$requiere' WHERE id_trabajo = '$id_ponencia' AND RFC = '$rfc'";
 				exe_query($query);
 				if($id_coautor1 != ""){
-					$query = "UPDATE autores SET id_usuario = '$id_coautor1', tipo_autor = 'coautor1', constancia = '$requiere1' WHERE id_trabajo = '$id_ponencia' AND id_usuario = '$coautor1'";
+					$query = "UPDATE autores SET RFC = '$rfc_coautor1', tipo_autor = 'coautor1', constancia = '$requiere1' WHERE id_trabajo = '$id_ponencia' AND RFC = '$coautor1'";
 					exe_query($query);
 				}
 				if ($id_coautor2 != "") {
-					$query = "UPDATE autores SET id_usuario = '$id_coautor2', tipo_autor = 'coautor2', constancia = '$requiere2' WHERE id_trabajo = '$id_ponencia' AND id_usuario = '$coautor2'";
+					$query = "UPDATE autores SET RFC = '$rfc_coautor2', tipo_autor = 'coautor2', constancia = '$requiere2' WHERE id_trabajo = '$id_ponencia' AND RFC = '$coautor2'";
 					exe_query($query);
 				}
 
 				if ($id_coautor3 != "") {
-					$query = "UPDATE autores SET id_usuario = '$id_coautor3', tipo_autor = 'coautor3', constancia = '$requiere3' WHERE id_trabajo = '$id_ponencia' AND id_usuario = '$coautor3'";
+					$query = "UPDATE autores SET RFC = '$rfc_coautor3', tipo_autor = 'coautor3', constancia = '$requiere3' WHERE id_trabajo = '$id_ponencia' AND RFC = '$coautor3'";
 					exe_query($query);
 				}
 
 				if ($id_coautor4 != "") {
-					$query = "UPDATE autores SET id_usuario = '$id_coautor4', tipo_autor = 'coautor4', constancia = '$requiere4' WHERE id_trabajo = '$id_ponencia' AND id_usuario = '$coautor4'";
+					$query = "UPDATE autores SET RFC = '$rfc_coautor4', tipo_autor = 'coautor4', constancia = '$requiere4' WHERE id_trabajo = '$id_ponencia' AND RFC = '$coautor4'";
 					exe_query($query);
 				}
 							
