@@ -52,16 +52,16 @@ exit;
 			<div class="cajatextoscroll">
 				<div class="cajatexto">
 			
-
-<form action="eliminar_taller.php">
-	<fieldset>
-		<legend>Eliminar</legend>
-		<legend>Esta seguro de eliminar el Taller</legend>
-		<input type="submit" value="si">
-		<legend>No</legend>
-		<a href="editar_trabajos.php">Regresar</a>
-	</fieldset>
-</form>
+<?php
+	echo"<form action='eliminar_taller.php' method='post'>";
+	$id_trabajo = $_POST['id_trabajo'];
+	echo"<fieldset><legend>Eliminar</legend>	<legend>Esta seguro de eliminar el Taller</legend>";
+	echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'><br>";
+	echo"<input type='submit' value='si'>";
+	echo'<legend>No</legend>';
+	echo"<a href='editar_trabajos.php'>Regresar</a>";
+	echo"</fieldset></form>";
+	?>
 		</div>
 	</div>
 </section>		

@@ -121,6 +121,7 @@ require('script/conexion.php');
 							 "</td></tr><tr><td>Material:</td><td>".
 							 $row['material_taller']."</td></tr>".
 							 "</tbody></table><br>";
+							 $id_trabajo = $row['id_ponencia_taller'];
 					
 		?>
 		<fieldset>
@@ -129,6 +130,8 @@ require('script/conexion.php');
 				
 					<legend></legend>
 					<legend>Editar:</legend>
+				<?	echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'>" ?><br>
+
 					<input type="submit" value="Editar">
 				
 			</form>
@@ -136,6 +139,8 @@ require('script/conexion.php');
 				
 					<legend></legend>
 					<legend>Eliminar</legend>
+				<?	echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'>" ?><br>
+					
 					<input type="submit" value="eliminar">
 				
 			</form>
@@ -187,6 +192,7 @@ require('script/conexion.php');
 				
 					<legend></legend>
 					<legend>Eliminar</legend>
+					<?	echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'>"  ?><br>
 					<input type="submit" value="eliminar">
 				
 			</form>
@@ -218,6 +224,7 @@ require('script/conexion.php');
 							 "</td></tr><tr><td>Materiales:</td><td>".
 							 $row['material_curso']."</td></tr>".
 							 "</tbody></table><br>";
+							 $id_trabajo = $row['id_ponencia_curso'];
 					?>
 					<fieldset>
 			<legend>Acción a realizar:</legend>
@@ -225,6 +232,7 @@ require('script/conexion.php');
 				
 					<legend></legend>
 					<legend>Editar:</legend>
+					<?	echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'>"  ?><br>
 					<input type="submit" value="Editar">
 				
 			</form>
@@ -232,6 +240,7 @@ require('script/conexion.php');
 				
 					<legend></legend>
 					<legend>Eliminar</legend>
+					<?	echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'>"  ?><br>
 					<input type="submit" value="eliminar">
 				
 			</form>
@@ -268,6 +277,7 @@ require('script/conexion.php');
 							 "</td></tr><tr><td>Referencias:</td><td>".
 							 $row['referencias_cartel']."</td></tr>".
 							 "</tbody></table><br>";
+							 $id_trabajo = $row['id_ponencia_cartel'];
 
 					?>
 					<fieldset>
@@ -276,13 +286,15 @@ require('script/conexion.php');
 				
 					<legend></legend>
 					<legend>Editar:</legend>
+					<?	echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'>"  ?><br>
 					<input type="submit" value="Editar">
 				
 			</form>
-			<form action="eliminar_cartel.php" method="post">
+			<form action="elimina_cartel_confirma.php" method="post">
 				
 					<legend></legend>
 					<legend>Eliminar</legend>
+					<?	echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'>"  ?><br>
 					<input type="submit" value="eliminar">
 				
 			</form>

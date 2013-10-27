@@ -54,7 +54,7 @@ exit;
 	<?php			
 		$id_trabajo = $_POST['id_trabajo'];
 
-		echo"<form action='eliminar_curso.php' method='post'>";
+		echo"<form action='eliminar_cartel.php' method='post'>";
 		echo"<fieldset><legend>Eliminar</legend><legend>Esta seguro de eliminar el Curso</legend>";
 		echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'><br>";
 		echo"<input type='submit' value='si'>";

@@ -59,7 +59,7 @@ require('script/conexion.php');
 
 //defino variables del formulario de registro general
 	$id_usuario = $_SESSION['usuario_id']; 
-	
+	$id_trabajo = $_POST['id_trabajo'];
 //conexión con servidor
 	require('script/bd.php');
 //conectar con el servidor
@@ -91,13 +91,9 @@ require('script/conexion.php');
 				}	
 	
 		//insertando los datos
-		$query = "SELECT * FROM ponencias_taller WHERE id_usuario = '".$id_usuario."'";
-				$cambio = exe_query($query);
-				$row = mysql_fetch_assoc($cambio);
-				$id_taller = $row['id_ponencia_taller'];
-		$query ="DELETE FROM ponencias_taller WHERE id_ponencia_taller = '$id_taller'";
+		$query ="DELETE FROM ponencias_taller WHERE id_ponencia_taller = '$id_trabajo'";
 		exe_query($query);
-		$query ="DELETE FROM autores WHERE id_trabajo = '$id_taller'";
+		$query ="DELETE FROM autores WHERE id_trabajo = '$id_trabajo'";
 		exe_query($query);
 	mysql_close();	
 

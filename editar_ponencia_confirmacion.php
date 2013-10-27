@@ -60,7 +60,7 @@ require('script/conexion.php');
 //defino variables del formulario de registro general
 	$usuario = $_SESSION['usuario_id']; 
 	
-	
+	$id_trabajo = $_POST['id_trabajo'];
 	$titulo = htmlspecialchars($_POST['Titulo_ponencia']);
 	$categoria = $_POST['Categoria'];
 	$modalidad = $_POST['modalidad'];
@@ -200,7 +200,8 @@ require('script/conexion.php');
 					echo "<tr><td><input type='text' name='rfc_coautor2_conf' value='".$rfc_coautor2."'></td><td><input type='text' name='requiere_coautor2' value='".$requiere2."'></td></tr>";
 					echo "<tr><td><input type='text' name='rfc_coautor3_conf' value='".$rfc_coautor3."'></td><td><input type='text' name='requiere_coautor3' value='".$requiere3."'></td></tr>";
 					echo "<tr><td><input type='text' name='rfc_coautor4_conf' value='".$rfc_coautor4."'></td><td><input type='text' name='requiere_coautor4' value='".$requiere4."'></td></tr>";
-					
+					echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'>  <br>";
+
 		
 	mysql_close();
 ?>

@@ -59,6 +59,7 @@ require('script/conexion.php');
 
 //defino variables del formulario de registro general
 	$id_usuario = $_SESSION['usuario_id']; 
+	$id_trabajo = $_POST['id_trabajo1'];
 	
 //conexión con servidor
 	require('script/bd.php');
@@ -91,18 +92,15 @@ require('script/conexion.php');
 				}	
 	
 		//insertando los datos
-		$query = "SELECT * FROM ponencias_oral WHERE id_usuario = '".$id_usuario."'";
-				$cambio = exe_query($query);
-				$row = mysql_fetch_assoc($cambio);
-				$id_oral = $row['id_ponencia_oral'];
-		$query ="DELETE FROM ponencias_oral WHERE id_ponencia_oral = '$id_oral'";
+		
+		$query ="DELETE FROM ponencias_oral WHERE id_ponencia_oral = '$id_trabajo'";
 		exe_query($query);
-		$query ="DELETE FROM autores WHERE id_trabajo = '$id_oral'";
+		$query ="DELETE FROM autores WHERE id_trabajo = '$id_trabajo'";
 		exe_query($query);
 	mysql_close();	
 
 ?>
-	Se ha eliminado su Taller<br>
+	Se ha eliminado su Ponencia<br>
 	<a href="registro_trabajos.php">Regresar al menú</a>
 </section>		
 		

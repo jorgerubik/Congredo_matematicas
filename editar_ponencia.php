@@ -396,16 +396,16 @@ require('script/conexion.php');
   							 $requiere1 = $row_requiere1[0];
   							 if ($requiere1 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere' value='".$requiere1."' checked>Si <input type='radio' name='requiere' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere1' value='".$requiere1."' checked>Si <input type='radio' name='requiere1' id='requiere' value='NO'>NO </td></tr>";
   							 }
   							 if ($requiere1 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere' value='SI'>Si <input type='radio' name='requiere' id='requiere' value='".$requiere1."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere' value='".$requiere1."' checked>NO </td></tr>";
 
   							 }
   							 if ($requiere1 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere' value='SI'>Si <input type='radio' name='requiere' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere' value='NO'>NO </td></tr>";
  							 	
   							 }
   							 echo "<tr> <th>Coautor 2</th>";
@@ -416,16 +416,16 @@ require('script/conexion.php');
   							 $requiere2 = $row_requiere2[0];
   							 if ($requiere2 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere' value='".$requiere2."' checked>Si <input type='radio' name='requiere' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere2' value='".$requiere2."' checked>Si <input type='radio' name='requiere2' id='requiere' value='NO'>NO </td></tr>";
   							 }
   							 if ($requiere2 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere' value='SI'>Si <input type='radio' name='requiere' id='requiere' value='".$requiere2."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere2' value='SI'>Si <input type='radio' name='requiere2'  id='requiere' value='".$requiere2."' checked>NO </td></tr>";
 
   							 }
   							 if ($requiere2 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere' value='SI'>Si <input type='radio' name='requiere' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere2' value='SI'>Si <input type='radio' name='requiere2' id='requiere' value='NO'>NO </td></tr>";
  							 	
   							 }
   							 echo "<tr> <th>Coautor 3</th>";
@@ -436,16 +436,16 @@ require('script/conexion.php');
   							 $requiere3 = $row_requiere3[0];
   							 if ($requiere3 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere' value='".$requiere3."' checked>Si <input type='radio' name='requiere' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere3' value='".$requiere3."' checked>Si <input type='radio' name='requiere3' id='requiere' value='NO'>NO </td></tr>";
   							 }
   							 if ($requiere3 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere' value='SI'>Si <input type='radio' name='requiere' id='requiere' value='".$requiere3."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere3' value='SI'>Si <input type='radio' name='requiere3' id='requiere' value='".$requiere3."' checked>NO </td></tr>";
 
   							 }
   							 if ($requiere3 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere' value='SI'>Si <input type='radio' name='requiere' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere3' value='SI'>Si <input type='radio' name='requiere3' id='requiere' value='NO'>NO </td></tr>";
  							 	
   							 }
   							 echo "<tr> <th>Coautor 4</th>";
@@ -456,20 +456,22 @@ require('script/conexion.php');
   							 $requiere4 = $row_requiere4[0];
   							 if ($requiere4 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere' value='".$requiere4."' checked>Si <input type='radio' name='requiere' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere4' value='".$requiere4."' checked>Si <input type='radio' name='requiere4' id='requiere' value='NO'>NO </td></tr>";
   							 }
   							 if ($requiere4 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere' value='SI'>Si <input type='radio' name='requiere' id='requiere' value='".$requiere4."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere4' value='SI'>Si <input type='radio' name='requiere4' ' id='requiere' value='".$requiere4."' checked>NO </td></tr>";
 
   							 }
   							 if ($requiere4 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere' value='SI'>Si <input type='radio' name='requiere' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere4' value='SI'>Si <input type='radio' name='requiere3' id='requiere' value='NO'>NO </td></tr>";
  							 	
   							 }
 							 echo "</table></fieldset>";
 					}		 
+					echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'>  <br>";
+
 		
 	mysql_close();
 ?>

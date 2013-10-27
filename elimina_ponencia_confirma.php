@@ -51,13 +51,15 @@ exit;
 		<section id="seccion">
 			<div class="cajatextoscroll">
 				<div class="cajatexto">
-			
-
-<form action="eliminar_ponencia.php">
-	<fieldset>
-		<legend>Eliminar</legend>
-		<legend>Esta seguro de eliminar la Ponencia</legend>
-		<input type="submit" value="si">
+<?php			
+	$id_trabajo = $_POST['id_trabajo'];
+	echo"<form action='eliminar_ponencia.php' method='post' >";
+	echo"<fieldset>";
+	echo"<input type='text' name='id_trabajo1' value='".$id_trabajo."' style='visibility:hidden;'><br>";
+	echo"<legend>Eliminar</legend>";
+	echo"<legend>Esta seguro de eliminar la Ponencia</legend>";
+	echo"<input type='submit' value='si'>";
+?>		
 		<legend>No</legend>
 		<a href="editar_trabajos.php">Regresar</a>
 	</fieldset>

@@ -51,7 +51,7 @@ exit;
 		<section id="seccion">
 			<div class="cajatextoscroll">
 				<div class="cajatexto">
-			
+
 <?php
 
 require ('script/utiles.php');
@@ -60,16 +60,6 @@ require('script/conexion.php');
 //defino variables del formulario de registro general
 	$id_usuario = $_SESSION['usuario_id']; 
 	$id_trabajo = $_POST['id_trabajo'];
-	$titulo = htmlspecialchars($_POST['titulo_confirma']);
-	$contenido = htmlspecialchars($_POST['contenido_confirma']);
-	$materiales = htmlspecialchars($_POST['materiales_confirma']);
-	$rfc_autor = htmlspecialchars($_POST['rfc_autor_conf']);
-	$rfc_coautor1 = htmlspecialchars($_POST['rfc_coautor1_conf']);
-	$rfc_coautor2 = htmlspecialchars($_POST['rfc_coautor2_conf']);
-	$requiere = $_POST['requiere_autor'];
-	$requiere1 = $_POST['requiere_coautor1'];
-	$requiere2 = $_POST['requiere_coautor2'];
-	
 //conexión con servidor
 	require('script/bd.php');
 //conectar con el servidor
@@ -99,46 +89,17 @@ require('script/conexion.php');
 					return $r;
 					
 				}	
-				$query_sacar_rfc = "SELECT RFC FROM usuarios WHERE id_usuario = '".$usuario."';";
-				$result_rfc=exe_query($query_sacar_rfc);
-				$row_rfc = mysql_fetch_array($result_rfc); 
-
-				$rfc = $row_rfc[0];
 	
-				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor1'";
-				$cambio1 = exe_query($query);
-				$row1 = mysql_fetch_assoc($cambio1);
-				$coautor1 = $row1['RFC'];
+		//insertando los datos
+		$query ="DELETE FROM ponencias_cartel WHERE id_ponencia_cartel = '$id_trabajo'";
+		exe_query($query);
+		$query ="DELETE FROM autores WHERE id_trabajo = '$id_trabajo'";
+		exe_query($query);
+	mysql_close();	
 
-				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor2'";
-				$cambio2 = exe_query($query);
-				$row2 = mysql_fetch_assoc($cambio2);
-				$coautor2 = $row2['RFC'];
-				
-
-				//insertando los datos
-				$query = "UPDATE ponencias_taller SET RFC = '$rfc_autor', titulo_taller = '$titulo', resumen_taller = '$contenido', material_taller = '$materiales' WHERE id_ponencia_taller = '$id_trabajo' ";
-				exe_query($query);
-				$query = "UPDATE autores SET RFC = '$rfc_autor', tipo_autor = 'autor', constancia = '$requiere' WHERE id_trabajo = '$id_trabajo' AND RFC = '$rfc'";
-				exe_query($query);
-				if($rfc_coautor1 != ""){
-					$query = "UPDATE autores SET RFC = '$rfc_coautor1', tipo_autor = 'coautor1', constancia = '$requiere1' WHERE id_trabajo = '$id_trabajo' AND RFC = '$coautor1'";
-					exe_query($query);
-				}
-				if ($rfc_coautor2 != "") {
-					$query = "UPDATE autores SET RFC = '$rfc_coautor2', tipo_autor = 'coautor2', constancia = '$requiere2' WHERE id_trabajo = '$id_trabajo' AND RFC = '$coautor2'";
-					exe_query($query);
-				}
-							
-
-					
-		echo "Se ha introducido satisfactoriamente el cambio <br>";
-		
-	mysql_close();
 ?>
-		
-	</div>
-	</div>
+	Se ha eliminado su Cartel<br>
+	<a href="registro_trabajos.php">Regresar al menú</a>
 </section>		
 		
 		<!-- aside de la página -->
