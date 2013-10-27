@@ -195,19 +195,25 @@ require('script/conexion.php');
 
 
 
-					
-					echo "<input type='text' name='titulo_confirma' value='".$titulo."' style='visibility:hidden;'>";
-					echo "<input type='text' name='categoria_confirma' value='".$categoria."' style='visibility:hidden;'>";
-					echo "<input type='text' name='modalidad_confirma' value='".$modalidad."' style='visibility:hidden;'>";
-					echo "<textarea  rows='6' cols='50' name='resumen_confirma' style='visibility:hidden;'>".$resumen."</textarea>";
-					echo "<textarea  rows='6' cols='50' name='referencias_confirma' style='visibility:hidden;'>".$referencias."</textarea>";
-					echo "<input type='text' name='rfc_autor_conf' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' value='".$requiere."' style='visibility:hidden;'>";
-					echo "<input type='text' name='rfc_coautor1_conf' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' value='".$requiere1."' style='visibility:hidden;'>";
-					echo "<input type='text' name='rfc_coautor2_conf' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' value='".$requiere2."' style='visibility:hidden;'>";
-					echo "<input type='text' name='rfc_coautor3_conf' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' value='".$requiere3."' style='visibility:hidden;'>";
-					echo "<input type='text' name='rfc_coautor4_conf' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' value='".$requiere4."' style='visibility:hidden;'>";
+					echo "</fieldset><fieldset id='edicion' style='visibility:hidden;'><legend id='edicion'>Edición</legend>";
+					echo "<legend id='edicion'>Titulo:</legend>";	
+					echo "<input type='text' name='titulo_confirma'id='titulo' value='".$titulo."' style='visibility:hidden;'>";
+					echo "<legend id='edicion'>Categoria:</legend>";
+					echo "<input type='text' name='categoria_confirma' id='categoria' value='".$categoria."' style='visibility:hidden;'>";
+					echo "<legend id='edicion'>Modalidad:</legend>";
+					echo "<input type='text' name='modalidad_confirma' id='modalidad' value='".$modalidad."' style='visibility:hidden;'>";
+					echo "<legend id='edicion'>Resumen:</legend>";
+					echo "<textarea  rows='6' cols='50' name='resumen_confirma' id='resumen' style='visibility:hidden;'>".$resumen."</textarea>";
+					echo "<legend id='edicion'>Referencias:</legend>";
+					echo "<textarea  rows='6' cols='50' name='referencias_confirma' id='referencias' style='visibility:hidden;'>".$referencias."</textarea>";
+					echo "<legend id='edicion'>Autores:</legend>";
+					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' id='constancia3' value='".$requiere3."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' id='constancia4' value='".$requiere4."' style='visibility:hidden;'>";
 					echo "<input type='text' id='id_cartel' name='id_cartel' style='visibility:hidden;' value='".$id_cartel."' />";
-					echo "</fieldset><a href='registro_cartel.php'>Editar</a><input type='submit' name='enviar' value='enviar'></form>";
+					echo "</fieldset><input type='button' value='Editar' onClick='Mostrar();'><input type='submit' name='enviar' value='enviar'></form>";
 
 	mysql_close();
 

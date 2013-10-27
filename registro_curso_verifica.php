@@ -159,19 +159,19 @@ require('script/conexion.php');
 					echo "<tr><td>".$rfc_coautor2."</td><td>".$requiere2."</td></tr>";
 					echo "</tbody></table>";
 
-
-					
-					echo "<input type='text' name='titulo_confirma' value='".$titulo."' style='visibility:hidden;'>";
-					
-					echo "<textarea  rows='6' cols='50' name='contenido_confirma' style='visibility:hidden;'>".$contenido."</textarea>";
-					
-					echo "<textarea  rows='6' cols='50' name='materiales_confirma' style='visibility:hidden;'>".$materiales."</textarea>";
-					
-					echo "<input type='text' name='rfc_autor_conf' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' value='".$requiere."' style='visibility:hidden;'>";
-					echo "<input type='text' name='rfc_coautor1_conf' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' value='".$requiere1."' style='visibility:hidden;'>";
-					echo "<input type='text' name='rfc_coautor2_conf' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' value='".$requiere2."' style='visibility:hidden;'>";
+					echo "</fieldset><fieldset id='edicion' style='visibility:hidden;'><legend id='edicion'>Edición</legend>";
+					echo "<legend id='edicion'>Titulo:</legend>";
+					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."' style='visibility:hidden;'>";
+					echo "<legend id='edicion'>Contenido:</legend>";
+					echo "<textarea  rows='6' cols='50' name='contenido_confirma' id='contenido' style='visibility:hidden;'>".$contenido."</textarea>";
+					echo "<legend id='edicion'>Materiales:</legend>";
+					echo "<textarea  rows='6' cols='50' name='materiales_confirma' id='materiales' style='visibility:hidden;'>".$materiales."</textarea>";
+					echo "<legend id='edicion'>Autores:</legend>";
+					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
 					echo "<input type='text' id='id_curso' name='id_curso' style='visibility:hidden;' value='".$id_curso."' />";
-					echo "</table></fieldset><input type='submit' name='enviar' value='enviar'></form>";
+					echo "</table></fieldset><input type='button' value='Editar' onClick='Mostrar();'><input type='submit' name='enviar' value='enviar'></form>";
 	mysql_close();
 
 ?>
