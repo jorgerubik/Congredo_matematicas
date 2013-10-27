@@ -105,12 +105,12 @@ require('script/conexion.php');
 
 				$rfc = $row_rfc[0];
 	
-				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor1'";
+				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor1' AND id_trabajo = '".$id_trabajo."'";
 				$cambio1 = exe_query($query);
 				$row1 = mysql_fetch_assoc($cambio1);
 				$coautor1 = $row1['RFC'];
-
-				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor2'";
+				
+				$query = "SELECT * FROM autores WHERE tipo_autor = 'coautor2' AND id_trabajo = '".$id_trabajo."'";
 				$cambio2 = exe_query($query);
 				$row2 = mysql_fetch_assoc($cambio2);
 				$coautor2 = $row2['RFC'];
@@ -121,12 +121,24 @@ require('script/conexion.php');
 				exe_query($query);
 				$query = "UPDATE autores SET RFC = '$rfc_autor', tipo_autor = 'autor', constancia = '$requiere' WHERE id_trabajo = '$id_trabajo' AND RFC = '$rfc'";
 				exe_query($query);
-				if($rfc_coautor1 != ""){
+				if($coautor1 != "" && $rfc_coautor1 != ""){
 					$query = "UPDATE autores SET RFC = '$rfc_coautor1', tipo_autor = 'coautor1', constancia = '$requiere1' WHERE id_trabajo = '$id_trabajo' AND RFC = '$coautor1'";
 					exe_query($query);
 				}
-				if ($rfc_coautor2 != "") {
+				//si coautor1 no existe lo registra, no lo actualiza
+				if ($rfc_coautor1 != "" && $coautor1 == "") {
+					$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T07' , '$id_trabajo', '$requiere1')";
+					exe_query($query);
+				}
+
+				//si coautor 2 existe lo actualiza
+				if ($coautor2 != "" && $rfc_coautor2 != "") {
 					$query = "UPDATE autores SET RFC = '$rfc_coautor2', tipo_autor = 'coautor2', constancia = '$requiere2' WHERE id_trabajo = '$id_trabajo' AND RFC = '$coautor2'";
+					exe_query($query);
+				}
+				//si coautor2 no existe lo registra, no lo actualiza
+				if ($rfc_coautor2 != "" && $coautor2 == "") {
+					$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T07' , '$id_trabajo', '$requiere2')";
 					exe_query($query);
 				}
 							

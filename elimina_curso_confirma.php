@@ -58,9 +58,15 @@ exit;
 		echo"<fieldset><legend>Eliminar</legend><legend>Esta seguro de eliminar el Curso</legend>";
 		echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'><br>";
 		echo"<input type='submit' value='si'>";
-		echo"<legend>No</legend>";
-		echo"<a href='editar_trabajos.php'>Regresar</a>";
 		echo"</fieldset></form>";
+		echo "<form action='eliminar_coautor_curso.php' method='post'><fieldset> ";
+		echo "<legend>Desea eliminar un coautor: </legend>";
+		echo "<legend>Favor de introducir el RFC del coautor a eliminar: </legend>";
+		echo "<input type='text' name='rfc_coautor' required> ";
+		echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'><br>";
+		echo "<input type='submit' value='Eliminar Coautor'><br> ";
+		echo"<legend>No</legend>";
+		echo"<a href='editar_trabajos.php'>Regresar</a></fieldset>";
 	?>	
 		</div>
 	</div>

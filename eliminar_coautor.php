@@ -51,25 +51,55 @@ exit;
 		<section id="seccion">
 			<div class="cajatextoscroll">
 				<div class="cajatexto">
-	<?php			
-		$id_trabajo = $_POST['id_trabajo'];
 
-		echo"<form action='eliminar_cartel.php' method='post'>";
-		echo"<fieldset><legend>Eliminar</legend><legend>Desea eliminar el Curso:</legend>";
-		echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'><br>";
-		echo"<input type='submit' value='si'>";
-		echo"</fieldset></form>";
-		echo "<form action='eliminar_coautor.php' method='post'><fieldset> ";
-		echo "<legend>Desea eliminar un coautor: </legend>";
-		echo "<legend>Favor de introducir el RFC del coautor a eliminar: </legend>";
-		echo "<input type='text' name='rfc_coautor' required> ";
-		echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'><br>";
-		echo "<input type='submit' value='Eliminar Coautor'><br> ";
-		echo"<legend>No</legend>";
-		echo"<a href='editar_trabajos.php'>Regresar</a></fieldset>";
-	?>	
-		</div>
-	</div>
+<?php
+
+require ('script/utiles.php');
+require('script/conexion.php');
+
+//defino variables del formulario de registro general
+	$id_usuario = $_SESSION['usuario_id']; 
+	$id_trabajo = $_POST['id_trabajo'];
+	$rfc_coautor = $_POST['rfc_coautor'];
+//conexión con servidor
+	require('script/bd.php');
+//conectar con el servidor
+	$conn = mysql_connect("$host", "$user", "$pass");
+
+				if (!$conn) {
+					echo "No se posible conectar al servidor. <br>";
+					trigger_error(mysql_error(), E_USER_ERROR);
+				}
+				mysql_query("SET NAMES utf8");
+				# seleccionar BD
+				$rdb = mysql_select_db($db);
+
+				if (!$rdb) {
+					echo "No se puede seleccionar la BD. <br>";
+					trigger_error(mysql_error(), E_USER_ERROR);
+				}
+		////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
+
+				function exe_query($query){
+					
+					$r = mysql_query($query);
+					if (!$r) {
+						echo "No se ejecutó el query: $query <br>";
+						trigger_error(mysql_error(), E_USER_ERROR);
+					}
+					return $r;
+					
+				}	
+	
+		//insertando los datos
+		
+		$query ="DELETE FROM autores WHERE id_trabajo = '$id_trabajo' AND RFC = '".$rfc_coautor."'";
+		exe_query($query);
+	mysql_close();	
+
+?>
+	Se ha eliminado el Coautor<br>
+	<a href="registro_trabajos.php">Regresar al menú</a>
 </section>		
 		
 		<!-- aside de la página -->

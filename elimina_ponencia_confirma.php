@@ -59,11 +59,17 @@ exit;
 	echo"<legend>Eliminar</legend>";
 	echo"<legend>Esta seguro de eliminar la Ponencia</legend>";
 	echo"<input type='submit' value='si'>";
+	echo"</fieldset></form>";
+	echo "<form action='eliminar_coautor_ponencia.php' method='post'><fieldset> ";
+	echo "<legend>Desea eliminar un coautor: </legend>";
+	echo "<legend>Favor de introducir el RFC del coautor a eliminar: </legend>";
+	echo "<input type='text' name='rfc_coautor' required> ";
+	echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'><br>";
+	echo "<input type='submit' value='Eliminar Coautor'><br> ";
+	echo"<legend>No</legend>";
+	echo"<a href='editar_trabajos.php'>Regresar</a></fieldset>";
 ?>		
-		<legend>No</legend>
-		<a href="editar_trabajos.php">Regresar</a>
-	</fieldset>
-</form>
+		
 		</div>
 	</div>
 </section>		
