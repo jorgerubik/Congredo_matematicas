@@ -114,8 +114,22 @@ else{
 }
 
 $id_ponencia_oral = $ponencia_oral.$modalidad.$numero_ponencia_modalidad;
+$query_numero = "SELECT num_registro FROM ponencias_oral ORDER BY num_registro DESC LIMIT 1";
 
-$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL)";
+$result = exe_query($query_numero);
+
+$row = mysql_fetch_array($result);
+if($row[0] == 0){
+	$numero_ponencia = 1000;
+}
+else{
+	$numero_anterior = $row[0];
+	$numero_ponencia = 1 + $numero_anterior; 
+}
+
+$id_ponencia_oral = $ponencia_oral.$modalidad.$numero_ponencia_modalidad;
+
+$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia.")";
 exe_query($query);
 $query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere')";
 exe_query($query);

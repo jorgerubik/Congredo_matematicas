@@ -115,7 +115,22 @@ else{
 
 $id_ponencia_cartel = $cartel.$modalidad.$numero_ponencia_modalidad;
 
-$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL)";
+$query_numero = "SELECT num_registro FROM ponencias_cartel ORDER BY num_registro DESC LIMIT 1";
+
+$result = exe_query($query_numero);
+
+$row = mysql_fetch_array($result);
+if($row[0] == 0){
+	$numero_ponencia = 1000;
+}
+else{
+	$numero_anterior = $row[0];
+	$numero_ponencia = 1 + $numero_anterior; 
+}
+
+$id_ponencia_cartel = $ponencia_cartel.$modalidad.$numero_ponencia_modalidad;
+
+$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,NULL,NULL,".$numero_ponencia.")";
 exe_query($query);
 $query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere')";
 exe_query($query);

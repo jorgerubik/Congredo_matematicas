@@ -110,7 +110,23 @@ else{
 
 $id_ponencia_taller = $taller.$numero_ponencia;
 
-$query="INSERT INTO ponencias_taller VALUES ('".$taller.$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ')";
+
+$query_numero = "SELECT num_registro FROM ponencias_taller ORDER BY num_registro DESC LIMIT 1";
+
+$result = exe_query($query_numero);
+
+$row = mysql_fetch_array($result);
+if($row[0] == 0){
+	$numero_ponencia = 1000;
+}
+else{
+	$numero_anterior = $row[0];
+	$numero_ponencia = 1 + $numero_anterior; 
+}
+
+$id_ponencia_taller = $taller.$numero_ponencia;
+
+$query="INSERT INTO ponencias_taller VALUES ('".$taller.$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ',".$numero_ponencia.")";
 exe_query($query);
 $query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T07', '".$taller.$numero_ponencia."', '$requiere')";
 exe_query($query);
