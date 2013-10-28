@@ -49,34 +49,28 @@ exit;
 		
 		<!--sección de contenido -->
 		<section id="seccion">
-			<div class="cajatextoscroll">
-				<div class="cajatexto">
-			
 <?php
 
 require ('script/utiles.php');
 require('script/conexion.php');
 
 //defino variables del formulario de registro general
-	$usuario = $_SESSION['usuario_id']; 
-	$id_trabajo = $_POST['id_trabajo'];
-	
-	$titulo = htmlspecialchars($_POST['Titulo_cartel']);
+	$id_ponencia = htmlspecialchars($_POST['id_ponencia']);
+	$titulo = htmlspecialchars($_POST['Titulo_ponencia']);
 	$categoria = $_POST['Categoria'];
 	$modalidad = $_POST['modalidad'];
 	$resumen = htmlspecialchars($_POST['Resumen']);
 	$referencias = htmlspecialchars($_POST['Referencias']);
-	$rfc_autor = htmlspecialchars($_POST['Rfc_autor']);
-	$rfc_coautor1 = htmlspecialchars($_POST['Rfc_coautor1']);
-	$rfc_coautor2 = htmlspecialchars($_POST['Rfc_coautor2']);
-	$rfc_coautor3 = htmlspecialchars($_POST['Rfc_coautor3']);
-	$rfc_coautor4 = htmlspecialchars($_POST['Rfc_coautor4']);
+	$rfc_autor = htmlspecialchars($_POST['rfc_autor']);
+	$rfc_coautor1 = htmlspecialchars($_POST['rfc_coautor1']);
+	$rfc_coautor2 = htmlspecialchars($_POST['rfc_coautor2']);
+	$rfc_coautor3 = htmlspecialchars($_POST['rfc_coautor3']);
+	$rfc_coautor4 = htmlspecialchars($_POST['rfc_coautor4']);
 	$requiere = $_POST['requiere'];
 	$requiere1 = $_POST['requiere1'];
 	$requiere2 = $_POST['requiere2'];
 	$requiere3 = $_POST['requiere3'];
 	$requiere4 = $_POST['requiere4'];
-//conexión con servidor
 //conexión con servidor
 	require('script/bd.php');
 //conectar con el servidor
@@ -106,10 +100,98 @@ require('script/conexion.php');
 					return $r;
 					
 				}	
+
+
+
+	require('script/validaciones_rfc.php');
+		
 	
 		//insertando los datos
-		require("script/validaciones_rfc_editar.php");
-				$r = mysql_query($query);
+// 		$query = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_autor."'";
+// 		$query1 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor1."'";
+// 		$query2 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor2."'";
+// 		$query3 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor3."'";
+// 		$query4 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor4."'";
+// //verificación de rfc
+
+// 		$rfc_invalido = 0;
+
+// 		$r_verificacion_rfc_autor = exe_query($query);
+
+		
+// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_autor)){
+// 			$rfc_autor_error = $rfc_autor;
+// 			$rfc_invalido++;
+// 		}
+// 		else
+// 			$rfc_autor_error = "";
+
+// 		$r_verificacion_rfc_coautor1 = exe_query($query1);
+
+		
+// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor1)){
+// 			$rfc_coautor1_error = $rfc_coautor1;
+// 			$rfc_invalido++;
+// 		}
+// 		else
+// 			$rfc_coautor1_error = "";
+
+// 		$r_verificacion_rfc_coautor2 = exe_query($query2);
+
+		
+// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor2)){
+// 			$rfc_coautor2_error = $rfc_coautor2;
+// 			$rfc_invalido++;
+// 		}
+// 		else
+// 			$rfc_coautor2_error  = "";
+
+// 		$r_verificacion_rfc_coautor3 = exe_query($query3);
+
+		
+// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor3)){
+// 			$rfc_coautor3_error = $rfc_coautor3;
+// 			$rfc_invalido++;
+// 		}
+// 		else
+// 			$rfc_coautor3_error  = "";
+// 		//4
+// 		$r_verificacion_rfc_coautor4 = exe_query($query4);
+
+		
+// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor4)){
+// 			$rfc_coautor4_error = $rfc_coautor4;
+// 			$rfc_invalido++;
+// 		}
+// 		else
+// 			$rfc_coautor4_error  = "";
+// 		//termina4
+// 		if ($rfc_invalido>0) {
+// 			$mensaje_rfc_error = "El o los RFC:<br><ul>";
+// 			echo $mensaje_rfc_error;
+// 			if ($rfc_autor_error != "") {
+// 				echo "<li type='disc'>".$rfc_autor_error."</li>";
+// 			}
+// 			if ($rfc_coautor1_error != "") {
+// 				echo "<li type='disc'>".$rfc_coautor1_error."</li>";
+// 			}
+// 			if ($rfc_coautor2_error != "") {
+// 				echo "<li type='disc'>".$rfc_coautor2_error."</li>";
+// 			}
+// 			if ($rfc_coautor3_error != "") {
+// 				echo "<li type='disc'>".$rfc_coautor3_error."</li>";
+// 			}
+// 			if ($rfc_coautor4_error != "") {
+// 				echo "<li type='disc'>".$rfc_coautor4_error."</li>";
+// 			}
+// 			echo "</ul>no se encuentran registrados, por favor verifique que los datos que introdujo son correctos";
+// 		}		
+
+
+
+
+
+		$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";
 						echo "<br>";
@@ -182,7 +264,7 @@ require('script/conexion.php');
 						}					
 
 					echo "</tbody> </table>";
-					echo "<legend>Datos de Cartel:</legend>";
+					echo "<legend>Datos de Ponencia:</legend>";
 					echo "<table border='1'><tbody>";
 					echo "<tr><td>Título:</td><td>".$titulo."</td></tr>";
 					echo "<tr><td>Categoria:</td><td>".$categoria."</td></tr>";
@@ -223,18 +305,17 @@ require('script/conexion.php');
 					echo "</tbody></table>";
 
 
-
 					echo "</fieldset><fieldset id='edicion' style='visibility:hidden;'><legend id='edicion'>Edición</legend>";
 					echo "<legend id='edicion'>Titulo:</legend>";	
-					echo "<input type='text' name='titulo_confirma'id='titulo' value='".$titulo."' style='visibility:hidden;'>";
+					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."' style='visibility:hidden;'>";
 					echo "<legend id='edicion'>Categoria:</legend>";
 					echo "<input type='text' name='categoria_confirma' id='categoria' value='".$categoria."' style='visibility:hidden;'>";
 					echo "<legend id='edicion'>Modalidad:</legend>";
-					echo "<input type='text' name='modalidad_confirma' id='modalidad' value='".$modalidad."' style='visibility:hidden;'>";
+					echo "<input type='text' name='modalidad_confirma'id='modalidad' value='".$modalidad."' style='visibility:hidden;'>";
 					echo "<legend id='edicion'>Resumen:</legend>";
-					echo "<textarea  rows='6' cols='50' name='resumen_confirma' id='resumen' style='visibility:hidden;'>".$resumen."</textarea>";
+					echo "<textarea  rows='6' cols='50' name='resumen_confirma' id='resumen' style='visibility:hidden;' >".$resumen."</textarea>";
 					echo "<legend id='edicion'>Referencias:</legend>";
-					echo "<textarea  rows='6' cols='50' name='referencias_confirma' id='referencias' style='visibility:hidden;'>".$referencias."</textarea>";
+					echo "<textarea  rows='6' cols='50' name='referencias_confirma'id='referencias' style='visibility:hidden;'>".$referencias."</textarea>";
 					echo "<legend id='edicion'>Autores:</legend>";
 					if (($rfc_autor_error != "")||($rfc_autor_limite != "")){
 						$rfc_autor = "";
@@ -283,24 +364,13 @@ require('script/conexion.php');
 					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' id='constancia4' value='".$requiere4."' style='visibility:hidden;'>";
 
 					}
-					echo "<input type='text' id='id_cartel' name='id_cartel' style='visibility:hidden;' value='".$id_cartel."' />";
-					echo "</fieldset><input type='button' value='Editar' onClick='Mostrar();'><input type='submit' name='enviar' value='enviar'></form>";
 
-		
+					echo "<input type='text' id='id_ponencia' name='id_ponencia' style='visibility:hidden;' value='".$id_ponencia."' />";
+					
+					echo "</fieldset><input type='button' value='Editar' onClick='Mostrar();'> <input type='submit' name='enviar' value='enviar'></form>";
 	mysql_close();
+
 ?>
-	</table>
-</fieldset>
-	<fieldset>
-		<legend>Esta es la información que actualizo:</legend>
-		<legend>Regresar a la edición del Taller:</legend>
-		<a href="editar_cartel.php">Regresar</a>
-		<legend>Deséa continuar</legend>
-	<input type='submit' name='enviar' value='enviar'>
-	</fieldset>
-</form>
-	</div>
-	</div>
 </section>		
 		
 		<!-- aside de la página -->

@@ -55,10 +55,10 @@ require ('script/utiles.php');
 require('script/conexion.php');
 
 //defino variables del formulario de registro general
-	$id_taller = htmlspecialchars($_POST['id_taller']);
-	$titulo = htmlspecialchars($_POST['titulo_taller']);
+	$id_curso = htmlspecialchars($_POST['id_curso']);
+	$titulo = htmlspecialchars($_POST['titulo_curso']);
 	$contenido = htmlspecialchars($_POST['Contenido']);
-	$materiales = htmlspecialchars($_POST['materiales']);
+	$materiales = htmlspecialchars($_POST['Materiales']);
 	$rfc_autor = htmlspecialchars($_POST['rfc_autor']);
 	$rfc_coautor1 = htmlspecialchars($_POST['rfc_coautor1']);
 	$rfc_coautor2 = htmlspecialchars($_POST['rfc_coautor2']);
@@ -97,9 +97,9 @@ require('script/conexion.php');
 				}	
 	
 		//insertando los datos
-
 		require("script/validaciones_rfc.php");
-
+		
+	//termina validación	
 
 		$r = mysql_query($query);
 					if(!$r){
@@ -120,9 +120,9 @@ require('script/conexion.php');
 					while ($row = mysql_fetch_assoc($r)){
 						if ($rfc_autor_limite == "") {
 							if ($rfc_autor_taller_curso == "") {
-								echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
 							}
-						}
+						}	
 					}
 		$r1 = mysql_query($query1);
 				if(!$r1){
@@ -150,12 +150,12 @@ require('script/conexion.php');
 							if ($rfc_coautor2_taller_curso == "") {
 							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
 							}
-						}
+						}	
 					}
 		
 
 					echo "</tbody> </table>";
-					echo "<legend>Datos de Taller:</legend>";
+					echo "<legend>Datos de Curso:</legend>";
 					echo "<table border='1'><tbody>";
 					echo "<tr><td>Título:</td><td>".$titulo."</td></tr>";
 					echo "<tr><td>Resumen:</td><td>".$contenido."</td></tr>";
@@ -183,7 +183,6 @@ require('script/conexion.php');
 						}
 					}
 					echo "</tbody></table>";
-
 
 					echo "</fieldset><fieldset id='edicion' style='visibility:hidden;'><legend id='edicion'>Edición</legend>";
 					echo "<legend id='edicion'>Titulo:</legend>";
@@ -220,10 +219,8 @@ require('script/conexion.php');
 					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
 
 					}
-
-					echo "<input type='text' id='id_taller' name='id_taller' style='visibility:hidden;' value='".$id_taller."' />";
-					echo "</fieldset>";
-					echo "<input type='button' value='Editar' onClick='Mostrar();'><input type='submit' name='enviar' value='enviar'></form>";
+					echo "<input type='text' id='id_curso' name='id_curso' style='visibility:hidden;' value='".$id_curso."' />";
+					echo "</table></fieldset><input type='button' value='Editar' onClick='Mostrar();'><input type='submit' name='enviar' value='enviar'></form>";
 	mysql_close();
 
 ?>

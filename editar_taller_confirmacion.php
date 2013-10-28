@@ -101,7 +101,6 @@ require('script/conexion.php');
 	
 		//insertando los datos
 		require("script/validaciones_rfc_editar.php");
-
 		$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";
@@ -112,7 +111,7 @@ require('script/conexion.php');
 						echo " ";
 						
 					}
-					echo "<form action = 'actualizacion_taller.php' method='post'><fieldset>";
+					echo "<form action = 'registro_taller_exitoso.php' method='post'><fieldset>";
 					echo "<legend>Confirmación de datos</legend>";
 					echo "<legend>AUTORES:</legend> ";
 					echo "<table border='1'> <tbody>";
@@ -121,7 +120,7 @@ require('script/conexion.php');
 					while ($row = mysql_fetch_assoc($r)){
 						if ($rfc_autor_limite == "") {
 							if ($rfc_autor_taller_curso == "") {
-							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+								echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
 							}
 						}
 					}
@@ -136,8 +135,8 @@ require('script/conexion.php');
 						if ($rfc_coautor1_limite == "") {
 							if ($rfc_coautor1_taller_curso == "") {
 							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
-						 	}
-						 }
+							}
+						}
 					}
 		$r2 = mysql_query($query2);
 				if(!$r2){
@@ -150,7 +149,7 @@ require('script/conexion.php');
 						if ($rfc_coautor2_limite == "") {
 							if ($rfc_coautor2_taller_curso == "") {
 							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
-						  	}
+							}
 						}
 					}
 		
@@ -186,14 +185,14 @@ require('script/conexion.php');
 					echo "</tbody></table>";
 
 
-
-					
-					echo "<input type='text' name='titulo_confirma' value='".$titulo."' style='visibility:hidden;'>";
-					
-					echo "<textarea  rows='6' cols='50' name='contenido_confirma' style='visibility:hidden;'>".$contenido."</textarea>";
-					
-					echo "<textarea  rows='6' cols='50' name='materiales_confirma' style='visibility:hidden;'>".$materiales."</textarea>";
-					
+					echo "</fieldset><fieldset id='edicion' style='visibility:hidden;'><legend id='edicion'>Edición</legend>";
+					echo "<legend id='edicion'>Titulo:</legend>";
+					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."' style='visibility:hidden;'>";
+					echo "<legend id='edicion'>Contenido:</legend>";
+					echo "<textarea  rows='6' cols='50' name='contenido_confirma' id='contenido' style='visibility:hidden;'>".$contenido."</textarea>";
+					echo "<legend id='edicion'>Materiales:</legend>";
+					echo "<textarea  rows='6' cols='50' name='materiales_confirma' id='materiales' style='visibility:hidden;'>".$materiales."</textarea>";
+					echo "<legend id='edicion'>Autores:</legend>";
 					if (($rfc_autor_error != "")||($rfc_autor_limite != "")||($rfc_autor_taller_curso != "")){
 						$rfc_autor = "";
 						$requiere = "";
@@ -221,7 +220,10 @@ require('script/conexion.php');
 					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
 
 					}
-					echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'>";
+
+					echo "<input type='text' id='id_taller' name='id_taller' style='visibility:hidden;' value='".$id_taller."' />";
+					echo "</fieldset>";
+					echo "<input type='button' value='Editar' onClick='Mostrar();'><input type='submit' name='enviar' value='enviar'></form>";
 					
 					
 		

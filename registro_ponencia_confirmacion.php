@@ -51,6 +51,14 @@ exit;
 		<section id="seccion">
 <?php
 
+//FUNCION YORCH
+echo "<script>
+$(function (YORCH(){
+ 		if(document.getElementById('edicion')){
+ 			document.getElementById('edicion').style='visibility:hidden';
+ 		}
+)};
+</script>";
 require ('script/utiles.php');
 require('script/conexion.php');
 
@@ -101,7 +109,10 @@ require('script/conexion.php');
 					
 				}	
 
-		require("script/validaciones_rfc.php");
+
+
+	require('script/validaciones_rfc.php');
+		
 	
 		//insertando los datos
 // 		$query = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_autor."'";
@@ -247,6 +258,7 @@ require('script/conexion.php');
 							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
 							
 						}
+					}	
 		$r4 = mysql_query($query4);
 				if(!$r4){
 						echo "No se pudo ejecutar el query: $query";
@@ -258,7 +270,8 @@ require('script/conexion.php');
 						if ($rfc_coautor4_limite == "") {
 							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
 							
-						}					
+						}
+					}						
 
 					echo "</tbody> </table>";
 					echo "<legend>Datos de Ponencia:</legend>";
@@ -299,20 +312,20 @@ require('script/conexion.php');
 							
 						}
 					}
-					echo "</tbody></table>";
+					echo "</tbody></table></fieldset>";
 
 
-					echo "</fieldset><fieldset id='edicion' style='visibility:hidden;'><legend id='edicion'>Edición</legend>";
+					echo "<fieldset id='edicion' style='visibility:visible;'><legend id='edicion'>Edición</legend>";
 					echo "<legend id='edicion'>Titulo:</legend>";	
 					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."' style='visibility:hidden;'>";
 					echo "<legend id='edicion'>Categoria:</legend>";
 					echo "<input type='text' name='categoria_confirma' id='categoria' value='".$categoria."' style='visibility:hidden;'>";
 					echo "<legend id='edicion'>Modalidad:</legend>";
-					echo "<input type='text' name='modalidad_confirma'id='modalidad' value='".$modalidad."' style='visibility:hidden;'>";
+					echo "<input type='text' name='modalidad_confirma' id='modalidad' value='".$modalidad."' style='visibility:hidden;'>";
 					echo "<legend id='edicion'>Resumen:</legend>";
 					echo "<textarea  rows='6' cols='50' name='resumen_confirma' id='resumen' style='visibility:hidden;' >".$resumen."</textarea>";
 					echo "<legend id='edicion'>Referencias:</legend>";
-					echo "<textarea  rows='6' cols='50' name='referencias_confirma'id='referencias' style='visibility:hidden;'>".$referencias."</textarea>";
+					echo "<textarea  rows='6' cols='50' name='referencias_confirma' id='referencias' style='visibility:hidden;'>".$referencias."</textarea>";
 					echo "<legend id='edicion'>Autores:</legend>";
 					if (($rfc_autor_error != "")||($rfc_autor_limite != "")){
 						$rfc_autor = "";
@@ -362,9 +375,9 @@ require('script/conexion.php');
 
 					}
 
-					echo "<input type='text' id='id_ponencia' name='id_ponencia' style='visibility:hidden;' value='".$id_ponencia."' />";
-					
-					echo "</fieldset><input type='button' value='Editar' onClick='Mostrar();'> <input type='submit' name='enviar' value='enviar'></form>";
+					//echo "<input type='text' id='id_ponencia' name='id_ponencia' style='visibility:hidden;' value='".$id_ponencia."' />";
+					echo "<input type='button' value='Editar' onClick='YORCH()'>";
+					echo "<input type='submit' name='enviar' value='Enviar'></form></fieldset>";
 	mysql_close();
 
 ?>

@@ -28,9 +28,9 @@
         // // update perfect scrollbar
         // $('.cajatexoscroll').perfectScrollbar('update');
     }
-    $(function() {
-        $('.cajatextoscroll').perfectScrollbar();
-    });
+    // $(function() {
+    //     $('.cajatextoscroll').perfectScrollbar();
+    // });
 </script>
 
 	<script type="text/javascript">
@@ -420,13 +420,15 @@
 		  
  		 }
 
-
  //script para mostrar los campos de edición
- 	function Mostrar(){
+ 	function YORCH(){
+ 		if(document.getElementById("edicion")){
+ 			document.getElementById("edicion").style="visibility:hidden";
+ 		}
  	//verifica titulo
  		if (document.getElementById("titulo")) {
  			document.getElementById("titulo").style= "visibility:visible";
- 		};
+ 		}
  	//verifica categoria	
  		if (document.getElementById("categoria")){
  			document.getElementById("categoria").style= "visibility:visible";
@@ -438,61 +440,61 @@
  	//verifica resumen	
  		if (document.getElementById("resumen")) {
  			document.getElementById("resumen").style= "visibility:visible";
- 		};
+ 		}
  	//verifica referencias	
  		if (document.getElementById("referencias")) {
  			document.getElementById("referencias").style= "visibility:visible";
- 		};
+ 		}
  	//verifica autor	
  		if (document.getElementById("autores")) {
  			document.getElementById("autores").style= "visibility:visible";
- 		};
+ 		}
  		if(document.getElementById("constancia")){
  			document.getElementById("constancia").style= "visibility:visible";
  		}
  	//verifica coautor1	
  		if (document.getElementById("autores1")) {
  			document.getElementById("autores1").style= "visibility:visible";
- 		};
+ 		}
  		if(document.getElementById("constancia1")){
  			document.getElementById("constancia1").style= "visibility:visible";
  		}
  	//verifica coautor2	
  		if(document.getElementById("autores2")) {
  			document.getElementById("autores2").style= "visibility:visible";
- 		};
+ 		}
  		if(document.getElementById("constancia2")){
  			document.getElementById("constancia2").style= "visibility:visible";
  		}
  	//verifica coautor3	
  		if (document.getElementById("autores3")) {
  			document.getElementById("autores3").style= "visibility:visible";
- 		};
+ 		}
  		if(document.getElementById("constancia3")){
  			document.getElementById("constancia3").style= "visibility:visible";
  		}
  	//verifica coautor4	
  		if (document.getElementById("autores4")) {
  			document.getElementById("autores4").style= "visibility:visible";
- 		};
+ 		}
  		if(document.getElementById("constancia4")){
  			document.getElementById("constancia4").style= "visibility:visible";
- 		}
+ 		},
 	//verifica contenido 		
 
  		if (document.getElementById("contenido")) {
  			document.getElementById("contenido").style="visibility:visible";
- 		};
+ 		}
  	//verifica materiales	
  		if (document.getElementById("materiales")) {
  			document.getElementById("materiales").style="visibility:visible";
  			
- 		};
+ 		}
  	//verifica edicion (son todos los titulos y fieldset)	
  		if (document.getElementById("edicion")) {
- 			document.getElementById("edicion").style="visibility:visible";
- 		};
- 	}		 
+ 			document.getElementById("edicion").style="visibility:hidden";
+ 		}
+ 	};		 
  </script>
 	
 

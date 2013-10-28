@@ -71,6 +71,7 @@ require('script/conexion.php');
 	$requiere2 = $_POST['requiere2'];
 	$requiere3 = $_POST['requiere3'];
 	$requiere4 = $_POST['requiere4'];
+	/////////////////////////////////////////////////////
 //conexión con servidor
 	require('script/bd.php');
 //conectar con el servidor
@@ -101,90 +102,8 @@ require('script/conexion.php');
 					
 				}	
 
-				require("script/verificaciones_rfc.php");
-	
-	// 	//insertando los datos
-	// 	$query = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_autor."'";
-	// 	$query1 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor1."'";
-	// 	$query2 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor2."'";
-	// 	$query3 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor3."'";
-	// 	$query4 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor4."'";
-	// // empieza verificación
-	// 	$rfc_invalido = 0;
-
-	// 	$r_verificacion_rfc_autor = exe_query($query);
-
-		
-	// 	if(!$row = mysql_fetch_array($r_verificacion_rfc_autor)){
-	// 		$rfc_autor_error = $rfc_autor;
-	// 		$rfc_invalido++;
-	// 	}
-	// 	else
-	// 		$rfc_autor_error = "";
-
-	// 	$r_verificacion_rfc_coautor1 = exe_query($query1);
-
-		
-	// 	if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor1)){
-	// 		$rfc_coautor1_error = $rfc_coautor1;
-	// 		$rfc_invalido++;
-	// 	}
-	// 	else
-	// 		$rfc_coautor1_error = "";
-
-	// 	$r_verificacion_rfc_coautor2 = exe_query($query2);
-
-		
-	// 	if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor2)){
-	// 		$rfc_coautor2_error = $rfc_coautor2;
-	// 		$rfc_invalido++;
-	// 	}
-	// 	else
-	// 		$rfc_coautor2_error  = "";
-
-	// 	$r_verificacion_rfc_coautor3 = exe_query($query3);
-
-		
-	// 	if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor3)){
-	// 		$rfc_coautor3_error = $rfc_coautor3;
-	// 		$rfc_invalido++;
-	// 	}
-	// 	else
-	// 		$rfc_coautor3_error  = "";
-	// 	//4
-	// 	$r_verificacion_rfc_coautor4 = exe_query($query4);
-
-		
-	// 	if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor4)){
-	// 		$rfc_coautor4_error = $rfc_coautor4;
-	// 		$rfc_invalido++;
-	// 	}
-	// 	else
-	// 		$rfc_coautor4_error  = "";
-	// 	//termina4
-	// 	if ($rfc_invalido>0) {
-	// 		$mensaje_rfc_error = "El o los RFC:<br><ul>";
-	// 		echo $mensaje_rfc_error;
-	// 		if ($rfc_autor_error != "") {
-	// 			echo "<li type='disc'>".$rfc_autor_error."</li>";
-	// 		}
-	// 		if ($rfc_coautor1_error != "") {
-	// 			echo "<li type='disc'>".$rfc_coautor1_error."</li>";
-	// 		}
-	// 		if ($rfc_coautor2_error != "") {
-	// 			echo "<li type='disc'>".$rfc_coautor2_error."</li>";
-	// 		}
-	// 		if ($rfc_coautor3_error != "") {
-	// 			echo "<li type='disc'>".$rfc_coautor3_error."</li>";
-	// 		}
-	// 		if ($rfc_coautor4_error != "") {
-	// 			echo "<li type='disc'>".$rfc_coautor4_error."</li>";
-	// 		}
-	// 		echo "</ul>no se encuentran registrados, por favor verifique que los datos que introdujo son correctos";
-	// 	}		
-
-
-	//termina verificación
+				require('script/validaciones_rfc.php');
+	//////////////////////////////////////////////////////////////////////////////////////
 				$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";
@@ -195,7 +114,7 @@ require('script/conexion.php');
 						echo " ";
 						
 					}
-					echo "<form action = 'registro_ponencia_exitoso.php' method='post'><fieldset>";
+					echo "<form action = 'registro_cartel_exitoso.php' method='post'><fieldset>";
 					echo "<legend>Confirmación de datos</legend>";
 					echo "<legend>AUTORES:</legend> ";
 					echo "<table border='1'> <tbody>";
@@ -208,7 +127,7 @@ require('script/conexion.php');
 					}
 		$r1 = mysql_query($query1);
 				if(!$r1){
-						echo "No se pudo ejecutar el query: $query";
+						echo "No se pudo ejecutar el query: $query1";
 						echo "<br>";
 						trigger_error(mysql_error(), E_USER_ERROR);
 					}
@@ -221,7 +140,7 @@ require('script/conexion.php');
 					}
 		$r2 = mysql_query($query2);
 				if(!$r2){
-						echo "No se pudo ejecutar el query: $query";
+						echo "No se pudo ejecutar el query: $query2";
 						echo "<br>";
 						trigger_error(mysql_error(), E_USER_ERROR);
 					}
@@ -234,7 +153,7 @@ require('script/conexion.php');
 					}
 		$r3 = mysql_query($query3);
 				if(!$r3){
-						echo "No se pudo ejecutar el query: $query";
+						echo "No se pudo ejecutar el query: $query3";
 						echo "<br>";
 						trigger_error(mysql_error(), E_USER_ERROR);
 					}
@@ -244,9 +163,10 @@ require('script/conexion.php');
 							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
 							
 						}
+					}	
 		$r4 = mysql_query($query4);
 				if(!$r4){
-						echo "No se pudo ejecutar el query: $query";
+						echo "No se pudo ejecutar el query: $query4";
 						echo "<br>";
 						trigger_error(mysql_error(), E_USER_ERROR);
 					}
@@ -255,9 +175,11 @@ require('script/conexion.php');
 						if ($rfc_coautor4_limite == "") {
 							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
 							
-						}					
+						}	
+					}					
 
 					echo "</tbody> </table>";
+			///error		
 					echo "<legend>Datos de Cartel:</legend>";
 					echo "<table border='1'><tbody>";
 					echo "<tr><td>Título:</td><td>".$titulo."</td></tr>";
