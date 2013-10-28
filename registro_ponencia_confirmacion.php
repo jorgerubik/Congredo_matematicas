@@ -100,87 +100,89 @@ require('script/conexion.php');
 					return $r;
 					
 				}	
+
+		require("script/validaciones_rfc.php");
 	
 		//insertando los datos
-		$query = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_autor."'";
-		$query1 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor1."'";
-		$query2 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor2."'";
-		$query3 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor3."'";
-		$query4 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor4."'";
-//verificación de rfc
+// 		$query = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_autor."'";
+// 		$query1 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor1."'";
+// 		$query2 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor2."'";
+// 		$query3 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor3."'";
+// 		$query4 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor4."'";
+// //verificación de rfc
 
-		$rfc_invalido = 0;
+// 		$rfc_invalido = 0;
 
-		$r_verificacion_rfc_autor = exe_query($query);
-
-		
-		if(!$row = mysql_fetch_array($r_verificacion_rfc_autor)){
-			$rfc_autor_error = $rfc_autor;
-			$rfc_invalido++;
-		}
-		else
-			$rfc_autor_error = "";
-
-		$r_verificacion_rfc_coautor1 = exe_query($query1);
+// 		$r_verificacion_rfc_autor = exe_query($query);
 
 		
-		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor1)){
-			$rfc_coautor1_error = $rfc_coautor1;
-			$rfc_invalido++;
-		}
-		else
-			$rfc_coautor1_error = "";
+// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_autor)){
+// 			$rfc_autor_error = $rfc_autor;
+// 			$rfc_invalido++;
+// 		}
+// 		else
+// 			$rfc_autor_error = "";
 
-		$r_verificacion_rfc_coautor2 = exe_query($query2);
-
-		
-		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor2)){
-			$rfc_coautor2_error = $rfc_coautor2;
-			$rfc_invalido++;
-		}
-		else
-			$rfc_coautor2_error  = "";
-
-		$r_verificacion_rfc_coautor3 = exe_query($query3);
+// 		$r_verificacion_rfc_coautor1 = exe_query($query1);
 
 		
-		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor3)){
-			$rfc_coautor3_error = $rfc_coautor3;
-			$rfc_invalido++;
-		}
-		else
-			$rfc_coautor3_error  = "";
-		//4
-		$r_verificacion_rfc_coautor4 = exe_query($query4);
+// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor1)){
+// 			$rfc_coautor1_error = $rfc_coautor1;
+// 			$rfc_invalido++;
+// 		}
+// 		else
+// 			$rfc_coautor1_error = "";
+
+// 		$r_verificacion_rfc_coautor2 = exe_query($query2);
 
 		
-		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor4)){
-			$rfc_coautor4_error = $rfc_coautor4;
-			$rfc_invalido++;
-		}
-		else
-			$rfc_coautor4_error  = "";
-		//termina4
-		if ($rfc_invalido>0) {
-			$mensaje_rfc_error = "El o los RFC:<br><ul>";
-			echo $mensaje_rfc_error;
-			if ($rfc_autor_error != "") {
-				echo "<li type='disc'>".$rfc_autor_error."</li>";
-			}
-			if ($rfc_coautor1_error != "") {
-				echo "<li type='disc'>".$rfc_coautor1_error."</li>";
-			}
-			if ($rfc_coautor2_error != "") {
-				echo "<li type='disc'>".$rfc_coautor2_error."</li>";
-			}
-			if ($rfc_coautor3_error != "") {
-				echo "<li type='disc'>".$rfc_coautor3_error."</li>";
-			}
-			if ($rfc_coautor4_error != "") {
-				echo "<li type='disc'>".$rfc_coautor4_error."</li>";
-			}
-			echo "</ul>no se encuentran registrados, por favor verifique que los datos que introdujo son correctos";
-		}		
+// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor2)){
+// 			$rfc_coautor2_error = $rfc_coautor2;
+// 			$rfc_invalido++;
+// 		}
+// 		else
+// 			$rfc_coautor2_error  = "";
+
+// 		$r_verificacion_rfc_coautor3 = exe_query($query3);
+
+		
+// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor3)){
+// 			$rfc_coautor3_error = $rfc_coautor3;
+// 			$rfc_invalido++;
+// 		}
+// 		else
+// 			$rfc_coautor3_error  = "";
+// 		//4
+// 		$r_verificacion_rfc_coautor4 = exe_query($query4);
+
+		
+// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor4)){
+// 			$rfc_coautor4_error = $rfc_coautor4;
+// 			$rfc_invalido++;
+// 		}
+// 		else
+// 			$rfc_coautor4_error  = "";
+// 		//termina4
+// 		if ($rfc_invalido>0) {
+// 			$mensaje_rfc_error = "El o los RFC:<br><ul>";
+// 			echo $mensaje_rfc_error;
+// 			if ($rfc_autor_error != "") {
+// 				echo "<li type='disc'>".$rfc_autor_error."</li>";
+// 			}
+// 			if ($rfc_coautor1_error != "") {
+// 				echo "<li type='disc'>".$rfc_coautor1_error."</li>";
+// 			}
+// 			if ($rfc_coautor2_error != "") {
+// 				echo "<li type='disc'>".$rfc_coautor2_error."</li>";
+// 			}
+// 			if ($rfc_coautor3_error != "") {
+// 				echo "<li type='disc'>".$rfc_coautor3_error."</li>";
+// 			}
+// 			if ($rfc_coautor4_error != "") {
+// 				echo "<li type='disc'>".$rfc_coautor4_error."</li>";
+// 			}
+// 			echo "</ul>no se encuentran registrados, por favor verifique que los datos que introdujo son correctos";
+// 		}		
 
 
 
@@ -203,8 +205,8 @@ require('script/conexion.php');
 					echo "<tr>"."<td>"."RFC"."</td><td> "."Nombre usuario"."</td><td>"."Primer apellido"."</td><td>"."Segundo apellido"."</td></tr>";
 
 					while ($row = mysql_fetch_assoc($r)){
-						if ($rfc_autor_error == "") {
-						echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+						if ($rfc_autor_limite == "") {
+								echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
 						}
 					}
 		$r1 = mysql_query($query1);
@@ -215,8 +217,9 @@ require('script/conexion.php');
 					}
 					
 					while ($row = mysql_fetch_assoc($r1)){
-						if ($rfc_coautor1_error == "") {
-						echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+						if ($rfc_coautor1_limite == "") {
+							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+							
 						}
 					}
 		$r2 = mysql_query($query2);
@@ -227,8 +230,9 @@ require('script/conexion.php');
 					}
 					
 					while ($row = mysql_fetch_assoc($r2)){
-						if ($rfc_coautor2_error == "") {
-						echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+						if ($rfc_coautor2_limite == "") {
+							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+							
 						}
 					}
 		$r3 = mysql_query($query3);
@@ -239,10 +243,10 @@ require('script/conexion.php');
 					}
 					
 					while ($row = mysql_fetch_assoc($r3)){
-						if ($rfc_coautor3_error == "") {
-						echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+						if ($rfc_coautor3_limite == "") {
+							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+							
 						}
-					}	
 		$r4 = mysql_query($query4);
 				if(!$r4){
 						echo "No se pudo ejecutar el query: $query";
@@ -251,10 +255,10 @@ require('script/conexion.php');
 					}
 					
 					while ($row = mysql_fetch_assoc($r4)){
-						if ($rfc_coautor4_error == "") {
-						echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
-						}
-					}					
+						if ($rfc_coautor4_limite == "") {
+							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+							
+						}					
 
 					echo "</tbody> </table>";
 					echo "<legend>Datos de Ponencia:</legend>";
@@ -265,20 +269,35 @@ require('script/conexion.php');
 					echo "<tr><td>Resumen:</td><td>".$resumen."</td></tr>";
 					echo "<tr><td>Referencias:</td><td>".$referencias."</td></tr>";
 					echo "<tr><td>Autores</td><td>Constancia</td></tr>";
-					if ($rfc_autor_error == "") {
-					echo "<tr><td>".$rfc_autor."</td><td>".$requiere."</td></tr>";
+					if (($rfc_autor_error == "")) {
+						if($rfc_autor_limite == ""){
+								echo "<tr><td>".$rfc_autor."</td><td>".$requiere."</td></tr>";
+								
+						}
 					}
-					if ($rfc_coautor1_error == "") {
-					echo "<tr><td>".$rfc_coautor1."</td><td>".$requiere1."</td></tr>";
+					if (($rfc_coautor1_error == "")) {
+						if($rfc_coautor1_limite == ""){
+								echo "<tr><td>".$rfc_coautor1."</td><td>".$requiere1."</td></tr>";
+							
+						}
 					}
-					if ($rfc_coautor2_error == "") {
-					echo "<tr><td>".$rfc_coautor2."</td><td>".$requiere2."</td></tr>";
+					if (($rfc_coautor2_error == "")) {
+						if($rfc_coautor2_limite == ""){
+								echo "<tr><td>".$rfc_coautor2."</td><td>".$requiere2."</td></tr>";
+							
+						}
 					}
-					if ($rfc_coautor3_error == "") {
-					echo "<tr><td>".$rfc_coautor3."</td><td>".$requiere3."</td></tr>";
+					if (($rfc_coautor3_error == "")) {
+						if($rfc_coautor3_limite == ""){
+								echo "<tr><td>".$rfc_coautor3."</td><td>".$requiere3."</td></tr>";
+							
+						}
 					}
-					if ($rfc_coautor4_error == "") {
-					echo "<tr><td>".$rfc_coautor4."</td><td>".$requiere4."</td></tr>";
+					if (($rfc_coautor4_error == "")) {
+						if($rfc_coautor4_limite == ""){
+								echo "<tr><td>".$rfc_coautor4."</td><td>".$requiere4."</td></tr>";
+							
+						}
 					}
 					echo "</tbody></table>";
 
@@ -295,56 +314,52 @@ require('script/conexion.php');
 					echo "<legend id='edicion'>Referencias:</legend>";
 					echo "<textarea  rows='6' cols='50' name='referencias_confirma'id='referencias' style='visibility:hidden;'>".$referencias."</textarea>";
 					echo "<legend id='edicion'>Autores:</legend>";
-					if ($rfc_autor_error != ""){
+					if (($rfc_autor_error != "")||($rfc_autor_limite != "")){
 						$rfc_autor = "";
 						$requiere = "";
-					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'><br>";
+					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'>";
 					}
-
-					if ($rfc_autor_error == ""){
-					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'><br>";
+					if (($rfc_autor_error == "")||($rfc_autor_limite == "")){
+					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'>";
+						
 					}
-
-					if ($rfc_coautor1_error != ""){
+					if (($rfc_coautor1_error != "")||($rfc_coautor1_limite != "")) {
 						$rfc_coautor1 = "";
 						$requiere1 = "";
-					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'><br>";
+					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'>";
+					}
+					if (($rfc_coautor1_error == "")||($rfc_coautor1_limite == "")) {
+					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'>";
+
+					}
+					if (($rfc_coautor2_error != "")||($rfc_coautor2_limite != "")) {
+						$rfc_coautor2 = "";
+						$requiere2 = "";
+					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
+					}
+					if (($rfc_coautor2_error == "")||($rfc_coautor2_limite == "")){
+					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
+
 					}
 
-					if ($rfc_coautor1_error == "") {
-					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'><br>";
-						
+					if (($rfc_coautor3_error != "")||($rfc_coautor3_limite != "")) {
+						$rfc_coautor3 = "";
+						$requiere3 = "";
+					echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' id='constancia3' value='".$requiere3."' style='visibility:hidden;'>";
+					}
+					if (($rfc_coautor3_error == "")||($rfc_coautor3_limite == "")){
+					echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' id='constancia3' value='".$requiere3."' style='visibility:hidden;'>";
+
 					}
 
-					if ($rfc_coautor2_error != "") {
-					$rfc_coautor2 = "";
-					$requiere2 = "";
-					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'><br>";
+					if (($rfc_coautor4_error != "")||($rfc_coautor4_limite != "")) {
+						$rfc_coautor4 = "";
+						$requiere4 = "";
+					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' id='constancia4' value='".$requiere4."' style='visibility:hidden;'>";
 					}
+					if (($rfc_coautor4_error == "")||($rfc_coautor4_limite == "")){
+					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' id='constancia4' value='".$requiere4."' style='visibility:hidden;'>";
 
-					if ($rfc_coautor2_error == "") {
-					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'><br>";
-						
-					}
-
-					if ($rfc_coautor3_error != "") {
-					$rfc_coautor3 = "";
-					$requiere3 = "";
-					echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' id='constancia3' value='".$requiere3."' style='visibility:hidden;'><br>";
-					}
-
-					if ($rfc_coautor3_error == "") {
-					echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' id='constancia3' value='".$requiere3."' style='visibility:hidden;'><br>";
-					}
-
-					if ($rfc_coautor4_error != ""){
-					$rfc_coautor4 = "";
-					$requiere4 = "";	
-					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' id='constancia4' value='".$requiere4."' style='visibility:hidden;'><br>";
-					}
-
-					if ($rfc_coautor4_error == "") {
-					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' id='constancia4' value='".$requiere4."' style='visibility:hidden;'><br>";
 					}
 
 					echo "<input type='text' id='id_ponencia' name='id_ponencia' style='visibility:hidden;' value='".$id_ponencia."' />";
