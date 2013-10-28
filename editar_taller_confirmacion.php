@@ -100,7 +100,7 @@ require('script/conexion.php');
 				}	
 	
 		//insertando los datos
-		require("script/validaciones_rfc.php");
+		require("script/validaciones_rfc_editar.php");
 
 		$r = mysql_query($query);
 					if(!$r){
