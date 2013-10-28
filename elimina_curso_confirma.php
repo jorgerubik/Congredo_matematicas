@@ -55,9 +55,9 @@ exit;
 		$id_trabajo = $_POST['id_trabajo'];
 
 		echo"<form action='eliminar_curso.php' method='post'>";
-		echo"<fieldset><legend>Eliminar</legend><legend>Esta seguro de eliminar el Curso</legend>";
+		echo"<fieldset><legend>Eliminar</legend><legend>¿Está seguro de eliminar el curso seleccionado?</legend>";
 		echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'><br>";
-		echo"<input type='submit' value='si'>";
+		echo"<input type='submit' value='Si'>";
 		echo"</fieldset></form>";
 		echo "<form action='eliminar_coautor_curso.php' method='post'><fieldset> ";
 		echo "<legend>Desea eliminar un coautor: </legend>";

@@ -100,6 +100,57 @@ require('script/conexion.php');
 		$query = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_autor."'";
 		$query1 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor1."'";
 		$query2 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor2."'";
+		
+		//código que verifica que RFC no se encuentra registrado
+		$rfc_invalido = 0;
+
+		$r_verificacion_rfc_autor = exe_query($query);
+
+		
+		if(!$row = mysql_fetch_array($r_verificacion_rfc_autor)){
+			$rfc_autor_error = $rfc_autor;
+			$rfc_invalido++;
+		}
+		else
+			$rfc_autor_error = "";
+
+		$r_verificacion_rfc_coautor1 = exe_query($query1);
+
+		
+		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor1)){
+			$rfc_coautor1_error = $rfc_coautor1;
+			$rfc_invalido++;
+		}
+		else
+			$rfc_coautor1_error = "";
+
+		$r_verificacion_rfc_coautor2 = exe_query($query2);
+
+		
+		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor2)){
+			$rfc_coautor2_error = $rfc_coautor2;
+			$rfc_invalido++;
+		}
+		else
+			$rfc_coautor2_error  = "";
+
+		if ($rfc_invalido>0) {
+			$mensaje_rfc_error = "El o los RFC:<br><ul>";
+			echo $mensaje_rfc_error;
+			if ($autor != "") {
+				echo "<li type='disc'>".$rfc_autor_error."</li>";
+			}
+			if ($autor2 != "") {
+				echo "<li type='disc'>".$rfc_coautor1_error."</li>";
+			}
+			if ($autor3 != "") {
+				echo "<li type='disc'>".$rfc_coautor2_error."</li>";
+			}
+			echo "</ul>no se encuentran registrados, por favor verifique que los datos que introdujo son correctos";
+		}
+
+
+
 		$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";

@@ -1,9 +1,9 @@
 <!-- busca id de usuario en la tabla de roles para asignar un nuevo rol n.n -->
 <form action="redirecciona_opcion.php" method="post" autocomplete="off">
 	<fieldset>
-		<legend>Operación a realizar</legend>
-		<legend>Selecciona una operación a realizar</legend>
-		<input type="radio" id="operacion" name="operacion" value="alta">Alta de rol deusuario <br>
+		<legend>Movimientos a realizar</legend>
+		<legend>Seleccione un movimiento a realizar</legend>
+		<input type="radio" id="operacion" name="operacion" value="alta">Alta de rol de usuario <br>
 		<input type="radio" id="operacion" name="operacion" value="baja">Baja de rol de usuario <br>
 		<input type="radio" id="operacion" name="operacion" value="cambio">Cambio de rol de usuario <br>
 		<input type="submit" id="enviar1" name="enviar1" value="enviar">
@@ -27,4 +27,3 @@
 		<input type="submit" name="enviar" value="buscar">
 	</fieldset>
 </form> -->
-

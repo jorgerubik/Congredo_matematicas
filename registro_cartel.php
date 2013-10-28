@@ -96,7 +96,7 @@ exit;
 
 				if ($row[0]>=5) {
 					# code...
-					echo "Ha registrado el número límite de trabajos (5) si desea actualizar o dar de baja alguno, de click en editar perfil";
+					echo "Ha registrado el número límite de trabajos (5), si desea modificar o dar de baja alguno de ellos, de click en 'Editar perfil'";
 				}
 				else{
 				include "content/Registro_cartel.php";

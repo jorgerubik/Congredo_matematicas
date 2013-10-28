@@ -3,14 +3,14 @@
 	<form action="registro_ponencia_confirmacion.php" method="post" autocomplete="off" class="forms">
 		<fieldset id="ponencia">
 			<legend>Formulario de registro</legend>
-			<legend>Título (maximo 15 palabras)</legend>
+			<legend>Título (máximo 15 palabras):</legend>
 			<input type="text"  name="Titulo_ponencia" id="titulo_ponencia" onblur="wordCountd();" class="titulo_trabajo">
 			<legend>Categoría:</legend>
 			<input type="radio" name="Categoria" value="investigacion">Investigación <br>
 			<input type="radio" name="Categoria" value="experiencia"> Experiencia en aula
 		</fieldset>
 		<fieldset>	
-			<legend>Modalidad</legend>
+			<legend>Modalidad:</legend>
 			
 			<select ID="ensenanza" name="modalidad">
 				<option>Modalidad</option>
@@ -32,16 +32,16 @@
 			</select>
 		</fieldset>
 		<fieldset>
-			<legend>Resumen (máximo 300 palabras)</legend>
+			<legend>Resumen (máximo 300 palabras):</legend>
 			<textarea rows="6" cols="50" name="Resumen" id="Contenido_area" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" onblur="wordCount();" > </textarea>
 		</fieldset>
 		<fieldset>
-			<legend>Referencias (máximo 30 palabras)</legend>
+			<legend>Referencias (máximo 30 palabras):</legend>
 			<textarea row="6" cols="50" id="Contenido_area2" name="Referencias"  required onblur="wordCountc();"></textarea>
 		</fieldset>
 
 		<fieldset>
-			<legend>Autores</legend>
+			<legend>Autores:</legend>
 			<table border="1" id="autores">
 				<tr>
 					<th>Autor</th>

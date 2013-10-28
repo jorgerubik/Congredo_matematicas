@@ -78,7 +78,7 @@ exit;
 				<form action="registro_asistente_exitoso.php" method="post">
 					<fieldset>
 						<legend>Asistente:</legend>
-						<legend>Si leyó la información y desea ser asistente favor de aceptar:</legend>
+						<legend>Si leyó la información y desea ser asistente, haga click en el botón "Acepto"</legend>
 						<input type="submit" value="Acepto">
 					</fieldset>
 				</form>

@@ -98,7 +98,7 @@ require('script/conexion.php');
 	mysql_close();	
 
 ?>
-	Se ha eliminado su Taller<br>
+	Se ha eliminado el taller seleccionado<br>
 	<a href="registro_trabajos.php">Regresar al menú</a>
 </section>		
 		

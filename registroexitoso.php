@@ -97,12 +97,12 @@ require('script/conexion.php');
 	if(consulta_tb($queryrfc) == 1 )
 		{
 		print '<script type="text/javascript">';
-   		print 'alert("El RFC '.$rfc.' ya se encuenta registrado, por favor Verifique...")'; 
+   		print 'alert("El RFC '.$rfc.' ya se encuenta registrado, por favor verifique que haya introducido el RFC correcto")'; 
 		print '</script>';	
 		}
 	elseif (consulta_tb($querynom) == 1 ){
 	 	print '<script type="text/javascript">';
-    	print 'alert("El nombre y apellidos ya se encuentan registrados, por favor pida codigo para registarlo")'; 
+    	print 'alert("El nombre y apellidos ya se encuentan registrados, por favor solicite su registro al correo congresomate6@gmail.com")'; 
 	 	print '</script>';	
 	  }	
 		

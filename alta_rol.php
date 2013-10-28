@@ -54,10 +54,10 @@ exit;
 					<legend>Alta de rol</legend>
 					<legend>Id_usuario:</legend>
 					<input type="text" name="id_usuario" id="id_usuario">
-					<legend>Seleccione los roles que desea agregarle al usuario:</legend>
-					<input type="checkbox" id="asignar_roles" name="roles" value=4>Asignar roles
-					<input type="checkbox" id="evaluador" name="evaluador" value=2>Comite Evaluador
-					<input type="checkbox" id="revisor" name="revisor" value=1>Comite Revisor
+					<legend>Seleccione los roles que deseé agregar al usuario:</legend>
+					<input type="checkbox" id="asignar_roles" name="roles" value=4>Asignación de roles
+					<input type="checkbox" id="evaluador" name="evaluador" value=2>Comité Evaluador
+					<input type="checkbox" id="revisor" name="revisor" value=1>Comité Revisor
 				</fieldset>
 				<input type="submit" name="enviar" value="enviar">
 			</form>

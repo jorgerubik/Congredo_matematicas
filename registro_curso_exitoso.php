@@ -133,7 +133,7 @@ echo "C&oacute;digo del trabajo: ".$codigo_curso;
 mysql_close();
 ?>
 <br>
-<a href="registro_curso.php">Agregar otro taller</a>
+<a href="registro_curso.php">Agregar otro curso</a>
 <br>
 <a href="registro_trabajos.php">Ir al menú principal</a>
 </section>		

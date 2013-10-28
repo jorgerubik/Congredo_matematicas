@@ -1,6 +1,6 @@
 <div class="cajatextoscroll">
 <div class="cajatexto">	
-	<h1 align="justify"> El registro de trabajos ser&aacute; liberado a partir del d&iacute;a 21 de Octubre del 2013</h1>
+	<h1 align="justify"> El registro de trabajos ser&aacute; liberado a partir del d&iacute;a 29 de Octubre del 2013</h1>
 
 	<!-- <p>Acceso Autorizado:</p>
 	Esto es una página con acceso restringido.<br> -->
@@ -11,7 +11,7 @@
 	<br>
 	<fieldset>
 		<legend>Asistente</legend>
-		<legend>Si desea ser asistente del Congreso, de click en la imagen de abajo para conocer con lo que se debe cumplir:</legend>
+		<legend>Si desea formar parte del Congreso como asistente, de click en la imagen para conocer los requerimientos con los que debe cumplir:</legend>
 		<form action="registro_asistente.php" method="post" class="forms">
 			<input type="image" src="imagenes/Asistente.png" id="boton">
 		</form>

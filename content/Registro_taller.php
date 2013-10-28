@@ -3,19 +3,19 @@
 <form action="registro_taller_confirmacion.php" method="post" autocomplete="off" class="forms">
 	<fieldset id="ponencia">
 		<legend>Formulario de registro</legend>
-		<legend>Título (máximo 15 palabras)</legend>
+		<legend>Título (máximo 15 palabras):</legend>
 		<input type="text"  id="titulo_taller" name="titulo_taller" onblur="wordCountg();" class="titulo_trabajo">
 	</fieldset>
 	<fieldset>
-		<legend>Contenido (máximo 300 palabras)</legend>
+		<legend>Contenido (máximo 300 palabras):</legend>
 		<textarea rows="6" id="Contenido_area" name="Contenido"  cols="70" required pattern="[a-zA-ZñáéíóúÑÁÉÍÓÚ /]{2,300}" onblur="wordCount();"> </textarea>
 	</fieldset>
 	<fieldset>
-		<legend>Materiales (máximo 100 palabras)</legend>
+		<legend>Materiales (máximo 100 palabras):</legend>
 		<textarea rows="4" cols="50" required name="materiales" id="Contenido_area1" name="Materiales" onblur="wordCountb();" ></textarea>
 	</fieldset>
 	<fieldset>
-		<legend>Autores</legend>
+		<legend>Autores:</legend>
 			<table border="1" id="autores">
 				<tr>
 					<th>Autor</th>

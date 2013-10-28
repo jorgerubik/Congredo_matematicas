@@ -100,7 +100,7 @@ require('script/conexion.php');
 	mysql_close();	
 
 ?>
-	Se ha eliminado su Ponencia<br>
+	Se ha eliminado la ponencia seleccionada<br>
 	<a href="registro_trabajos.php">Regresar al menú</a>
 </section>		
 		
