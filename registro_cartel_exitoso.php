@@ -51,11 +51,36 @@ exit;
 		<section id="seccion">
 <?php
 
-require ('script/utiles.php');
-require('script/conexion.php');
+require('script/bd.php');
 
-//defino variables del formulario de registro general
-	$id_cartel = htmlspecialchars($_POST['id_cartel']);
+$conn = mysql_connect("$host", "$user", "$pass");
+
+if (!$conn) {
+	echo "No se posible conectar al servidor. <br>";
+	trigger_error(mysql_error(), E_USER_ERROR);
+}
+mysql_query("SET NAMES utf8");
+# seleccionar BD
+$rdb = mysql_select_db($db);
+
+if (!$rdb) {
+	echo "No se puede seleccionar la BD. <br>";
+	trigger_error(mysql_error(), E_USER_ERROR);
+}
+////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
+
+function exe_query($query){
+	
+	$r = mysql_query($query);
+	if (!$r) {
+		echo "No se ejecutó el query: $query <br>";
+		trigger_error(mysql_error(), E_USER_ERROR);
+	}
+	return $r;
+	
+}
+
+	// $id_ponencia = htmlspecialchars($_POST['id_ponencia']);
 	$titulo = htmlspecialchars($_POST['titulo_confirma']);
 	$categoria = $_POST['categoria_confirma'];
 	$modalidad = $_POST['modalidad_confirma'];
@@ -72,60 +97,55 @@ require('script/conexion.php');
 	$requiere3 = $_POST['requiere_coautor3'];
 	$requiere4 = $_POST['requiere_coautor4'];
 
-	
-//conexión con servidor
-	require('script/bd.php');
-//conectar con el servidor
-	$conn = mysql_connect("$host", "$user", "$pass");
 
-				if (!$conn) {
-					echo "No se posible conectar al servidor. <br>";
-					trigger_error(mysql_error(), E_USER_ERROR);
-				}
-				mysql_query("SET NAMES utf8");
-				# seleccionar BD
-				$rdb = mysql_select_db($db);
+$cartel = "CA";
 
-				if (!$rdb) {
-					echo "No se puede seleccionar la BD. <br>";
-					trigger_error(mysql_error(), E_USER_ERROR);
-				}
-		////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
+$query_numero = "SELECT COUNT(*) FROM ponencias_cartel WHERE id_modalidad = '$modalidad'";
 
-				function exe_query($query){
-					
-					$r = mysql_query($query);
-					if (!$r) {
-						echo "No se ejecutó el query: $query <br>";
-						trigger_error(mysql_error(), E_USER_ERROR);
-					}
-					return $r;
-					
-				}	
-				$query="INSERT INTO ponencias_cartel VALUES ('$id_cartel', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL)";
-				exe_query($query);
-				$query="INSERT INTO autores VALUES ('$rfc_autor','autor', 'T06' , '$id_cartel', '$requiere')";
-				exe_query($query);
-				if ($rfc_coautor1 != "") {
-					$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T06' , '$id_cartel', '$requiere1')";
-					exe_query($query);
-				}
-				if ($rfc_coautor2 != ""){
-					$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T06' , '$id_cartel', '$requiere2')";
-					exe_query($query);
-				}
-				if ($rfc_coautor3 != ""){
-					$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T06' , '$id_cartel', '$requiere3')";
-					exe_query($query);
-				}
-				if ($rfc_coautor4 != ""){
-					$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T06' , '$id_cartel', '$requiere4')";
-					exe_query($query);
-				}
-	echo"Se an introducido satisfactoriamente sus datos";
-		
-		
-	mysql_close();
+$result = exe_query($query_numero);
+
+$row = mysql_fetch_array($result);
+if($row[0] == 0){
+	$numero_ponencia_modalidad = 1000;
+}
+else{
+	$numero_anterior = $row[0];
+	$numero_ponencia_modalidad = 1000 + $numero_anterior; 
+}
+
+$id_ponencia_cartel = $cartel.$modalidad.$numero_ponencia_modalidad;
+
+$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL)";
+exe_query($query);
+$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere')";
+exe_query($query);
+if ($rfc_coautor1 != "") {
+	$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere1')";
+	exe_query($query);
+}
+if ($rfc_coautor2 != ""){
+	$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere2')";
+	exe_query($query);
+}
+if ($rfc_coautor3 != ""){
+	$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere3')";
+	exe_query($query);
+}
+if ($rfc_coautor4 != ""){
+	$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere4')";
+	exe_query($query);
+}
+
+$query="SELECT id_ponencia_cartel FROM ponencias_cartel WHERE id_ponencia_cartel = '".$cartel.$modalidad.$numero_ponencia_modalidad."';";
+$result1=exe_query($query);
+
+$row = mysql_fetch_array($result1);
+$codigo_cartel = $row[0];
+
+echo "Se a introducido satisfactoriamente su registro a la base de datos.<br>";
+echo "C&oacute;digo del trabajo: ".$codigo_cartel;
+
+mysql_close();
 ?>
 <br>
 <a href="registro_cartel.php">Agregar otro cartel</a>

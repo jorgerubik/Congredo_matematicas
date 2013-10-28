@@ -51,11 +51,38 @@ exit;
 		<section id="seccion">
 <?php
 
-require ('script/utiles.php');
-require('script/conexion.php');
 
-//defino variables del formulario de registro general
-	$id_taller = htmlspecialchars($_POST['id_taller']);
+
+require('script/bd.php');
+
+$conn = mysql_connect("$host", "$user", "$pass");
+
+if (!$conn) {
+	echo "No se posible conectar al servidor. <br>";
+	trigger_error(mysql_error(), E_USER_ERROR);
+}
+mysql_query("SET NAMES utf8");
+# seleccionar BD
+$rdb = mysql_select_db($db);
+
+if (!$rdb) {
+	echo "No se puede seleccionar la BD. <br>";
+	trigger_error(mysql_error(), E_USER_ERROR);
+}
+////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
+
+function exe_query($query){
+	
+	$r = mysql_query($query);
+	if (!$r) {
+		echo "No se ejecutó el query: $query <br>";
+		trigger_error(mysql_error(), E_USER_ERROR);
+	}
+	return $r;
+	
+}
+
+	// $id_ponencia = htmlspecialchars($_POST['id_ponencia']);
 	$titulo = htmlspecialchars($_POST['titulo_confirma']);
 	$contenido = htmlspecialchars($_POST['contenido_confirma']);
 	$materiales = htmlspecialchars($_POST['materiales_confirma']);
@@ -65,56 +92,49 @@ require('script/conexion.php');
 	$requiere = $_POST['requiere_autor'];
 	$requiere1 = $_POST['requiere_coautor1'];
 	$requiere2 = $_POST['requiere_coautor2'];
-	
-//conexión con servidor
-	require('script/bd.php');
-//conectar con el servidor
-	$conn = mysql_connect("$host", "$user", "$pass");
 
-				if (!$conn) {
-					echo "No se posible conectar al servidor. <br>";
-					trigger_error(mysql_error(), E_USER_ERROR);
-				}
-				mysql_query("SET NAMES utf8");
-				# seleccionar BD
-				$rdb = mysql_select_db($db);
+$taller = "TA";
 
-				if (!$rdb) {
-					echo "No se puede seleccionar la BD. <br>";
-					trigger_error(mysql_error(), E_USER_ERROR);
-				}
-		////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
+$query_numero = "SELECT COUNT(*) FROM ponencias_taller";
 
-				function exe_query($query){
-					
-					$r = mysql_query($query);
-					if (!$r) {
-						echo "No se ejecutó el query: $query <br>";
-						trigger_error(mysql_error(), E_USER_ERROR);
-					}
-					return $r;
-					
-				}	
-	
-		//insertando los datos
-		$query = "INSERT INTO ponencias_taller VALUES('$id_taller', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ')";
-		exe_query($query);
-		$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T07', '$id_taller', '$requiere')";
-				exe_query($query);
-				if ($rfc_coautor1 != "") {
-					$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T07', '$id_taller', '$requiere1')";
-					exe_query($query);
-				}
-				if ($rfc_coautor2 != ""){
-					$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T07', '$id_taller', '$requiere2')";
-					exe_query($query);
-				}
-		
-		echo "Se ha introducido satisfactoriamente el registro <br>";
-		
-		
-	mysql_close();
+$result = exe_query($query_numero);
+
+$row = mysql_fetch_array($result);
+if($row[0] == 0){
+	$numero_ponencia = 1000;
+}
+else{
+	$numero_anterior = $row[0];
+	$numero_ponencia = 1000 + $numero_anterior; 
+}
+
+$id_ponencia_taller = $taller.$numero_ponencia;
+
+$query="INSERT INTO ponencias_taller VALUES ('".$taller.$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ')";
+exe_query($query);
+$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T07', '".$taller.$numero_ponencia."', '$requiere')";
+exe_query($query);
+if ($rfc_coautor1 != "") {
+	$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T07', '".$taller.$numero_ponencia."', '$requiere1')";
+	exe_query($query);
+}
+if ($rfc_coautor2 != ""){
+	$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T07', '".$taller.$numero_ponencia."', '$requiere2')";
+	exe_query($query);
+}
+
+$query="SELECT id_ponencia_taller FROM ponencias_taller WHERE id_ponencia_taller = '".$taller.$numero_ponencia."';";
+$result1=exe_query($query);
+
+$row = mysql_fetch_array($result1);
+$codigo_taller = $row[0];
+
+echo "Se a introducido satisfactoriamente su registro a la base de datos.<br>";
+echo "C&oacute;digo del trabajo: ".$codigo_taller;
+
+mysql_close();
 ?>
+
 <br>
 <a href="registro_taller.php">Agregar otro taller</a>
 <br>

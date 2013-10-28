@@ -51,11 +51,36 @@ exit;
 		<section id="seccion">
 <?php
 
-require ('script/utiles.php');
-require('script/conexion.php');
+require('script/bd.php');
 
-//defino variables del formulario de registro general
-	$id_ponencia = htmlspecialchars($_POST['id_ponencia']);
+$conn = mysql_connect("$host", "$user", "$pass");
+
+if (!$conn) {
+	echo "No se posible conectar al servidor. <br>";
+	trigger_error(mysql_error(), E_USER_ERROR);
+}
+mysql_query("SET NAMES utf8");
+# seleccionar BD
+$rdb = mysql_select_db($db);
+
+if (!$rdb) {
+	echo "No se puede seleccionar la BD. <br>";
+	trigger_error(mysql_error(), E_USER_ERROR);
+}
+////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
+
+function exe_query($query){
+	
+	$r = mysql_query($query);
+	if (!$r) {
+		echo "No se ejecutó el query: $query <br>";
+		trigger_error(mysql_error(), E_USER_ERROR);
+	}
+	return $r;
+	
+}
+
+	// $id_ponencia = htmlspecialchars($_POST['id_ponencia']);
 	$titulo = htmlspecialchars($_POST['titulo_confirma']);
 	$categoria = $_POST['categoria_confirma'];
 	$modalidad = $_POST['modalidad_confirma'];
@@ -72,59 +97,55 @@ require('script/conexion.php');
 	$requiere3 = $_POST['requiere_coautor3'];
 	$requiere4 = $_POST['requiere_coautor4'];
 
-	
-//conexión con servidor
-	require('script/bd.php');
-//conectar con el servidor
-	$conn = mysql_connect("$host", "$user", "$pass");
 
-				if (!$conn) {
-					echo "No se posible conectar al servidor. <br>";
-					trigger_error(mysql_error(), E_USER_ERROR);
-				}
-				mysql_query("SET NAMES utf8");
-				# seleccionar BD
-				$rdb = mysql_select_db($db);
+$ponencia_oral = "PO";
 
-				if (!$rdb) {
-					echo "No se puede seleccionar la BD. <br>";
-					trigger_error(mysql_error(), E_USER_ERROR);
-				}
-		////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
+$query_numero = "SELECT COUNT(*) FROM ponencias_oral WHERE id_modalidad = '$modalidad'";
 
-				function exe_query($query){
-					
-					$r = mysql_query($query);
-					if (!$r) {
-						echo "No se ejecutó el query: $query <br>";
-						trigger_error(mysql_error(), E_USER_ERROR);
-					}
-					return $r;
-					
-				}	
-				$query="INSERT INTO ponencias_oral VALUES ('$id_ponencia', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL)";
-				exe_query($query);
-				$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '$id_ponencia', '$requiere')";
-				exe_query($query);
-				if ($rfc_coautor1 != "") {
-					$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05', '$id_ponencia', '$requiere1')";
-					exe_query($query);
-				}
-				if ($rfc_coautor2 != ""){
-					$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05', '$id_ponencia', '$requiere2')";
-					exe_query($query);
-				}
-				if ($rfc_coautor3 != ""){
-					$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05', '$id_ponencia', '$requiere3')";
-					exe_query($query);
-				}
-				if ($rfc_coautor4 != ""){
-					$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05', '$id_ponencia', '$requiere4')";
-					exe_query($query);
-				}
-	mysql_close();
-	echo"Se han introducido satisfactoriamente sus datos";
+$result = exe_query($query_numero);
 
+$row = mysql_fetch_array($result);
+if($row[0] == 0){
+	$numero_ponencia_modalidad = 1000;
+}
+else{
+	$numero_anterior = $row[0];
+	$numero_ponencia_modalidad = 1000 + $numero_anterior; 
+}
+
+$id_ponencia_oral = $ponencia_oral.$modalidad.$numero_ponencia_modalidad;
+
+$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL)";
+exe_query($query);
+$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere')";
+exe_query($query);
+if ($rfc_coautor1 != "") {
+	$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere1')";
+	exe_query($query);
+}
+if ($rfc_coautor2 != ""){
+	$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere2')";
+	exe_query($query);
+}
+if ($rfc_coautor3 != ""){
+	$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere3')";
+	exe_query($query);
+}
+if ($rfc_coautor4 != ""){
+	$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere4')";
+	exe_query($query);
+}
+
+$query="SELECT id_ponencia_oral FROM ponencias_oral WHERE id_ponencia_oral = '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."';";
+$result1=exe_query($query);
+
+$row = mysql_fetch_array($result1);
+$codigo_ponencia_oral = $row[0];
+
+echo "Se a introducido satisfactoriamente su registro a la base de datos.<br>";
+echo "C&oacute;digo del trabajo: ".$codigo_ponencia_oral;
+
+mysql_close();
 ?>
 <br>
 <a href="registro_ponencia.php">Agregar otra ponencia</a>
