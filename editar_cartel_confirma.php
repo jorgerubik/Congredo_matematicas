@@ -184,22 +184,38 @@ require('script/conexion.php');
 					}					
 
 					echo "</tbody> </table>";
-					echo " <legend> Titulo: </legend>";	
-					echo "<input type='text' name='titulo_confirma' value='".$titulo."'>";
-					echo " <legend> Categoria: </legend>";
-					echo "<input type='text' name='categoria_confirma' value='".$categoria."'>";
-					echo "<legend> Modalidad: </legend>";
-					echo "<input type='text' name='modalidad_confirma' value='".$modalidad."'>";
-					echo " <legend> Resumen: </legend>";
-					echo "<textarea  rows='6' cols='50' name='resumen_confirma' >".$resumen."</textarea>";
-					echo " <legend> Referencias: </legend>";
-					echo "<textarea  rows='6' cols='50' name='referencias_confirma'>".$referencias."</textarea>";
-					echo "<table border='1'><tr><td>Id_usuario</td><td>Constancia</td></tr>";
-					echo "<tr><td><input type='text' name='rfc_autor_conf' value='".$rfc_autor."'></td><td><input type='text' name='requiere_autor' value='".$requiere."'></td></tr>";
-					echo "<tr><td><input type='text' name='rfc_coautor1_conf' value='".$rfc_coautor1."'></td><td><input type='text' name='requiere_coautor1' value='".$requiere1."'></td></tr>";
-					echo "<tr><td><input type='text' name='rfc_coautor2_conf' value='".$rfc_coautor2."'></td><td><input type='text' name='requiere_coautor2' value='".$requiere2."'></td></tr>";
-					echo "<tr><td><input type='text' name='rfc_coautor3_conf' value='".$rfc_coautor3."'></td><td><input type='text' name='requiere_coautor3' value='".$requiere3."'></td></tr>";
-					echo "<tr><td><input type='text' name='rfc_coautor4_conf' value='".$rfc_coautor4."'></td><td><input type='text' name='requiere_coautor4' value='".$requiere4."'></td></tr>";
+					echo "<legend>Datos de Cartel:</legend>";
+					echo "<table border='1'><tbody>";
+					echo "<tr><td>Título:</td><td>".$titulo."</td></tr>";
+					echo "<tr><td>Categoria:</td><td>".$categoria."</td></tr>";
+					echo "<tr><td>Modalidad:</td><td>".$modalidad."</td></tr>";
+					echo "<tr><td>Resumen:</td><td>".$resumen."</td></tr>";
+					echo "<tr><td>Referencias:</td><td>".$referencias."</td></tr>";
+					echo "<tr><td>Autores</td><td>Constancia</td></tr>";
+					echo "<tr><td>".$rfc_autor."</td><td>".$requiere."</td></tr>";
+					echo "<tr><td>".$rfc_coautor1."</td><td>".$requiere1."</td></tr>";
+					echo "<tr><td>".$rfc_coautor2."</td><td>".$requiere2."</td></tr>";
+					echo "<tr><td>".$rfc_coautor3."</td><td>".$requiere3."</td></tr>";
+					echo "<tr><td>".$rfc_coautor4."</td><td>".$requiere4."</td></tr>";
+					echo "</tbody></table>";
+
+
+					
+					echo "<input type='text' name='titulo_confirma' value='".$titulo."' style='visibility:hidden;'>";
+					
+					echo "<input type='text' name='categoria_confirma' value='".$categoria."' style='visibility:hidden;'>";
+					
+					echo "<input type='text' name='modalidad_confirma' value='".$modalidad."' style='visibility:hidden;'>";
+					
+					echo "<textarea  rows='6' cols='50' name='resumen_confirma' style='visibility:hidden;'>".$resumen."</textarea>";
+					
+					echo "<textarea  rows='6' cols='50' name='referencias_confirma' style='visibility:hidden;'>".$referencias."</textarea>";
+					
+					echo "<input type='text' name='rfc_autor_conf' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' value='".$requiere."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor1_conf' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' value='".$requiere1."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor2_conf' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' value='".$requiere2."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor3_conf' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' value='".$requiere3."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor4_conf' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' value='".$requiere4."' style='visibility:hidden;'>";
 					echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'>  <br>";
 	
 		

@@ -196,7 +196,7 @@ CREATE TABLE trayectoria_academica (
 #
 CREATE TABLE trayectoria_laboral (
 	id_usuario		VARCHAR(15),
-	id_institucion	VARCHAR(5),
+	id_institucion	VARCHAR(80),
 	id_pais 		VARCHAR(20),
 	id_estado		VARCHAR(50),
 
