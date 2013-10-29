@@ -51,14 +51,7 @@ exit;
 		<section id="seccion">
 <?php
 
-//FUNCION YORCH
-echo "<script>
-$(function (YORCH(){
- 		if(document.getElementById('edicion')){
- 			document.getElementById('edicion').style='visibility:hidden';
- 		}
-)};
-</script>";
+
 require ('script/utiles.php');
 require('script/conexion.php');
 
@@ -114,92 +107,7 @@ require('script/conexion.php');
 	require('script/validaciones_rfc.php');
 		
 	
-		//insertando los datos
-// 		$query = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_autor."'";
-// 		$query1 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor1."'";
-// 		$query2 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor2."'";
-// 		$query3 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor3."'";
-// 		$query4 = "SELECT `RFC`, `nombre_usuario`, `apellido_paterno`, `apellido_materno` FROM `usuarios` WHERE RFC = '".$rfc_coautor4."'";
-// //verificación de rfc
-
-// 		$rfc_invalido = 0;
-
-// 		$r_verificacion_rfc_autor = exe_query($query);
-
-		
-// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_autor)){
-// 			$rfc_autor_error = $rfc_autor;
-// 			$rfc_invalido++;
-// 		}
-// 		else
-// 			$rfc_autor_error = "";
-
-// 		$r_verificacion_rfc_coautor1 = exe_query($query1);
-
-		
-// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor1)){
-// 			$rfc_coautor1_error = $rfc_coautor1;
-// 			$rfc_invalido++;
-// 		}
-// 		else
-// 			$rfc_coautor1_error = "";
-
-// 		$r_verificacion_rfc_coautor2 = exe_query($query2);
-
-		
-// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor2)){
-// 			$rfc_coautor2_error = $rfc_coautor2;
-// 			$rfc_invalido++;
-// 		}
-// 		else
-// 			$rfc_coautor2_error  = "";
-
-// 		$r_verificacion_rfc_coautor3 = exe_query($query3);
-
-		
-// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor3)){
-// 			$rfc_coautor3_error = $rfc_coautor3;
-// 			$rfc_invalido++;
-// 		}
-// 		else
-// 			$rfc_coautor3_error  = "";
-// 		//4
-// 		$r_verificacion_rfc_coautor4 = exe_query($query4);
-
-		
-// 		if(!$row = mysql_fetch_array($r_verificacion_rfc_coautor4)){
-// 			$rfc_coautor4_error = $rfc_coautor4;
-// 			$rfc_invalido++;
-// 		}
-// 		else
-// 			$rfc_coautor4_error  = "";
-// 		//termina4
-// 		if ($rfc_invalido>0) {
-// 			$mensaje_rfc_error = "El o los RFC:<br><ul>";
-// 			echo $mensaje_rfc_error;
-// 			if ($rfc_autor_error != "") {
-// 				echo "<li type='disc'>".$rfc_autor_error."</li>";
-// 			}
-// 			if ($rfc_coautor1_error != "") {
-// 				echo "<li type='disc'>".$rfc_coautor1_error."</li>";
-// 			}
-// 			if ($rfc_coautor2_error != "") {
-// 				echo "<li type='disc'>".$rfc_coautor2_error."</li>";
-// 			}
-// 			if ($rfc_coautor3_error != "") {
-// 				echo "<li type='disc'>".$rfc_coautor3_error."</li>";
-// 			}
-// 			if ($rfc_coautor4_error != "") {
-// 				echo "<li type='disc'>".$rfc_coautor4_error."</li>";
-// 			}
-// 			echo "</ul>no se encuentran registrados, por favor verifique que los datos que introdujo son correctos";
-// 		}		
-
-
-
-
-
-		$r = mysql_query($query);
+			$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";
 						echo "<br>";
@@ -315,7 +223,7 @@ require('script/conexion.php');
 					echo "</tbody></table></fieldset>";
 
 
-					echo "<fieldset id='edicion' style='visibility:visible;'><legend id='edicion'>Edición</legend>";
+					echo "<fieldset id='edicion' style='visibility:hidden;'><legend id='edicion'>Edición</legend>";
 					echo "<legend id='edicion'>Titulo:</legend>";	
 					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."' style='visibility:hidden;'>";
 					echo "<legend id='edicion'>Categoria:</legend>";
@@ -376,8 +284,8 @@ require('script/conexion.php');
 					}
 
 					//echo "<input type='text' id='id_ponencia' name='id_ponencia' style='visibility:hidden;' value='".$id_ponencia."' />";
-					echo "<input type='button' value='Editar' onClick='YORCH()'>";
-					echo "<input type='submit' name='enviar' value='Enviar'></form></fieldset>";
+					echo "</fieldset><input type='button' value='Editar' onClick='MostrarElement();'>";
+					echo "<input type='submit' name='enviar' value='Enviar'></form>";
 	mysql_close();
 
 ?>

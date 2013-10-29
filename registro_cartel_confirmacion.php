@@ -282,7 +282,9 @@ require('script/conexion.php');
 
 					}
 					echo "<input type='text' id='id_cartel' name='id_cartel' style='visibility:hidden;' value='".$id_cartel."' />";
-					echo "</fieldset><input type='button' value='Editar' onClick='Mostrar();'><input type='submit' name='enviar' value='enviar'></form>";
+					echo "</fieldset><input type='button' value='Editar' onClick='MostrarElement();'>";
+					
+					echo "<input type='submit' name='enviar' value='enviar'></form>";
 
 	mysql_close();
 

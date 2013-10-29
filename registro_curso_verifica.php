@@ -28,6 +28,7 @@ exit;
 		<?php
 		include "script/script_formulario.php";
 		?>
+		
 		</script>		
 	</head>
 
@@ -56,9 +57,9 @@ require('script/conexion.php');
 
 //defino variables del formulario de registro general
 	$id_taller = htmlspecialchars($_POST['id_taller']);
-	$titulo = htmlspecialchars($_POST['titulo_taller']);
+	$titulo = htmlspecialchars($_POST['titulo_curso']);
 	$contenido = htmlspecialchars($_POST['Contenido']);
-	$materiales = htmlspecialchars($_POST['materiales']);
+	$materiales = htmlspecialchars($_POST['Materiales']);
 	$rfc_autor = htmlspecialchars($_POST['rfc_autor']);
 	$rfc_coautor1 = htmlspecialchars($_POST['rfc_coautor1']);
 	$rfc_coautor2 = htmlspecialchars($_POST['rfc_coautor2']);
@@ -159,7 +160,7 @@ require('script/conexion.php');
 					echo "<table border='1'><tbody>";
 					echo "<tr><td>Título:</td><td>".$titulo."</td></tr>";
 					echo "<tr><td>Resumen:</td><td>".$contenido."</td></tr>";
-					echo "<tr><td>Referencias:</td><td>".$materiales."</td></tr>";
+					echo "<tr><td>Materiales:</td><td>".$materiales."</td></tr>";
 					echo "<tr><td>Autores</td><td>Constancia</td></tr>";
 					if (($rfc_autor_error == "")) {
 						if($rfc_autor_limite == ""){
@@ -223,7 +224,8 @@ require('script/conexion.php');
 
 					echo "<input type='text' id='id_taller' name='id_taller' style='visibility:hidden;' value='".$id_taller."' />";
 					echo "</fieldset>";
-					echo "<input type='button' value='Editar' onClick='Mostrar();'><input type='submit' name='enviar' value='enviar'></form>";
+					echo "<input type='button' value='Editar' onClick='MostrarElement();'>";
+					echo "<input type='submit' name='enviar' value='enviar'></form>";
 	mysql_close();
 
 ?>
