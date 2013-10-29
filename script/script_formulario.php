@@ -63,11 +63,11 @@
 					return false;
 				}
 				if (obtencion.val() == ""){
-					alert ("Seleccione un año de obtención");
+					alert ("Seleccione un año de obtenci\u00f3n");
 					return false;
 				}
 				if (instit == "") {
-					alert ("Seleccione una institución");
+					alert ("Seleccione una instituci\u00f3n");
 					return false;
 				}
 				if (campus.val() == ""){
@@ -75,7 +75,7 @@
 					return false;
 				}
 				if (institlab == ""){
-					alert ("Seleccione una institución laboral");
+					alert ("Seleccione una instituci\u00f3n laboral");
 					return false;
 				}
 				if (Campuslab.val() == ""){
@@ -83,7 +83,7 @@
 					return false;
 				}
 				if (pais.val() == ""){
-					alert ("Seleccione un país laboral");
+					alert ("Seleccione un pa\u00eds laboral");
 					return false;
 				}
 				if (estado == ""){
@@ -99,4 +99,66 @@
 		});
 
 		
+		$(document).ready(function(){
+			$("#registro").click(function() {
+			var autor = $("#id_ponente1").val();
+			var coautor1 = $("#id_ponente2").val();
+			var coautor2 = $("#id_ponente3").val();
+			var coautor3 = $("#id_ponente4").val();
+			var coautor4 = $("#id_ponente5").val();
+			var modalidad = $("#ensenanza option:selected");
 
+			if( $("#formulario input[name='Categoria']:radio").is(':checked')) {  
+			  
+			} else {  
+			alert("No ha seleccionado una categor\u00eda"); 
+			return false 
+			}  
+			
+			if (modalidad.val() == ""){
+			alert ("No ha seleccionado una modalidad valida, favor de seleccionar una");
+			return false;
+			}
+			//verificación de autor
+			if (autor == coautor1 || autor == coautor2 || autor == coautor3 || autor == coautor4 ){
+				alert ("El o los RFC que introdujo son identicos favor de rectificar");
+				return false;
+			}	
+			
+
+			if( $("#formulario input[name='requiere']:radio").is(':checked')) {  
+			  
+			} else {  
+			alert("No ha seleccionado si el autor requiere constancia"); 
+			return false 
+			}  
+						
+
+			});
+		});
+
+		$(document).ready(function(){
+			$("#registro2").click(function() {
+			var autor = $("#id_ponente1").val();
+			var coautor1 = $("#id_ponente2").val();
+			var coautor2 = $("#id_ponente3").val();
+			
+			
+			//verificación de autor
+			if (autor == coautor1 || autor == coautor2){
+				alert ("El o los RFC que introdujo son identicos favor de rectificar");
+				return false;
+			}	
+			
+
+			if( $("#formulario input[name='requiere']:radio").is(':checked')) {  
+			  
+			} else {  
+			alert("No ha seleccionado si el autor requiere constancia"); 
+			return false 
+			}  
+						
+
+			});
+		});
+		
