@@ -112,7 +112,7 @@
 			  
 			} else {  
 			alert("No ha seleccionado una categor\u00eda"); 
-			return false 
+			return false; 
 			}  
 			
 			if (modalidad.val() == ""){
@@ -123,15 +123,65 @@
 			if (autor == coautor1 || autor == coautor2 || autor == coautor3 || autor == coautor4 ){
 				alert ("El o los RFC que introdujo son identicos favor de rectificar");
 				return false;
-			}	
-			
-
+			}
 			if( $("#formulario input[name='requiere']:radio").is(':checked')) {  
 			  
 			} else {  
 			alert("No ha seleccionado si el autor requiere constancia"); 
-			return false 
+			return false; 
 			}  
+			// verificación de coautor1
+			if (coautor1 != ""){
+				if (coautor1 == coautor2 || coautor1 == coautor3 || coautor1 == coautor4){
+					alert ("El o los RFC que introdujo son identicos, favor de rectificar");
+					return false;
+				}
+				if( $("#formulario input[name='requiere1']:radio").is(':checked')) {  
+				  
+				} else {  
+				alert("No ha seleccionado si el coautor1 requiere constancia"); 
+				return false; 
+				}  	
+			}
+			//verificación de coautor2
+			if (coautor2 != "") {
+				if (coautor2 == coautor3 || coautor2 == coautor4) {
+					alert("El o los RFC que introdujo son identicos, favor de rectificar");
+					return false;
+				};
+				if($("#formulario input[name='requiere2']:radio").is(':cheked')){
+
+				}else{
+					alert("No ha seleccionado si el coautor2 requiere constancia");
+					return false
+				}
+			};
+			//verificación de coautor3
+			if (coautor3 != "") {
+				if (coautor3 == coautor4) {
+					alert("El o los RFC que introdujo son identicos, favor de rectificar");
+					return false;
+				};
+				if ($("#formulario input[name='requiere3']:radio").is(':checked')) {
+
+				}else{
+					alert("No ha seleccionado si el coautor3 requiere constancia");
+					return false;
+				}
+
+			};
+			//verificación de coautor4
+			if (coautor4 != "") {
+				if ($("#formulario input[name='requiere4']:radio").is(':checked')) {
+
+				}else{
+					alert("No ha seleccionado su el coautor4 requiere constancia");
+					return false;
+				}
+			};
+			
+
+			
 						
 
 			});
@@ -155,8 +205,35 @@
 			  
 			} else {  
 			alert("No ha seleccionado si el autor requiere constancia"); 
-			return false 
+			return false; 
 			}  
+
+			// verificación de coautor1
+			if (coautor1 != ""){
+				if (coautor1 == coautor2 || coautor1 == coautor3 || coautor1 == coautor4){
+					alert ("El o los RFC que introdujo son identicos, favor de rectificar");
+					return false;
+				}
+				if( $("#formulario input[name='requiere1']:radio").is(':checked')) {  
+				  
+				} else {  
+				alert("No ha seleccionado si el coautor1 requiere constancia"); 
+				return false; 
+				}  	
+			}
+			//verificación de coautor2
+			if (coautor2 != "") {
+				if (coautor2 == coautor3 || coautor2 == coautor4) {
+					alert("El o los RFC que introdujo son identicos, favor de rectificar");
+					return false;
+				};
+				if($("#formulario input[name='requiere2']:radio").is(':cheked')){
+
+				}else{
+					alert("No ha seleccionado si el coautor2 requiere constancia");
+					return false
+				}
+			};
 						
 
 			});
