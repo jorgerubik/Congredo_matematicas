@@ -222,7 +222,6 @@ require('script/conexion.php');
 
 					}
 					echo "<input type='text' id='id_curso' name='id_curso' style='visibility:hidden;' value='".$id_curso."' />";
-					echo "</table></fieldset><input type='button' value='Editar' onClick='Mostrar();'><input type='submit' name='enviar' value='enviar'></form>";
 	mysql_close();
 ?>
 	</table>

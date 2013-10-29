@@ -168,6 +168,7 @@ require('script/conexion.php');
 							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
 							
 						}
+					}
 		$r4 = mysql_query($query4);
 				if(!$r4){
 						echo "No se pudo ejecutar el query: $query";
@@ -179,6 +180,7 @@ require('script/conexion.php');
 						if ($rfc_coautor4_limite == "") {
 							echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
 							
+						}
 						}					
 
 					echo "</tbody> </table>";
@@ -285,7 +287,6 @@ require('script/conexion.php');
 
 					echo "<input type='text' id='id_ponencia' name='id_ponencia' style='visibility:hidden;' value='".$id_ponencia."' />";
 					
-					echo "</fieldset><input type='button' value='Editar' onClick='Mostrar();'> <input type='submit' name='enviar' value='enviar'></form>";
 
 		
 	mysql_close();

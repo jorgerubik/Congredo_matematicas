@@ -223,7 +223,6 @@ require('script/conexion.php');
 
 					echo "<input type='text' id='id_taller' name='id_taller' style='visibility:hidden;' value='".$id_taller."' />";
 					echo "</fieldset>";
-					echo "<input type='button' value='Editar' onClick='Mostrar();'><input type='submit' name='enviar' value='enviar'></form>";
 					
 					
 		
