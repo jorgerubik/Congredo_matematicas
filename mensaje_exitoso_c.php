@@ -1,10 +1,11 @@
 <?php
 
-$result  = mysql_query("SELECT email FROM usuarios WHERE RFC = '$rfc_autor';", $conn);
+$result  = mysql_query("SELECT email, RFC FROM usuarios WHERE RFC = '$rfc_autor';", $conn);
  if ($row = mysql_fetch_array($result)){ 
                     do {     
                         $email = $row["email"];
                         $nombre=$row["nombre_usuario"];
+                        $rfc_1=$row["RFC"];
                         } while ($row = mysql_fetch_array($result));
                     }
 
@@ -110,9 +111,9 @@ body {
                     <td class="text padding"></td>
                     <td class="text padding"><br>
             <font color="#4000FF"> <h3>El siguiente trabajo se ha registrado: </h3></font><br>
-          <font color="black"><h3>Por el usuario : '.$id_usuario.'</h3></font>
-            <font color="black"><h3> Titulo:'.$titulo.'</h3></font>
-       <font color="black"><h3> Categor&iacute;a:'.$categoria.'</h3></font>
+          <font color="black"><h3>Por el usuario : '.$rfc_1.'</h3></font>
+            <font color="black"><h3> Titulo: '.$titulo.'</h3></font>
+       <font color="black"><h3> Categor&iacute;a: '.$categoria.'</h3></font>
       <font color="black"><h3>Clave: '.$codigo_cartel.'</h3></font>
         <font color="black"><h3> Sus coautores: </h3></font>
       '.$rfc_coautor1.'
@@ -123,7 +124,7 @@ body {
           <br></br>
       '.$rfc_coautor4.'
           <br>
-         <font color="black"><h3>Nota: porfavor no olviden estar atentos a las fechas de <br></font><font color="black">revsión de trabajos y envío de resultados.  </h3></font><br><br>
+         <font color="black"><h3>Nota: porfavor no olviden estar atentos a las fechas de <br></font><font color="black">revsi&oacute;n de trabajos y env&iacute;o de resultados.  </h3></font><br><br>
                     </td></tr>                 
                     </table></td></tr>
               <td class="bottom">&nbsp;</td></tr>
