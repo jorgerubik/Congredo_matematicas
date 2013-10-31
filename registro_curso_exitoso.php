@@ -178,7 +178,7 @@ else if($numero_ponencia > 99){
 $row = mysql_fetch_array($result1);
 $codigo_curso = $row[0];
 require('mensaje_exitoso_cu.php');
-echo "Se a introducido satisfactoriamente su registro a la base de datos.<br>";
+echo "<br>Se a introducido satisfactoriamente su registro a la base de datos.<br>";
 echo "C&oacute;digo del trabajo: ".$codigo_curso;
 
 mysql_close();

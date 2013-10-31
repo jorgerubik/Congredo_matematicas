@@ -194,7 +194,7 @@ $row = mysql_fetch_array($result1);
 $codigo_ponencia_oral = $row[0];
 require('mensaje_exitoso_po.php');
 
-echo "Se a introducido satisfactoriamente su registro a la base de datos.<br>";
+echo "<br>Se ha introducido satisfactoriamente su registro a la base de datos.<br>";
 echo "C&oacute;digo del trabajo: ".$codigo_ponencia_oral;
 
 mysql_close();

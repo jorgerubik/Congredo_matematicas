@@ -181,7 +181,7 @@ $row = mysql_fetch_array($result1);
 $codigo_taller = $row[0];
 require('mensaje_exitoso_ta.php');
 
-echo "Se a introducido satisfactoriamente su registro a la base de datos.<br>";
+echo "<br>Se ha introducido satisfactoriamente su registro a la base de datos.<br>";
 echo "C&oacute;digo del trabajo: ".$codigo_taller;
 
 mysql_close();

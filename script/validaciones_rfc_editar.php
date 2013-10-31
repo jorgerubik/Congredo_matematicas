@@ -115,7 +115,7 @@
 			if ($rfc_coautor4_error != "") {
 				echo "<li type='disc'>".$rfc_coautor4_error."</li>";
 			}
-			echo "</ul>no se encuentran registrados, por favor verifique que los datos que introdujo son correctos<br>";
+			echo "</ul>no se encuentran registrados. Si desea que sus autores puedan ser registrados en el trabajo, primero deberán registrarse en el sistema.<br>";
 		}
 		//verifica que el rfc no tenga mas de 5 registros
 
@@ -240,7 +240,7 @@
 			if ($rfc_coautor4_limite != "") {
 				echo "<li type='disc'>".$rfc_coautor4_limite."</li>";
 			}
-			echo "</ul>participan en el numero límite de trabajos (5), verifique que los datos son los correctos<br>";
+			echo "</ul>han alcanzado el numero límite de trabajos (5), si desean registrarse en éste trabajo deberán eliminar alguno ya antes registrado o dar de baja su participación en otro trabajo.";
 		}
 		//termina
 
@@ -367,7 +367,7 @@
 			if ($rfc_coautor4_taller_curso != "") {
 				echo "<li type='disc'>".$rfc_coautor4_taller_curso."</li>";
 			}
-			echo "</ul>participan en el numero límite de talleres o cursos (1), verifique que los datos son los correctos<br>";
+			echo "</ul>han alcanzado el numero límite de talleres o cursos (1), si desean registrarse en éste trabajo deberán eliminar alguno ya antes registrado o dar de baja su participación en otro trabajo.";
 		}
 	}
 		?>		<?php
@@ -487,7 +487,7 @@
 			if ($rfc_coautor4_error != "") {
 				echo "<li type='disc'>".$rfc_coautor4_error."</li>";
 			}
-			echo "</ul>no se encuentran registrados, por favor verifique que los datos que introdujo son correctos<br>";
+			echo "</ul>no se encuentran registrados. Si desea que sus autores puedan ser registrados en el trabajo, primero deberán registrarse en el sistema.<br>";
 		}
 		//verifica que el rfc no tenga mas de 5 registros
 
@@ -612,7 +612,7 @@
 			if ($rfc_coautor4_limite != "") {
 				echo "<li type='disc'>".$rfc_coautor4_limite."</li>";
 			}
-			echo "</ul>participan en el numero límite de trabajos (5), verifique que los datos son los correctos<br>";
+			echo "</ul>han alcanzado el numero límite de trabajos (5), si desean registrarse en éste trabajo deberán eliminar alguno ya antes registrado o dar de baja su participación en otro trabajo.";
 		}
 		//termina
 
@@ -739,7 +739,7 @@
 			if ($rfc_coautor4_taller_curso != "") {
 				echo "<li type='disc'>".$rfc_coautor4_taller_curso."</li>";
 			}
-			echo "</ul>participan en el numero límite de talleres o cursos (1), verifique que los datos son los correctos<br>";
+			echo "</ul>han alcanzado el numero límite de talleres o cursos (1), si desean registrarse en éste trabajo deberán eliminar alguno ya antes registrado o dar de baja su participación en otro trabajo.";
 		}
 	}
 		?>
