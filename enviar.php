@@ -4,9 +4,6 @@ $email= htmlspecialchars($_POST['Email']);
 $variable1=htmlspecialchars($_POST['id_usuario']);
 $variable2=$_POST['Password1'];
 //utf8_decode($variable1); 
-//$username= $_POST['username'];
-echo "$username";
-
 
 include("class.phpmailer.php");
 include("class.smtp.php");
@@ -148,9 +145,9 @@ body {
     <td></td>
     <table class="maintable" cellspacing="0" cellpadding="0">
       <tr>
-	<img src="c.png">
+  <img src="c.png">
         <td colspan="2" background="images/c.png" class="header"> 
-	             
+               
         </td>  
       </tr>    
 
@@ -173,20 +170,21 @@ body {
                     <td class="text padding">
                     </td>
                     <td class="text padding"><br>
-			 <font color="#4000FF"> <h3>Gracias por registrarse. </h3></font><br>
-			
+       <font color="#4000FF"> <h3>Gracias por registrarse. </h3></font><br>
+      
 
-			<font color="black"><h3> Su Usuario : '.utf8_decode($variable1).'</h3></font><br><br>
-			<font color="black"><h3> Su Contrase&ntilde;a : '.$variable2.' </h3></font>
-                      <br><br><br><br>
-                      <font color="black"><h4>
-                      <font color="black"><h3>Esperamos con entusiasmo su asistencia.</h3></font> 
-			<font color="black"><h3>6&deg; Congreso Internacional para la aplicaci&oacute;n y ense&ntilde;anza</h3></font> 
- <font color="black"><h3>de las matem&aacuteticas 2014.</h3></font><br> 
+      <font color="black"><h3> Su Usuario : '.utf8_decode($variable1).'</h3></font><br><br>
+      <font color="black"><h3> Su Contrase&ntilde;a : '.$variable2.' </h3></font>
+                      <br><br><br><br><b>
+                      <font color="black"><h4>Estimado usuario:</h4></font>
+                      <font color="black"><h4>Si desea participar con alg&uacute;n trabajo, podr&aacute; registrarlo a partir del d&iacute;a 29 de Octubre de 2013</h4></font> 
+                      <font color="black"><h4>Favor de estar al pendiente de las fechas importantes del Congreso, podr&aacute; consultarlas en el apartado derecho de la p&aacute;gina principal:</h4></font> 
+                      <font color="black"><h4><a href="http://congresomatematicas.cuautitlan2.unam.mx">http://congresomatematicas.cuautitlan2.unam.mx</a></h4></font>
+                      </b>
                       <font color="black"><h3>Contacto.</h3></font><br>
-			<font color="black"><h5>56 23 18 86</h5></font>
-			<font color="black"><h5>56 23 18 90</h5></font>	
-<a href="http://congresomatematicas.cuautitlan2.unam.mx">6&deg; Congreso Internacional para la ense&ntilde;anza y aplicaci&oacute;n de las matem&aacute;ticas 2014</a>		
+      <font color="black"><h5>56 23 18 86</h5></font>
+      <font color="black"><h5>56 23 18 90</h5></font> 
+<a href="http://congresomatematicas.cuautitlan2.unam.mx">6&deg; Congreso Internacional para la Ense&ntilde;anza y Aplicaci&oacute;n de las Matem&aacute;ticas 2014</a>    
 </h4></font><br><br>
                     </td>
                   </tr>                 
@@ -200,7 +198,7 @@ body {
         </td>  
    
       </tr>     
-	</font>       
+  </font>       
     </table>  
   </center>      
 </body>
@@ -212,5 +210,5 @@ $mail->IsHTML(true);
 if(!$mail->Send()) {
   echo "Error: " . $mail->ErrorInfo;
 } else {
-  echo "Se ha enviado un mensaje con su usuario y contraseña a la dirección de correo electrónico que registró. Favor de verificarlo. Es importante que lo conserve para accesar posteriormente al sistema.";
+  echo "Mensaje enviado correctamente";
 }

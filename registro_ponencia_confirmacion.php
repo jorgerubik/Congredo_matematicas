@@ -190,31 +190,44 @@ require('script/conexion.php');
 					echo "<tr><td>Resumen:</td><td>".$resumen."</td></tr>";
 					echo "<tr><td>Referencias:</td><td>".$referencias."</td></tr>";
 					echo "<tr><td>Autores</td><td>Constancia</td></tr>";
+
 					if (($rfc_autor_error == "")) {
 						if($rfc_autor_limite == ""){
 								echo "<tr><td>".$rfc_autor."</td><td>".$requiere."</td></tr>";
 								
 						}
 					}
-					if (($rfc_coautor1_error == "")) {
+					if ($rfc_coautor1 == "") {
+						
+					}
+					elseif (($rfc_coautor1_error == "")) {
 						if($rfc_coautor1_limite == ""){
 								echo "<tr><td>".$rfc_coautor1."</td><td>".$requiere1."</td></tr>";
 							
 						}
 					}
-					if (($rfc_coautor2_error == "")) {
+					if ($rfc_coautor2 == "") {
+						
+					}
+					elseif (($rfc_coautor2_error == "")) {
 						if($rfc_coautor2_limite == ""){
 								echo "<tr><td>".$rfc_coautor2."</td><td>".$requiere2."</td></tr>";
 							
 						}
 					}
-					if (($rfc_coautor3_error == "")) {
+					if ($rfc_coautor3 == "") {
+						
+					}
+					elseif (($rfc_coautor3_error == "")) {
 						if($rfc_coautor3_limite == ""){
 								echo "<tr><td>".$rfc_coautor3."</td><td>".$requiere3."</td></tr>";
 							
 						}
 					}
-					if (($rfc_coautor4_error == "")) {
+					if ($rfc_coautor4 == "") {
+						
+					}
+					elseif (($rfc_coautor4_error == "")) {
 						if($rfc_coautor4_limite == ""){
 								echo "<tr><td>".$rfc_coautor4."</td><td>".$requiere4."</td></tr>";
 							

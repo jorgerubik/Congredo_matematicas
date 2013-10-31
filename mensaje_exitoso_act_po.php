@@ -75,7 +75,59 @@ $mail->Password = "ask514ion497"; //ask514ion497
 
 $mail->From = "uroboros_reaper@gmail.com";
 $mail->FromName = "Congreso Matematicas";
-$mail->Subject = "Se ha registrado un trabajo.";
+$mail->Subject = "Se ha editado un trabajo.";
+if ($email1 == '' && $email2 == '' && $email3 == '' && $email4 == ''){
+  $mail->MsgHTML('<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<style>
+body {
+  margin: 0px; }
+.maintable {
+  width: 600px;
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;  }
+.text {
+  color: #777676;  
+  font-family: Times-Rom;
+  font-size: 14px; }
+.padding {
+  padding-left: 20px; }
+.bottom {
+  background-color: #464645;
+  height: 31px; }
+</style>
+<body>
+  <center>
+    <table class="maintable" cellspacing="0" cellpadding="0">
+        <td class="content text" colspan="2"></td></tr>  
+      <img src="c.png">
+      <br></br><br></br>
+        <td class="nomail">              
+          <table width="100%" cellspacing="0" cellpadding="0">
+            <font color="black">
+              <td class="upbottom">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <font color="black">
+                    <td class="text padding"></td>
+                    <td class="text padding"><br>
+            <font color="#4000FF"> <h3>El siguiente trabajo se ha editado y actualizado:'.$titulo.' </h3></font><br>
+          <font color="black"><h3>Por el usuario : '.$rfc_1.'</h3></font>
+          <font color="black"><h3> Categor&iacute;a: '.$categoria.'</h3></font>
+          <font color="black"><h3>Clave de la ponencia oral: '.$id_trabajo.'</h3></font>
+        <font color="black"><h3> No se han registrado coautores en el trabajo, podr&aacute; registrarlos posteriormente
+         en el apartado de<br>edici&oacute;n de trabajos, dentro de Editar Perfil</h3></font><br>
+         <font color="black"><h3>Nota: por favor no olviden estar atentos a las fechas de revisi&oacute;n de trabajos y env&iacute;o de resultados.</h3></font><br><br>
+                    </td></tr>                 
+                    </table></td></tr>
+              <td class="bottom">&nbsp;</td></tr>
+          </table>
+      </center>      
+</body>
+</html>');
+}  
+
+else{      
 $mail->MsgHTML('<html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
 <style>
@@ -110,10 +162,10 @@ body {
                   <font color="black">
                     <td class="text padding"></td>
                     <td class="text padding"><br>
-            <font color="#4000FF"> <h3>El siguiente trabajo se ha actualizado:'.$titulo.' </h3></font><br>
+            <font color="#4000FF"> <h3>El siguiente trabajo se ha editado y actualizado: '.$titulo.' </h3></font><br>
           <font color="black"><h3>Por el usuario : '.$rfc_1.'</h3></font>
-       <font color="black"><h3> Categor&iacute;a: '.$categoria.'</h3></font>
-      <font color="black"><h3>Clave: '.$id_trabajo.'</h3></font>
+          <font color="black"><h3> Categor&iacute;a: '.$categoria.'</h3></font>
+          <font color="black"><h3>Clave de la ponencia oral: '.$codigo_ponencia_oral.'</h3></font>
         <font color="black"><h3> Sus coautores: </h3></font>
       '.$rfc_coautor1.'
           <br></br>
@@ -123,7 +175,7 @@ body {
           <br></br>
       '.$rfc_coautor4.'
           <br>
-         <font color="black"><h3>Nota: por favor no olviden estar atentos a las fechas de <br></font><font color="black">revsi&oacute;n de trabajos y env&iacute;o de resultados.  </h3></font><br><br>
+         <font color="black"><h3>Nota: por favor no olviden estar atentos a las fechas de revisi&oacute;n de trabajos y env&iacute;o de resultados.</h3></font><br><br>
                     </td></tr>                 
                     </table></td></tr>
               <td class="bottom">&nbsp;</td></tr>
@@ -131,55 +183,38 @@ body {
       </center>      
 </body>
 </html>');
+}
+
+
 $mail->AddAddress(''.$email,''.$email);
 $mail->IsHTML(true);
+
 
 if($email1!=''){
 $mail->AddAddress(''.$email1,''.$email1);
 $mail->IsHTML(true);
-if(!$mail->Send()) {
-  echo "Error: " . $mail->ErrorInfo;
-} else {
-  echo "Mensaje enviado correctamente";
-}
 }
 
 if($email2!=''){
 $mail->AddAddress(''.$email2,''.$email2);
 $mail->IsHTML(true);
-if(!$mail->Send()) {
-  echo "Error: " . $mail->ErrorInfo;
-} else {
-  echo "Mensaje enviado correctamente";
-}
 }
 
 if($email3!=''){
 $mail->AddAddress(''.$email3,''.$email3);
 $mail->IsHTML(true);
-if(!$mail->Send()) {
-  echo "Error: " . $mail->ErrorInfo;
-} else {
-  echo "Mensaje enviado correctamente";
-}
 }
 
 if($email4!=''){
-$mail->AddAddress(''.$email2,''.$email2);
+$mail->AddAddress(''.$email4,''.$email4);
 $mail->IsHTML(true);
-if(!$mail->Send()) {
-  echo "Error: " . $mail->ErrorInfo;
-} else {
-  echo "Mensaje enviado correctamente";
-}
 }
 
 
- 
 if(!$mail->Send()) {
   echo "Error: " . $mail->ErrorInfo;
 } else {
-  echo "Mensaje enviado correctamente";
+  echo "Se ha enviado un correo electrónico con la información del trabajo registrado al autor y coautores correspondientes.<br>";
 }
   
 
