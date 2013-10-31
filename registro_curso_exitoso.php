@@ -93,55 +93,91 @@ function exe_query($query){
 
 $curso = "CU";
 
-$query_numero = "SELECT COUNT(*) FROM ponencias_curso";
-
-$result = exe_query($query_numero);
-
-$row = mysql_fetch_array($result);
-if($row[0] == 0){
-	$numero_ponencia = 1000;
-}
-else{
-	$numero_anterior = $row[0];
-	$numero_ponencia = 1000 + $numero_anterior; 
-}
-
-$id_ponencia_curso = $curso.$numero_ponencia;
-
 $query_numero = "SELECT num_registro FROM ponencias_curso ORDER BY num_registro DESC LIMIT 1";
 
 $result = exe_query($query_numero);
 
 $row = mysql_fetch_array($result);
 if($row[0] == 0){
-	$numero_ponencia = 1000;
+	$numero_ponencia = 1;
 }
 else{
 	$numero_anterior = $row[0];
 	$numero_ponencia = 1 + $numero_anterior; 
 }
 
-$id_ponencia_curso = $curso.$numero_ponencia;
-
-$query="INSERT INTO ponencias_curso VALUES ('".$curso.$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ',".$numero_ponencia.")";
-exe_query($query);
-$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T09', '".$curso.$numero_ponencia."', '$requiere')";
-exe_query($query);
-if ($rfc_coautor1 != "") {
-	$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T09', '".$curso.$numero_ponencia."', '$requiere1')";
+if($numero_ponencia <= 9){
+	$query="INSERT INTO ponencias_curso VALUES ('".$curso."00".$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ',".$numero_ponencia.")";
 	exe_query($query);
-}
-if ($rfc_coautor2 != ""){
-	$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T09', '".$curso.$numero_ponencia."', '$requiere2')";
+	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T07', '".$curso."00".$numero_ponencia."', '$requiere')";
 	exe_query($query);
+	if ($rfc_coautor1 != "") {
+		$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T07', '".$curso."00".$numero_ponencia."', '$requiere1')";
+		exe_query($query);
+	}
+	if ($rfc_coautor2 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T07', '".$curso."00".$numero_ponencia."', '$requiere2')";
+		exe_query($query);
+	}
+
+	$query="SELECT id_ponencia_curso FROM ponencias_curso WHERE id_ponencia_curso = '".$curso."00".$numero_ponencia."';";
+	$result1=exe_query($query);
+}
+else if($numero_ponencia <= 99 && $numero_ponencia > 9){
+	$query="INSERT INTO ponencias_curso VALUES ('".$curso."0".$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ',".$numero_ponencia.")";
+	exe_query($query);
+	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T07', '".$curso."0".$numero_ponencia."', '$requiere')";
+	exe_query($query);
+	if ($rfc_coautor1 != "") {
+		$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T07', '".$curso."0".$numero_ponencia."', '$requiere1')";
+		exe_query($query);
+	}
+	if ($rfc_coautor2 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T07', '".$curso."0".$numero_ponencia."', '$requiere2')";
+		exe_query($query);
+	}
+
+	$query="SELECT id_ponencia_curso FROM ponencias_curso WHERE id_ponencia_curso = '".$curso."0".$numero_ponencia."';";
+	$result1=exe_query($query);
+}
+else if($numero_ponencia > 99){
+	$query="INSERT INTO ponencias_curso VALUES ('".$curso.$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ',".$numero_ponencia.")";
+	exe_query($query);
+	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T07', '".$curso.$numero_ponencia."', '$requiere')";
+	exe_query($query);
+	if ($rfc_coautor1 != "") {
+		$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T07', '".$curso.$numero_ponencia."', '$requiere1')";
+		exe_query($query);
+	}
+	if ($rfc_coautor2 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T07', '".$curso.$numero_ponencia."', '$requiere2')";
+		exe_query($query);
+	}
+
+	$query="SELECT id_ponencia_curso FROM ponencias_curso WHERE id_ponencia_curso = '".$curso.$numero_ponencia."';";
+	$result1=exe_query($query);
 }
 
-$query="SELECT id_ponencia_curso FROM ponencias_curso WHERE id_ponencia_curso = '".$curso.$numero_ponencia."';";
-$result1=exe_query($query);
+
+// $query="INSERT INTO ponencias_curso VALUES ('".$curso.$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ',".$numero_ponencia.")";
+// exe_query($query);
+// $query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T09', '".$curso.$numero_ponencia."', '$requiere')";
+// exe_query($query);
+// if ($rfc_coautor1 != "") {
+// 	$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T09', '".$curso.$numero_ponencia."', '$requiere1')";
+// 	exe_query($query);
+// }
+// if ($rfc_coautor2 != ""){
+// 	$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T09', '".$curso.$numero_ponencia."', '$requiere2')";
+// 	exe_query($query);
+// }
+
+// $query="SELECT id_ponencia_curso FROM ponencias_curso WHERE id_ponencia_curso = '".$curso.$numero_ponencia."';";
+// $result1=exe_query($query);
 
 $row = mysql_fetch_array($result1);
 $codigo_curso = $row[0];
-
+require('mensaje_exitoso_cu.php');
 echo "Se a introducido satisfactoriamente su registro a la base de datos.<br>";
 echo "C&oacute;digo del trabajo: ".$codigo_curso;
 

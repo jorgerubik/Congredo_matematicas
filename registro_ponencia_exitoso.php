@@ -100,61 +100,99 @@ function exe_query($query){
 
 $ponencia_oral = "PO";
 
-$query_numero = "SELECT COUNT(*) FROM ponencias_oral WHERE id_modalidad = '$modalidad'";
-
-$result = exe_query($query_numero);
-
-$row = mysql_fetch_array($result);
-if($row[0] == 0){
-	$numero_ponencia_modalidad = 1000;
-}
-else{
-	$numero_anterior = $row[0];
-	$numero_ponencia_modalidad = 1000 + $numero_anterior; 
-}
-
-$id_ponencia_oral = $ponencia_oral.$modalidad.$numero_ponencia_modalidad;
 $query_numero = "SELECT num_registro FROM ponencias_oral ORDER BY num_registro DESC LIMIT 1";
 
 $result = exe_query($query_numero);
 
 $row = mysql_fetch_array($result);
-if($row[0] == 0){
-	$numero_ponencia = 1000;
+if(!$row || $row[0] == 0){
+	$numero_ponencia_modalidad = 1;
 }
 else{
 	$numero_anterior = $row[0];
-	$numero_ponencia = 1 + $numero_anterior; 
+	$numero_ponencia_modalidad = 1 + $numero_anterior; 
 }
 
-$id_ponencia_oral = $ponencia_oral.$modalidad.$numero_ponencia_modalidad;
+if($numero_ponencia_modalidad <= 9){
+	$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad."00".$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia_modalidad.")";
+	exe_query($query);
+	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$ponencia_oral.$modalidad."00".$numero_ponencia_modalidad."', '$requiere')";
+	exe_query($query);
+	if ($rfc_coautor1 != "") {
+		$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05', '".$ponencia_oral.$modalidad."00".$numero_ponencia_modalidad."', '$requiere1')";
+		exe_query($query);
+	}
+	if ($rfc_coautor2 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05', '".$ponencia_oral.$modalidad."00".$numero_ponencia_modalidad."', '$requiere2')";
+		exe_query($query);
+	}
+	if ($rfc_coautor3 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05', '".$ponencia_oral.$modalidad."00".$numero_ponencia_modalidad."', '$requiere3')";
+		exe_query($query);
+	}
+	if ($rfc_coautor4 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05', '".$ponencia_oral.$modalidad."00".$numero_ponencia_modalidad."', '$requiere4')";
+		exe_query($query);
+	}
 
-$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia.")";
-exe_query($query);
-$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere')";
-exe_query($query);
-if ($rfc_coautor1 != "") {
-	$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere1')";
-	exe_query($query);
+	$query="SELECT id_ponencia_oral FROM ponencias_oral WHERE id_ponencia_oral = '".$ponencia_oral.$modalidad."00".$numero_ponencia_modalidad."';";
+	$result1=exe_query($query);
 }
-if ($rfc_coautor2 != ""){
-	$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere2')";
+else if($numero_ponencia_modalidad <= 99 && $numero_ponencia_modalidad > 9){
+	$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad."0".$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia_modalidad.")";
 	exe_query($query);
+	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$ponencia_oral.$modalidad."0".$numero_ponencia_modalidad."', '$requiere')";
+	exe_query($query);
+	if ($rfc_coautor1 != "") {
+		$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05', '".$ponencia_oral.$modalidad."0".$numero_ponencia_modalidad."', '$requiere1')";
+		exe_query($query);
+	}
+	if ($rfc_coautor2 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05', '".$ponencia_oral.$modalidad."0".$numero_ponencia_modalidad."', '$requiere2')";
+		exe_query($query);
+	}
+	if ($rfc_coautor3 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05', '".$ponencia_oral.$modalidad."0".$numero_ponencia_modalidad."', '$requiere3')";
+		exe_query($query);
+	}
+	if ($rfc_coautor4 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05', '".$ponencia_oral.$modalidad."0".$numero_ponencia_modalidad."', '$requiere4')";
+		exe_query($query);
+	}
+
+	$query="SELECT id_ponencia_oral FROM ponencias_oral WHERE id_ponencia_oral = '".$ponencia_oral.$modalidad."0".$numero_ponencia_modalidad."';";
+	$result1=exe_query($query);
 }
-if ($rfc_coautor3 != ""){
-	$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere3')";
+else if($numero_ponencia_modalidad > 99){
+	$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia_modalidad.")";
 	exe_query($query);
-}
-if ($rfc_coautor4 != ""){
-	$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere4')";
+	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere')";
 	exe_query($query);
+	if ($rfc_coautor1 != "") {
+		$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere1')";
+		exe_query($query);
+	}
+	if ($rfc_coautor2 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere2')";
+		exe_query($query);
+	}
+	if ($rfc_coautor3 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere3')";
+		exe_query($query);
+	}
+	if ($rfc_coautor4 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere4')";
+		exe_query($query);
+	}
+
+	$query="SELECT id_ponencia_oral FROM ponencias_oral WHERE id_ponencia_oral = '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."';";
+	$result1=exe_query($query);
 }
 
-$query="SELECT id_ponencia_oral FROM ponencias_oral WHERE id_ponencia_oral = '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."';";
-$result1=exe_query($query);
 
 $row = mysql_fetch_array($result1);
 $codigo_ponencia_oral = $row[0];
+require('mensaje_exitoso_po.php');
 
 echo "Se a introducido satisfactoriamente su registro a la base de datos.<br>";
 echo "C&oacute;digo del trabajo: ".$codigo_ponencia_oral;

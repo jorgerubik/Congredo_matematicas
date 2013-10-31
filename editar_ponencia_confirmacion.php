@@ -119,7 +119,7 @@ require('script/conexion.php');
 						echo " ";
 						
 					}
-					echo "<form action = 'registro_ponencia_exitoso.php' method='post'><fieldset>";
+					echo "<form action = 'actualizacion_ponencia.php' method='post'><fieldset>";
 					echo "<legend>Confirmación de datos</legend>";
 					echo "<legend>AUTORES:</legend> ";
 					echo "<table border='1'> <tbody>";
@@ -225,82 +225,145 @@ require('script/conexion.php');
 					echo "</tbody></table>";
 
 
-					echo "</fieldset><fieldset id='edicion' style='visibility:hidden;'><legend id='edicion'>Edición</legend>";
-					echo "<legend id='edicion'>Titulo:</legend>";	
-					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."' style='visibility:hidden;'>";
-					echo "<legend id='edicion'>Categoria:</legend>";
-					echo "<input type='text' name='categoria_confirma' id='categoria' value='".$categoria."' style='visibility:hidden;'>";
-					echo "<legend id='edicion'>Modalidad:</legend>";
-					echo "<input type='text' name='modalidad_confirma'id='modalidad' value='".$modalidad."' style='visibility:hidden;'>";
-					echo "<legend id='edicion'>Resumen:</legend>";
-					echo "<textarea  rows='6' cols='50' name='resumen_confirma' id='resumen' style='visibility:hidden;' >".$resumen."</textarea>";
-					echo "<legend id='edicion'>Referencias:</legend>";
-					echo "<textarea  rows='6' cols='50' name='referencias_confirma'id='referencias' style='visibility:hidden;'>".$referencias."</textarea>";
-					echo "<legend id='edicion'>Autores:</legend>";
+					echo "</fieldset >";
+					//echo "<legend id='edicion'>Titulo:</legend>";	
+					echo "<fieldset style='display:none;'>";
+					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."' >";
+					//echo "<legend id='edicion'>Categoria:</legend>";
+					echo "<input type='text' name='categoria_confirma' id='categoria' value='".$categoria."'>";
+					//echo "<legend id='edicion'>Modalidad:</legend>";
+					echo "<input type='text' name='modalidad_confirma'id='modalidad' value='".$modalidad."'>";
+					//echo "<legend id='edicion'>Resumen:</legend>";
+					echo "<textarea  rows='1' cols='50' name='resumen_confirma' id='resumen' >".$resumen."</textarea>";
+					//echo "<legend id='edicion'>Referencias:</legend>";
+					echo "<textarea  rows='1' cols='50' name='referencias_confirma'id='referencias'>".$referencias."</textarea>";
+					//echo "<legend id='edicion'>Autores:</legend>";
 					if (($rfc_autor_error != "")||($rfc_autor_limite != "")){
 						$rfc_autor = "";
 						$requiere = "";
-					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."'>";
+					echo "<input type='radio' name='requiere_autor' id='constancia' value='SI'>SI  <input type='radio' name='requiere_autor' id='constancia' value='NO'>NO";
 					}
-					if (($rfc_autor_error == "")||($rfc_autor_limite == "")){
-					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'>";
-						
+					else{
+						if (($rfc_autor_error == "")||($rfc_autor_limite == "")){
+						echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."'>";
+							if($requiere == "SI"){
+								echo "<input type='radio' name='requiere_autor' id='constancia' value='".$requiere."' checked>SI<input type='radio' name='requiere_autor' id='constancia' value='NO'>NO";
+							}
+							if ($requiere =="NO"){
+								echo "<input type='radio' name='requiere_autor' id='constancia' value='SI'>SI<input type='radio' name='requiere_autor' id='constancia' value='".$requiere."' checked>NO";			
+							}						
+							
+						}
 					}
+					//verifica coautor1
 					if (($rfc_coautor1_error != "")||($rfc_coautor1_limite != "")) {
 						$rfc_coautor1 = "";
 						$requiere1 = "";
-					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."'>";
+					echo "<input type='radio' name='requiere_coautor1' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO";
 					}
-					if (($rfc_coautor1_error == "")||($rfc_coautor1_limite == "")) {
-					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'>";
+					else{
+						if (($rfc_coautor1_error == "")||($rfc_coautor1_limite == "")) {
+						echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' >";
+							if($requiere1 == "SI"){
+								echo "<input type='radio' name='requiere_coautor1' id='constancia' value='".$requiere1."' checked>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO";
+							}
+							else if ($requiere1 =="NO"){
+								echo "<input type='radio' name='requiere_coautor1' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor1' id='constancia' value='".$requiere1."' checked>NO";			
+							}
+							else{
+								echo "<input type='radio' name='requiere_coautor1' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO";
+							}
 
+						}						
 					}
+					//verifica coautor2
 					if (($rfc_coautor2_error != "")||($rfc_coautor2_limite != "")) {
 						$rfc_coautor2 = "";
 						$requiere2 = "";
-					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
-					}
-					if (($rfc_coautor2_error == "")||($rfc_coautor2_limite == "")){
-					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' >";
+					echo "<input type='radio' name='requiere_coautor2' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO";
 
 					}
+					else{
+						if (($rfc_coautor2_error == "")||($rfc_coautor2_limite == "")){
+						echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' >";
+							if($requiere2 == "SI"){
+								echo "<input type='radio' name='requiere_coautor2' id='constancia' value='".$requiere2."' checked>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO";
+							}
+							else if ($requiere2 =="NO"){
+								echo "<input type='radio' name='requiere_coautor2' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor2' id='constancia' value='".$requiere2."' checked>NO";			
+							}
+							else{
+								echo "<input type='radio' name='requiere_coautor2' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO";
 
+							}
+						}
+					}
+					//verifica coautor 3
 					if (($rfc_coautor3_error != "")||($rfc_coautor3_limite != "")) {
 						$rfc_coautor3 = "";
 						$requiere3 = "";
-					echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' id='constancia3' value='".$requiere3."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' >";
+					echo "<input type='radio' name='requiere_coautor3' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor3' id='constancia' value='NO'>NO";
 					}
-					if (($rfc_coautor3_error == "")||($rfc_coautor3_limite == "")){
-					echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' id='constancia3' value='".$requiere3."' style='visibility:hidden;'>";
-
+					else{
+						if (($rfc_coautor3_error == "")||($rfc_coautor3_limite == "")){
+						echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' >";
+							if($requiere3 == "SI"){
+								echo "<input type='radio' name='requiere_coautor3' id='constancia' value='".$requiere3."' checked>SI <input type='radio' name='requiere_coautor3' id='constancia' value='NO'>NO";
+							}
+							else if ($requiere3 =="NO"){
+								echo "<input type='radio' name='requiere_coautor3' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor3' id='constancia' value='".$requiere3."' checked>NO";			
+							}
+							else{
+								echo "<input type='radio' name='requiere_coautor3' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor3' id='constancia' value='NO'>NO";
+							}
+						}
 					}
-
+					//verifica coautor4
 					if (($rfc_coautor4_error != "")||($rfc_coautor4_limite != "")) {
 						$rfc_coautor4 = "";
 						$requiere4 = "";
-					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' id='constancia4' value='".$requiere4."' style='visibility:hidden;'>";
+					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' >";
+					echo "<input type='radio' name='requiere_coautor4' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor4' id='constancia' value='NO'>NO";
 					}
-					if (($rfc_coautor4_error == "")||($rfc_coautor4_limite == "")){
-					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' id='constancia4' value='".$requiere4."' style='visibility:hidden;'>";
+					else{
+						if (($rfc_coautor4_error == "")||($rfc_coautor4_limite == "")){
+						echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' >";
+							if($requiere4 == "SI"){
+								echo "<input type='radio' name='requiere_coautor4' id='constancia' value='".$requiere4."' checked>SI <input type='radio' name='requiere_coautor4' id='constancia' value='NO'>NO";
+							}
+							else if ($requiere4 =="NO"){
+								echo "<input type='radio' name='requiere_coautor4' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor4' id='constancia' value='".$requiere4."' checked>NO";			
+							}
+							else{
+								echo "<input type='radio' name='requiere_coautor4' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor4' id='constancia' value='NO'>NO";
 
+							}					
+						}
 					}
+					echo "</fieldset>";
+					echo"<input type='text' id='id_ponencia' name='id_trabajo' style='visibility:hidden;' value='".$id_trabajo."' >";
 
-					echo "<input type='text' id='id_ponencia' name='id_ponencia' style='visibility:hidden;' value='".$id_ponencia."' />";
-					
-
-		
 	mysql_close();
 ?>
 	</table>
 </fieldset>
 	<fieldset>
 		<legend>Esta es la información que actualizo:</legend>
-		<legend>Regresar a la edición del Taller:</legend>
-		<a href="editar_ponencia.php">Regresar</a>
-		<legend>Deséa continuar</legend>
+		<legend>Desea continuar:</legend>
 	<input type='submit' name='enviar' value='enviar'>
-	</fieldset>
+	</form>
+		<legend>Regresar a la edición de ponencia:</legend>
+	<form method='post' action='editar_ponencia.php'>
+	<?echo"<input type='text' id='id_ponencia' name='id_trabajo' style='visibility:hidden;' value='".$id_trabajo."' >"; ?>
+	<br>
+	<input type="submit" name="regresar" value="Regresar">	
 </form>
+					
+	</fieldset>
 	</div>
 	</div>
 </section>		

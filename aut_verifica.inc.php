@@ -149,7 +149,7 @@ session_start();
 if (!isset($_SESSION['usuario_login']) && !isset($_SESSION['usuario_password'])){
 // Borramos la sesion creada por el inicio de session anterior
 session_destroy();
-die ("Error cod.: 2 - Acceso incorrecto!");
+die ("Por seguridad se ha cerrado su sesión, favor de iniciarla nuevamente ");
 exit;
 }
 }

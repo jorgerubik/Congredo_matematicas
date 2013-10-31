@@ -1,6 +1,6 @@
 
 
-<form action="registro_taller_confirmacion.php" method="post" autocomplete="off" class="forms">
+<form action="registro_taller_confirmacion.php" method="post" autocomplete="off" class="forms" id="formulario">
 	<fieldset id="ponencia">
 		<legend>Formulario de registro</legend>
 		<legend>Título (máximo 15 palabras):</legend>

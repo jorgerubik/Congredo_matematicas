@@ -1,6 +1,6 @@
-<?php
-	include "script/script_login.php";
-?>
+<!--<?php
+	//include "script/script_login.php";
+?>-->
 <!doctype html>
 <html lang="ES">
 	<head>

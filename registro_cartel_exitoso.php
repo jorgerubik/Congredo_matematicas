@@ -100,20 +100,20 @@ function exe_query($query){
 
 $cartel = "CA";
 
-$query_numero = "SELECT COUNT(*) FROM ponencias_cartel WHERE id_modalidad = '$modalidad'";
+// $query_numero = "SELECT COUNT(*) FROM ponencias_cartel WHERE id_modalidad = '$modalidad'";
 
-$result = exe_query($query_numero);
+// $result = exe_query($query_numero);
 
-$row = mysql_fetch_array($result);
-if($row[0] == 0){
-	$numero_ponencia_modalidad = 1000;
-}
-else{
-	$numero_anterior = $row[0];
-	$numero_ponencia_modalidad = 1000 + $numero_anterior; 
-}
+// $row = mysql_fetch_array($result);
+// if($row[0] == 0){
+// 	$numero_ponencia = 1000;
+// }
+// else{
+// 	$numero_anterior = $row[0];
+// 	$numero_ponencia = 1000 + $numero_anterior; 
+// }
 
-$id_ponencia_cartel = $cartel.$modalidad.$numero_ponencia_modalidad;
+// $id_ponencia_cartel = $cartel.$modalidad.$numero_ponencia;
 
 $query_numero = "SELECT num_registro FROM ponencias_cartel ORDER BY num_registro DESC LIMIT 1";
 
@@ -121,38 +121,112 @@ $result = exe_query($query_numero);
 
 $row = mysql_fetch_array($result);
 if($row[0] == 0){
-	$numero_ponencia = 1000;
+	$numero_ponencia = 1;
 }
 else{
 	$numero_anterior = $row[0];
 	$numero_ponencia = 1 + $numero_anterior; 
 }
 
-$id_ponencia_cartel = $ponencia_cartel.$modalidad.$numero_ponencia_modalidad;
+if($numero_ponencia <= 9){
+	$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad."00".$numero_ponencia."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL, ".$numero_ponencia.")";
+	exe_query($query);
+	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$cartel.$modalidad."00".$numero_ponencia."', '$requiere')";
+	exe_query($query);
+	if ($rfc_coautor1 != "") {
+		$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05', '".$cartel.$modalidad."00".$numero_ponencia."', '$requiere1')";
+		exe_query($query);
+	}
+	if ($rfc_coautor2 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05', '".$cartel.$modalidad."00".$numero_ponencia."', '$requiere2')";
+		exe_query($query);
+	}
+	if ($rfc_coautor3 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05', '".$cartel.$modalidad."00".$numero_ponencia."', '$requiere3')";
+		exe_query($query);
+	}
+	if ($rfc_coautor4 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05', '".$cartel.$modalidad."00".$numero_ponencia."', '$requiere4')";
+		exe_query($query);
+	}
 
-$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,NULL,NULL,".$numero_ponencia.")";
-exe_query($query);
-$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere')";
-exe_query($query);
-if ($rfc_coautor1 != "") {
-	$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere1')";
-	exe_query($query);
+	$query="SELECT id_ponencia_cartel FROM ponencias_cartel WHERE id_ponencia_cartel = '".$cartel.$modalidad."00".$numero_ponencia."';";
+	$result1=exe_query($query);
 }
-if ($rfc_coautor2 != ""){
-	$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere2')";
+else if($numero_ponencia <= 99 && $numero_ponencia > 9){
+	$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad."0".$numero_ponencia."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL, ".$numero_ponencia.")";
 	exe_query($query);
+	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$cartel.$modalidad."0".$numero_ponencia."', '$requiere')";
+	exe_query($query);
+	if ($rfc_coautor1 != "") {
+		$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05', '".$cartel.$modalidad."0".$numero_ponencia."', '$requiere1')";
+		exe_query($query);
+	}
+	if ($rfc_coautor2 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05', '".$cartel.$modalidad."0".$numero_ponencia."', '$requiere2')";
+		exe_query($query);
+	}
+	if ($rfc_coautor3 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05', '".$cartel.$modalidad."0".$numero_ponencia."', '$requiere3')";
+		exe_query($query);
+	}
+	if ($rfc_coautor4 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05', '".$cartel.$modalidad."0".$numero_ponencia."', '$requiere4')";
+		exe_query($query);
+	}
+
+	$query="SELECT id_ponencia_cartel FROM ponencias_cartel WHERE id_ponencia_cartel = '".$cartel.$modalidad."0".$numero_ponencia."';";
+	$result1=exe_query($query);
 }
-if ($rfc_coautor3 != ""){
-	$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere3')";
+else if($numero_ponencia > 99){
+	$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad.$numero_ponencia."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL, ".$numero_ponencia.")";
 	exe_query($query);
-}
-if ($rfc_coautor4 != ""){
-	$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T06', '".$cartel.$modalidad.$numero_ponencia_modalidad."', '$requiere4')";
+	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$cartel.$modalidad.$numero_ponencia."', '$requiere')";
 	exe_query($query);
+	if ($rfc_coautor1 != "") {
+		$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05', '".$cartel.$modalidad.$numero_ponencia."', '$requiere1')";
+		exe_query($query);
+	}
+	if ($rfc_coautor2 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05', '".$cartel.$modalidad.$numero_ponencia."', '$requiere2')";
+		exe_query($query);
+	}
+	if ($rfc_coautor3 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05', '".$cartel.$modalidad.$numero_ponencia."', '$requiere3')";
+		exe_query($query);
+	}
+	if ($rfc_coautor4 != ""){
+		$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05', '".$cartel.$modalidad.$numero_ponencia."', '$requiere4')";
+		exe_query($query);
+	}
+
+	$query="SELECT id_ponencia_cartel FROM ponencias_cartel WHERE id_ponencia_cartel = '".$cartel.$modalidad.$numero_ponencia."';";
+	$result1=exe_query($query);
 }
 
-$query="SELECT id_ponencia_cartel FROM ponencias_cartel WHERE id_ponencia_cartel = '".$cartel.$modalidad.$numero_ponencia_modalidad."';";
-$result1=exe_query($query);
+// $query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad.$numero_ponencia."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,NULL,NULL,".$numero_ponencia.")";
+// exe_query($query);
+// $query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T06', '".$cartel.$modalidad.$numero_ponencia."', '$requiere')";
+// exe_query($query);
+// if ($rfc_coautor1 != "") {
+// 	$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T06', '".$cartel.$modalidad.$numero_ponencia."', '$requiere1')";
+// 	exe_query($query);
+// }
+// if ($rfc_coautor2 != ""){
+// 	$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T06', '".$cartel.$modalidad.$numero_ponencia."', '$requiere2')";
+// 	exe_query($query);
+// }
+// if ($rfc_coautor3 != ""){
+// 	$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T06', '".$cartel.$modalidad.$numero_ponencia."', '$requiere3')";
+// 	exe_query($query);
+// }
+// if ($rfc_coautor4 != ""){
+// 	$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T06', '".$cartel.$modalidad.$numero_ponencia."', '$requiere4')";
+// 	exe_query($query);
+// }
+
+// $query="SELECT id_ponencia_cartel FROM ponencias_cartel WHERE id_ponencia_cartel = '".$cartel.$modalidad.$numero_ponencia."';";
+// $result1=exe_query($query);
 
 $row = mysql_fetch_array($result1);
 $codigo_cartel = $row[0];

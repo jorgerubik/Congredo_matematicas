@@ -110,10 +110,10 @@ body {
                   <font color="black">
                     <td class="text padding"></td>
                     <td class="text padding"><br>
-            <font color="#4000FF"> <h3>El siguiente trabajo se ha registrado:'.$titulo.' </h3></font><br>
+            <font color="#4000FF"> <h3>El siguiente trabajo se ha actualizado:'.$titulo.' </h3></font><br>
           <font color="black"><h3>Por el usuario : '.$rfc_1.'</h3></font>
        <font color="black"><h3> Categor&iacute;a: '.$categoria.'</h3></font>
-      <font color="black"><h3>Clave: '.$codigo_cartel.'</h3></font>
+      <font color="black"><h3>Clave: '.$id_trabajo.'</h3></font>
         <font color="black"><h3> Sus coautores: </h3></font>
       '.$rfc_coautor1.'
           <br></br>

@@ -406,61 +406,62 @@
 		  
  		 };
  		 //mostrar elementos
- 		 function MostrarElement(){
+ 		 function MostrarElemento(){
  		 	if (document.getElementById("edicion")) {
- 		 		document.getElementById("edicion").style="visibility:visible";
+ 		 		document.getElementById("edicion").style.display="block";
+ 		 		document.getElementById("BotonEditar").style.display="none";
  		 	};
- 		 	if (document.getElementById("titulo")) {
- 		 		document.getElementById("titulo").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("autores")) {
- 		 		document.getElementById("autores").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("autores1")) {
- 		 		document.getElementById("autores1").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("autores2")) {
- 		 		document.getElementById("autores2").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("autores3")) {
- 		 		document.getElementById("autores3").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("autores4")) {
- 		 		document.getElementById("autores4").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("contenido")) {
- 		 		document.getElementById("contenido").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("materiales")) {
- 		 		document.getElementById("materiales").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("categoria")) {
- 		 		document.getElementById("categoria").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("modalidad")) {
- 		 		document.getElementById("modalidad").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("resumen")) {
- 		 		document.getElementById("resumen").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("referencias")) {
- 		 		document.getElementById("referencias").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("constancia")) {
- 		 		document.getElementById("constancia").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("constancia1")) {
- 		 		document.getElementById("constancia1").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("constancia2")) {
- 		 		document.getElementById("constancia2").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("constancia3")) {
- 		 		document.getElementById("constancia3").style="visibility:visible";
- 		 	};
- 		 	if (document.getElementById("constancia4")) {
- 		 		document.getElementById("constancia4").style="visibility:visible";
- 		 	};
+ 		 	// if (document.getElementById("titulo")) {
+ 		 	// 	document.getElementById("titulo").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("autores")) {
+ 		 	// 	document.getElementById("autores").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("autores1")) {
+ 		 	// 	document.getElementById("autores1").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("autores2")) {
+ 		 	// 	document.getElementById("autores2").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("autores3")) {
+ 		 	// 	document.getElementById("autores3").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("autores4")) {
+ 		 	// 	document.getElementById("autores4").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("contenido")) {
+ 		 	// 	document.getElementById("contenido").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("materiales")) {
+ 		 	// 	document.getElementById("materiales").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("categoria")) {
+ 		 	// 	document.getElementById("categoria").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("modalidad")) {
+ 		 	// 	document.getElementById("modalidad").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("resumen")) {
+ 		 	// 	document.getElementById("resumen").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("referencias")) {
+ 		 	// 	document.getElementById("referencias").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("constancia")) {
+ 		 	// 	document.getElementById("constancia").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("constancia1")) {
+ 		 	// 	document.getElementById("constancia1").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("constancia2")) {
+ 		 	// 	document.getElementById("constancia2").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("constancia3")) {
+ 		 	// 	document.getElementById("constancia3").style.display="block";
+ 		 	// };
+ 		 	// if (document.getElementById("constancia4")) {
+ 		 	// 	document.getElementById("constancia4").style.display="block";
+ 		 	// };
  		 }
 
 

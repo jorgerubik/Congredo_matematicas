@@ -1,6 +1,6 @@
 		
 		<!-- formulario de registro -->
-		<form action="registroexitoso.php" method="post" class="cajatexto">
+		<form action="registroexitososecure.php" method="post" class="cajatexto">
 		<!--datos de usurio -->
 			<fieldset class="usuario">
 				<legend class="font_titulos">Datos de usuario</legend>

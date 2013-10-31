@@ -244,7 +244,7 @@ CREATE TABLE trayectoria_laboral (
 CREATE TABLE ponencias_oral (
 	id_ponencia_oral	 VARCHAR(15),
 	RFC			VARCHAR(13),
-	id_categoria		 VARCHAR(3),
+	id_categoria		 VARCHAR(15),
 	id_modalidad		 VARCHAR(3),
 	titulo_oral			 TEXT,
 	resumen_oral		 TEXT,
@@ -252,6 +252,7 @@ CREATE TABLE ponencias_oral (
 	aceptado_oral		 BIT/*BOOL*/,
 	extenso_oral		 MEDIUMBLOB,
 	formato_extenso_oral VARCHAR(10),
+	num_registro		 INT,
 
 	PRIMARY KEY (id_ponencia_oral)
 ) ENGINE = InnoDB;
@@ -261,7 +262,7 @@ CREATE TABLE ponencias_oral (
 CREATE TABLE ponencias_cartel (
 	id_ponencia_cartel	 	VARCHAR(15),
 	RFC			VARCHAR(13),
-	id_categoria		 	VARCHAR(3),
+	id_categoria		 	VARCHAR(15),
 	id_modalidad		 	VARCHAR(3),
 	titulo_cartel			TEXT,
 	resumen_cartel		 	TEXT,
@@ -271,6 +272,7 @@ CREATE TABLE ponencias_cartel (
 	formato_archivo_cartel	VARCHAR(10),
 	lugar_cartel			VARCHAR(30),
 	fecha_cartel			DATE,
+	num_registro			INT,
 
 	PRIMARY KEY (id_ponencia_cartel)
 ) ENGINE = InnoDB;
@@ -291,6 +293,7 @@ CREATE TABLE ponencias_taller (
 	hora_taller_ini		TIME,
 	hora_taller_fin		TIME,
 	edificio_taller		VARCHAR(4),
+	num_registro		INT,
 
 	PRIMARY KEY (id_ponencia_taller)
 ) ENGINE = InnoDB;
@@ -311,6 +314,7 @@ CREATE TABLE ponencias_curso (
 	hora_curso_ini		TIME,
 	hora_curso_fin		TIME,
 	edificio_curso		VARCHAR(4),
+	num_registro		 INT,
 
 	PRIMARY KEY (id_ponencia_curso)
 ) ENGINE = InnoDB;

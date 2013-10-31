@@ -112,8 +112,7 @@ body {
                     <td class="text padding"><br>
             <font color="#4000FF"> <h3>El siguiente trabajo se ha registrado:'.$titulo.' </h3></font><br>
           <font color="black"><h3>Por el usuario : '.$rfc_1.'</h3></font>
-       <font color="black"><h3> Categor&iacute;a: '.$categoria.'</h3></font>
-      <font color="black"><h3>Clave: '.$codigo_cartel.'</h3></font>
+      <font color="black"><h3>Clave: '.$codigo_taller.'</h3></font>
         <font color="black"><h3> Sus coautores: </h3></font>
       '.$rfc_coautor1.'
           <br></br>
@@ -131,57 +130,75 @@ body {
       </center>      
 </body>
 </html>');
+
+$mensajes_correctos = 0;
+$intentos_envio = 0;
+
 $mail->AddAddress(''.$email,''.$email);
 $mail->IsHTML(true);
+
 
 if($email1!=''){
 $mail->AddAddress(''.$email1,''.$email1);
 $mail->IsHTML(true);
+$intentos_envio++;
 if(!$mail->Send()) {
   echo "Error: " . $mail->ErrorInfo;
 } else {
-  echo "Mensaje enviado correctamente";
+  $mensajes_correctos++;
+ // echo "Mensaje enviado correctamente";
 }
 }
 
 if($email2!=''){
 $mail->AddAddress(''.$email2,''.$email2);
 $mail->IsHTML(true);
+$intentos_envio++;
 if(!$mail->Send()) {
   echo "Error: " . $mail->ErrorInfo;
 } else {
-  echo "Mensaje enviado correctamente";
+  $mensajes_correctos++;
+ // echo "Mensaje enviado correctamente";
 }
 }
 
 if($email3!=''){
 $mail->AddAddress(''.$email3,''.$email3);
 $mail->IsHTML(true);
+$intentos_envio++;
 if(!$mail->Send()) {
   echo "Error: " . $mail->ErrorInfo;
 } else {
-  echo "Mensaje enviado correctamente";
+  $mensajes_correctos++;
+ // echo "Mensaje enviado correctamente";
 }
 }
 
 if($email4!=''){
-$mail->AddAddress(''.$email2,''.$email2);
+$mail->AddAddress(''.$email4,''.$email4);
 $mail->IsHTML(true);
+$intentos_envio++;
 if(!$mail->Send()) {
   echo "Error: " . $mail->ErrorInfo;
 } else {
-  echo "Mensaje enviado correctamente";
+  $mensajes_correctos++;
+ // echo "Mensaje enviado correctamente";
 }
 }
 
+$intentos_envio++;
+if(!$mail->Send()) {
+  echo "Error: " . $mail->ErrorInfo;
+} else {
+  $mensajes_correctos++;
+ // echo "Mensaje enviado correctamente";
+}
+
+if($intentos_envio==$mensajes_correctos){
+  echo "Se ha enviado un correo electrónico con la información del trabajo registrado al autor y coautores correspondientes.<br>";
+}
 
  
-if(!$mail->Send()) {
-  echo "Error: " . $mail->ErrorInfo;
-} else {
-  echo "Mensaje enviado correctamente";
-}
-  
 
 
 ?>

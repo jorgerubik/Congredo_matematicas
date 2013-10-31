@@ -183,7 +183,7 @@ require('script/conexion.php');
 
 					
 		echo "Se ha introducido satisfactoriamente el cambio <br>";
-		
+		require('mensaje_exitoso_act_po.php');
 	mysql_close();
 ?>
 		

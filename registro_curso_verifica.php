@@ -186,45 +186,78 @@ require('script/conexion.php');
 					echo "</tbody></table>";
 
 
-					echo "</fieldset><fieldset id='edicion' style='visibility:hidden;'><legend id='edicion'>Edición</legend>";
+					echo "</fieldset><fieldset id='edicion' style='display:none;'><legend id='edicion'>Edición</legend>";
 					echo "<legend id='edicion'>Titulo:</legend>";
-					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."' style='visibility:hidden;'>";
+					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."'>";
 					echo "<legend id='edicion'>Contenido:</legend>";
-					echo "<textarea  rows='6' cols='50' name='contenido_confirma' id='contenido' style='visibility:hidden;'>".$contenido."</textarea>";
+					echo "<textarea  rows='6' cols='50' name='contenido_confirma' id='contenido'>".$contenido."</textarea>";
 					echo "<legend id='edicion'>Materiales:</legend>";
-					echo "<textarea  rows='6' cols='50' name='materiales_confirma' id='materiales' style='visibility:hidden;'>".$materiales."</textarea>";
-					echo "<legend id='edicion'>Autores:</legend>";
+					echo "<textarea  rows='6' cols='50' name='materiales_confirma' id='materiales'>".$materiales."</textarea>";
+					echo "<table border='1'><tr><th><legend id='edicion'>Autores:</legend></th><th><legend id='edicion'>Requiere constancia:</legend></th></tr>";
+					//verifica autor
 					if (($rfc_autor_error != "")||($rfc_autor_limite != "")||($rfc_autor_taller_curso != "")){
 						$rfc_autor = "";
 						$requiere = "";
-					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'>";
+					echo "<tr><td><input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."'></td>";
+					echo "<td><input type='radio' name='requiere_autor' id='constancia' value='SI'>SI </td> <td><input type='radio' name='requiere_autor' id='constancia' value='NO'>NO</td></tr>";
 					}
-					if (($rfc_autor_error == "")||($rfc_autor_limite == "")||($rfc_autor_taller_curso == "")){
-					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'>";
-						
+					else{
+						if (($rfc_autor_error == "")||($rfc_autor_limite == "")||($rfc_autor_taller_curso == "")){
+						echo "<tr><td><input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."'></td>";
+							if($requiere == "SI"){
+								echo "<td><input type='radio' name='requiere_autor' id='constancia' value='".$requiere."' checked>SI<input type='radio' name='requiere_autor' id='constancia' value='NO'>NO</td></tr>";
+							}
+							if ($requiere =="NO"){
+								echo "<td><input type='radio' name='requiere_autor' id='constancia' value='SI'>SI<input type='radio' name='requiere_autor' id='constancia' value='".$requiere."' checked>NO</td></tr>";			
+							}						
+							
+						}
 					}
+					//verifica coautor1
 					if (($rfc_coautor1_error != "")||($rfc_coautor1_limite != "")||($rfc_coautor1_taller_curso != "")) {
 						$rfc_coautor1 = "";
 						$requiere1 = "";
-					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'>";
+					echo "<tr><td><input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."'></td>";
+					echo "<td><input type='radio' name='requiere_coautor1' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO</td></tr>";
 					}
-					if (($rfc_coautor1_error == "")||($rfc_coautor1_limite == "")||($rfc_coautor1_taller_curso == "")) {
-					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'>";
-
+					else{
+						if (($rfc_coautor1_error == "")||($rfc_coautor1_limite == "")||($rfc_coautor1_taller_curso == "")) {
+						echo "<tr><td><input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' ></td>";
+							if($requiere1 == "SI"){
+								echo "<td><input type='radio' name='requiere_coautor1' id='constancia' value='".$requiere1."' checked>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO</td></tr>";
+							}
+							else if ($requiere1 =="NO"){
+								echo "<td><input type='radio' name='requiere_coautor1' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor1' id='constancia' value='".$requiere1."' checked>NO</td></tr>";			
+							}
+							else{
+								echo "<td><input type='radio' name='requiere_coautor1' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO</td></tr>";
+							}
+						}
 					}
+					//verifica coautor2
 					if (($rfc_coautor2_error != "")||($rfc_coautor2_limite != "")||($rfc_coautor2_taller_curso != "")) {
 						$rfc_coautor2 = "";
 						$requiere2 = "";
-					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
+					echo "<tr><td><input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' ></td>";
+					echo "<td><input type='radio' name='requiere_coautor2' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO</td></tr>";
 					}
-					if (($rfc_coautor2_error == "")||($rfc_coautor2_limite == "")||($rfc_coautor2_taller_curso == "")){
-					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
-
+					else{
+						if (($rfc_coautor2_error == "")||($rfc_coautor2_limite == "")||($rfc_coautor2_taller_curso == "")){
+						echo "<tr><td><input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' ></td>";
+							if($requiere1 == "SI"){
+								echo "<td><input type='radio' name='requiere_coautor2' id='constancia' value='".$requiere2."' checked>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO</td></tr>";
+							}
+							else if ($requiere1 =="NO"){
+								echo "<td><input type='radio' name='requiere_coautor2' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor2' id='constancia' value='".$requiere2."' checked>NO</td></tr>";			
+							}
+							else{
+								echo "<td><input type='radio' name='requiere_coautor2' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO</td></tr>";
+							}
+						}
 					}
-
-					echo "<input type='text' id='id_taller' name='id_taller' style='visibility:hidden;' value='".$id_taller."' />";
+					echo "</table>";
 					echo "</fieldset>";
-					echo "<input type='button' value='Editar' onClick='MostrarElement();'>";
+					echo "<input type='button' value='Editar' id='BotonEditar' onClick='MostrarElemento();'>";
 					echo "<input type='submit' name='enviar' value='enviar'></form>";
 	mysql_close();
 

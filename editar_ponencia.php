@@ -119,12 +119,12 @@ require('script/conexion.php');
 							 echo "<legend>Título (máximo 15 palabras):</legend>";
 							 echo "<input type='text' name='Titulo_ponencia' id='titulo_ponencia' value='".$row['titulo_oral']."' onblur='wordCountd();' > ";
 							 echo "<legend>Categoría:</legend>";
-							 if ($row['id_categoria'] == 'inv') {
+							 if ($row['id_categoria'] == 'investigacion') {
 							 	# code...
 								 echo "<input type='radio' name='Categoria' value='".$row['id_categoria']."' checked>Investigación <br> ";
 								 echo "<input type='radio' name='Categoria' value='experiencia'>Experiencia en aula ";
 							 }
-							 if ($row['id_categoria'] == 'exp') {
+							 if ($row['id_categoria'] == 'experiencia') {
 							 	# code...
 							 	echo "<input type='radio' name='Categoria' value='".$row['id_categoria']."' checked>Experiencia en aula ";	
 							 	echo "<input type='radio' name='Categoria' value='investigacion'>Investigación <br> ";

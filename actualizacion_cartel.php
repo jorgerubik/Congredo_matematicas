@@ -179,11 +179,9 @@ require('script/conexion.php');
 					$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T06' , '$id_trabajo', '$requiere4')";
 					exe_query($query);
 				}
-							
-
 					
 		echo "Se ha introducido satisfactoriamente el cambio <br>";
-		
+		require('mensaje_exitoso_act_c.php');
 	mysql_close();
 ?>
 		

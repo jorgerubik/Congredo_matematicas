@@ -223,68 +223,348 @@ require('script/conexion.php');
 					echo "</tbody></table></fieldset>";
 
 
-					echo "<fieldset id='edicion' style='visibility:hidden;'><legend id='edicion'>Edición</legend>";
+					echo "<fieldset id='edicion' style='display:none;'><legend id='edicion'>Edición</legend>";
 					echo "<legend id='edicion'>Titulo:</legend>";	
-					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."' style='visibility:hidden;'>";
+					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."'>";
 					echo "<legend id='edicion'>Categoria:</legend>";
-					echo "<input type='text' name='categoria_confirma' id='categoria' value='".$categoria."' style='visibility:hidden;'>";
+					//echo "<input type='text' name='categoria_confirma' id='categoria' value='".$categoria."'>";
+					if ($categoria == 'investigacion') {
+						echo "<input type='radio' name='categoria_confirma' id='categoria' value='".$categoria."' checked>Investigación";
+						echo "<input type='radio' name='categoria_confirma' id='categoria' value='experiencia'>Experiencia en aula";
+					}
+					if($categoria == 'experiencia'){
+						echo "<input type='radio' name='categoria_confirma' id='categoria' value='investigacion' >Investigación";
+						echo "<input type='radio' name='categoria_confirma' id='categoria' value='".$categoria."' checked>Experiencia en aula";
+					}
 					echo "<legend id='edicion'>Modalidad:</legend>";
-					echo "<input type='text' name='modalidad_confirma' id='modalidad' value='".$modalidad."' style='visibility:hidden;'>";
+					//echo "<input type='text' name='modalidad_confirma' id='modalidad' value='".$modalidad."'>";
+					 echo "<select id='ensenanza' name='modalidad_confirma'";
+							 echo "<option value='' >Modalidad</option>";
+							 echo "<option value=''>------------Enseñanza de las matemáticas------------</option> ";
+							 if ($modalidad == 'AC') {
+							 	echo "<option value='".$modalidad."' selected>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'ID') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='".$modalidad."' selected>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'EA') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='".$modalidad."' selected>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'HM') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='".$modalidad."' selected>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'RP') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM' >Historia (HM)</option> ";
+							 	echo "<option value='".$modalidad."' selected>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'UT') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='".$modalidad."' selected>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'ED') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='".$modalidad."' selected>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'EM') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='".$modalidad."' selected>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'PN') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='".$modalidad."' selected>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'AE') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='".$modalidad."' selected>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'MS') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='".$modalidad."' selected>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'OP') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='".$modalidad."' selected>Optimización (OP)</option> ";
+							 	echo "<option value='VD'>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+							 if ($modalidad == 'VD') {
+							 	echo "<option value='AC'>Aprendizaje cooperativo (AC)</option>";
+							 	echo "<option value='ID'>Innovación didáctica y metodológica (ID)</option> ";
+							 	echo "<option value='EA'>Entorno al aprendizaje (EA)</option> ";
+							 	echo "<option value='HM'>Historia (HM)</option> ";
+							 	echo "<option value='RP'>Resolución de problemas y habilidades (RP)</option> ";
+							 	echo "<option value='UT'>Uso de las TIC´s (UT)</option> ";
+							 	echo "<option value='ED'>Experiencias docentes (ED)</option> ";
+							 	echo "<option value='EM'>Enseñando con manipulables (EM)</option> ";
+							 	echo "<option value='PN'>Pensamiento numérico y simbólico (PN)</option> ";
+							 	echo "<option value=''>--------------Aplicación de las matemáticas--------------</option> ";
+							 	echo "<option value='AE'>Análisis estadístico y diseño de experimentos (AE)</option> ";
+							 	echo "<option value='MS'>Modelación y simulación (MS)</option> ";
+							 	echo "<option value='OP'>Optimización (OP)</option> ";
+							 	echo "<option value='".$modalidad."' selected>Vinculación con otras disciplinas (VD)</option> ";
+							 }
+
+					//termina codigo de modalidad
 					echo "<legend id='edicion'>Resumen:</legend>";
-					echo "<textarea  rows='6' cols='50' name='resumen_confirma' id='resumen' style='visibility:hidden;' >".$resumen."</textarea>";
+					echo "<textarea  rows='6' cols='50' name='resumen_confirma' id='resumen' >".$resumen."</textarea>";
 					echo "<legend id='edicion'>Referencias:</legend>";
-					echo "<textarea  rows='6' cols='50' name='referencias_confirma' id='referencias' style='visibility:hidden;'>".$referencias."</textarea>";
-					echo "<legend id='edicion'>Autores:</legend>";
+					echo "<textarea  rows='6' cols='50' name='referencias_confirma' id='referencias'>".$referencias."</textarea>";
+					echo "<table border='1'><tr><th><legend id='edicion'>Autores:</legend></th><th><legend id='edicion'>Requiere constancia:</legend></th></tr>";					
 					if (($rfc_autor_error != "")||($rfc_autor_limite != "")){
 						$rfc_autor = "";
 						$requiere = "";
-					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'>";
+					echo "<tr><td><input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."'></td>";
+					echo "<td><input type='radio' name='requiere_autor' id='constancia' value='SI'>SI </td> <td><input type='radio' name='requiere_autor' id='constancia' value='NO'>NO</td></tr>";
 					}
-					if (($rfc_autor_error == "")||($rfc_autor_limite == "")){
-					echo "<input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."' style='visibility:hidden;'><input type='text' name='requiere_autor' id='constancia' value='".$requiere."' style='visibility:hidden;'>";
-						
+					else{
+						if (($rfc_autor_error == "")||($rfc_autor_limite == "")){
+						echo "<tr><td><input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."'></td>";
+							if($requiere == "SI"){
+								echo "<td><input type='radio' name='requiere_autor' id='constancia' value='".$requiere."' checked>SI<input type='radio' name='requiere_autor' id='constancia' value='NO'>NO</td></tr>";
+							}
+							if ($requiere =="NO"){
+								echo "<td><input type='radio' name='requiere_autor' id='constancia' value='SI'>SI<input type='radio' name='requiere_autor' id='constancia' value='".$requiere."' checked>NO</td></tr>";			
+							}						
+							
+						}
 					}
+					//verifica coautor1
 					if (($rfc_coautor1_error != "")||($rfc_coautor1_limite != "")) {
 						$rfc_coautor1 = "";
 						$requiere1 = "";
-					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'>";
+					echo "<tr><td><input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."'></td>";
+					echo "<td><input type='radio' name='requiere_coautor1' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO</td></tr>";
 					}
-					if (($rfc_coautor1_error == "")||($rfc_coautor1_limite == "")) {
-					echo "<input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' style='visibility:hidden;'><input type='text' name='requiere_coautor1' id='constancia1' value='".$requiere1."' style='visibility:hidden;'>";
+					else{
+						if (($rfc_coautor1_error == "")||($rfc_coautor1_limite == "")) {
+						echo "<tr><td><input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' ></td>";
+							if($requiere1 == "SI"){
+								echo "<td><input type='radio' name='requiere_coautor1' id='constancia' value='".$requiere1."' checked>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO</td></tr>";
+							}
+							else if ($requiere1 =="NO"){
+								echo "<td><input type='radio' name='requiere_coautor1' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor1' id='constancia' value='".$requiere1."' checked>NO</td></tr>";			
+							}
+							else{
+								echo "<td><input type='radio' name='requiere_coautor1' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO</td></tr>";
+							}
 
+						}						
 					}
+					//verifica coautor2
 					if (($rfc_coautor2_error != "")||($rfc_coautor2_limite != "")) {
 						$rfc_coautor2 = "";
 						$requiere2 = "";
-					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
-					}
-					if (($rfc_coautor2_error == "")||($rfc_coautor2_limite == "")){
-					echo "<input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' style='visibility:hidden;'><input type='text' name='requiere_coautor2' id='constancia2' value='".$requiere2."' style='visibility:hidden;'>";
+					echo "<tr><td><input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' ></td>";
+					echo "<td><input type='radio' name='requiere_coautor2' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO</td></tr>";
 
 					}
+					else{
+						if (($rfc_coautor2_error == "")||($rfc_coautor2_limite == "")){
+						echo "<tr><td><input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' ></td>";
+							if($requiere2 == "SI"){
+								echo "<td><input type='radio' name='requiere_coautor2' id='constancia' value='".$requiere2."' checked>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO</td></tr>";
+							}
+							else if ($requiere2 =="NO"){
+								echo "<td><input type='radio' name='requiere_coautor2' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor2' id='constancia' value='".$requiere2."' checked>NO</td></tr>";			
+							}
+							else{
+								echo "<td><input type='radio' name='requiere_coautor2' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO</td></tr>";
 
+							}
+						}
+					}
+					//verifica coautor 3
 					if (($rfc_coautor3_error != "")||($rfc_coautor3_limite != "")) {
 						$rfc_coautor3 = "";
 						$requiere3 = "";
-					echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' id='constancia3' value='".$requiere3."' style='visibility:hidden;'>";
+					echo "<tr><td><input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' ></td>";
+					echo "<td><input type='radio' name='requiere_coautor3' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor3' id='constancia' value='NO'>NO</td></tr>";
 					}
-					if (($rfc_coautor3_error == "")||($rfc_coautor3_limite == "")){
-					echo "<input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' style='visibility:hidden;'><input type='text' name='requiere_coautor3' id='constancia3' value='".$requiere3."' style='visibility:hidden;'>";
-
+					else{
+						if (($rfc_coautor3_error == "")||($rfc_coautor3_limite == "")){
+						echo "<tr><td><input type='text' name='rfc_coautor3_conf' id='autores3' value='".$rfc_coautor3."' ></td>";
+							if($requiere3 == "SI"){
+								echo "<td><input type='radio' name='requiere_coautor3' id='constancia' value='".$requiere3."' checked>SI <input type='radio' name='requiere_coautor3' id='constancia' value='NO'>NO</td></tr>";
+							}
+							else if ($requiere3 =="NO"){
+								echo "<td><input type='radio' name='requiere_coautor3' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor3' id='constancia' value='".$requiere3."' checked>NO</td></tr>";			
+							}
+							else{
+								echo "<td><input type='radio' name='requiere_coautor3' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor3' id='constancia' value='NO'>NO</td></tr>";
+							}
+						}
 					}
-
+					//verifica coautor4
 					if (($rfc_coautor4_error != "")||($rfc_coautor4_limite != "")) {
 						$rfc_coautor4 = "";
 						$requiere4 = "";
-					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' id='constancia4' value='".$requiere4."' style='visibility:hidden;'>";
+					echo "<tr><td><input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' ></td>";
+					echo "<td><input type='radio' name='requiere_coautor4' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor4' id='constancia' value='NO'>NO</td></tr>";
 					}
-					if (($rfc_coautor4_error == "")||($rfc_coautor4_limite == "")){
-					echo "<input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' style='visibility:hidden;'><input type='text' name='requiere_coautor4' id='constancia4' value='".$requiere4."' style='visibility:hidden;'>";
+					else{
+						if (($rfc_coautor4_error == "")||($rfc_coautor4_limite == "")){
+						echo "<tr><td><input type='text' name='rfc_coautor4_conf' id='autores4' value='".$rfc_coautor4."' ></td>";
+							if($requiere4 == "SI"){
+								echo "<td><input type='radio' name='requiere_coautor4' id='constancia' value='".$requiere4."' checked>SI <input type='radio' name='requiere_coautor4' id='constancia' value='NO'>NO</td></tr>";
+							}
+							else if ($requiere4 =="NO"){
+								echo "<td><input type='radio' name='requiere_coautor4' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor4' id='constancia' value='".$requiere4."' checked>NO</td></tr>";			
+							}
+							else{
+								echo "<td><input type='radio' name='requiere_coautor4' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor4' id='constancia' value='NO'>NO</td></tr>";
 
+							}					
+						}
 					}
 
-					//echo "<input type='text' id='id_ponencia' name='id_ponencia' style='visibility:hidden;' value='".$id_ponencia."' />";
-					echo "</fieldset><input type='button' value='Editar' onClick='MostrarElement();'>";
+					//echo "<input type='text' id='id_ponencia' name='id_ponencia' value='".$id_ponencia."' />";
+					echo "</table></fieldset><input type='button' value='Editar' id='BotonEditar' onClick='MostrarElemento();'>";
 					echo "<input type='submit' name='enviar' value='Enviar'></form>";
 	mysql_close();
 
