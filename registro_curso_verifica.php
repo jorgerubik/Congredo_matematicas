@@ -188,11 +188,11 @@ require('script/conexion.php');
 
 					echo "</fieldset><fieldset id='edicion' style='display:none;'><legend id='edicion'>Edición</legend>";
 					echo "<legend id='edicion'>Titulo:</legend>";
-					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."'>";
+					echo "<input type='text' name='titulo_confirma' id='titulo' value='".$titulo."' required>";
 					echo "<legend id='edicion'>Contenido:</legend>";
-					echo "<textarea  rows='6' cols='50' name='contenido_confirma' id='contenido'>".$contenido."</textarea>";
+					echo "<textarea  rows='6' cols='50' name='contenido_confirma' id='contenido' required>".$contenido."</textarea>";
 					echo "<legend id='edicion'>Materiales:</legend>";
-					echo "<textarea  rows='6' cols='50' name='materiales_confirma' id='materiales'>".$materiales."</textarea>";
+					echo "<textarea  rows='6' cols='50' name='materiales_confirma' id='materiales' required>".$materiales."</textarea>";
 					echo "<table border='1'><tr><th><legend id='edicion'>Autores:</legend></th><th><legend id='edicion'>Requiere constancia:</legend></th></tr>";
 					//verifica autor
 					if (($rfc_autor_error != "")||($rfc_autor_limite != "")||($rfc_autor_taller_curso != "")){

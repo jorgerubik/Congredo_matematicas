@@ -33,7 +33,7 @@
 		</fieldset>
 		<fieldset>
 			<legend>Resumen (máximo 300 palabras):</legend>
-			<textarea rows="6" cols="50" name="Resumen" id="Contenido_area" required onblur="wordCount();" > </textarea>
+			<textarea rows="6" cols="50" name="Resumen" id="Contenido_area" required onblur="wordCount();" ></textarea>
 		</fieldset>
 		<fieldset>
 			<legend>Referencias (máximo 30 palabras):</legend>

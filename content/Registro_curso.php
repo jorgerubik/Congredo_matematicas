@@ -7,7 +7,7 @@
 	</fieldset>
 	<fieldset>
 		<legend>Contenido (máximo 300 palabras):</legend>
-		<textarea rows="6" id="Contenido_area" name="Contenido" cols="70"  required onblur="wordCount();"> </textarea>
+		<textarea rows="6" id="Contenido_area" name="Contenido" cols="70"  required onblur="wordCount();"></textarea>
 	</fieldset>
 	<fieldset>
 		<legend>Materiales (máximo 100 palabras):</legend>

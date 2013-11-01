@@ -224,7 +224,7 @@ require('script/conexion.php');
 
 					echo "</fieldset><fieldset id='edicion' style='display:none;'><legend id='edicion'>Edición</legend>";
 					echo "<legend id='edicion'>Titulo:</legend>";	
-					echo "<input type='text' name='titulo_confirma'id='titulo' value='".$titulo."'>";
+					echo "<input type='text' name='titulo_confirma'id='titulo' value='".$titulo."' required>";
 					echo "<legend id='edicion'>Categoria:</legend>";
 					//echo "<input type='text' name='categoria_confirma' id='categoria' value='".$categoria."'>";
 					if ($categoria == 'investigacion') {
@@ -451,9 +451,9 @@ require('script/conexion.php');
 
 					//termina codigo de modalidad
 					echo "<legend id='edicion'>Resumen:</legend>";
-					echo "<textarea  rows='6' cols='50' name='resumen_confirma' id='resumen'>".$resumen."</textarea>";
+					echo "<textarea  rows='6' cols='50' name='resumen_confirma' id='resumen' required>".$resumen."</textarea>";
 					echo "<legend id='edicion'>Referencias:</legend>";
-					echo "<textarea  rows='6' cols='50' name='referencias_confirma' id='referencias'>".$referencias."</textarea>";
+					echo "<textarea  rows='6' cols='50' name='referencias_confirma' id='referencias' required>".$referencias."</textarea>";
 					echo "<table border='1'><tr><th><legend id='edicion'>Autores:</legend></th><th><legend id='edicion'>Requiere constancia:</legend></th></tr>";
 					if (($rfc_autor_error != "")||($rfc_autor_limite != "")){
 						$rfc_autor = "";
