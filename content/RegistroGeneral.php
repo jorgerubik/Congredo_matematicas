@@ -16,7 +16,7 @@
 				<input type="email" id="Email" name="Email" maxlength="50" size="50" required placeholder="usuario@correo.com">
 				<legend>RFC: <a href="http://giro.com.mx/?page_id=72" target="_blank">Obt&eacute;n tu RFC</a></legend>
 				<input type="text" id="Rfc" name="Rfc" maxlength="13" size="13">
-				<legend>Contrase&ntilde;a:</legend>
+				<legend>Contrase&ntilde;a (6 a 16 caracteres acepta letras, números, _ y -):</legend>
 				<input type="password" id="Password1" name="Password1" maxlength="16" size="16" required pattern="[a-zA-Z0-9_-]{6,16}">
 				<legend>Repita contrase&ntilde;a:</legend>
 				<input type="password" id="Password2" maxlength="16" size="16" >
