@@ -119,7 +119,7 @@ require('script/conexion.php');
 						echo " ";
 						
 					}
-					echo "<form action = 'actualizacion_ponencia.php' method='post'><fieldset>";
+					echo "<form action = 'actualizacion_ponencia.php' method='post' id='formulario'><fieldset>";
 					echo "<legend>Confirmación de datos</legend>";
 					echo "<legend>AUTORES:</legend> ";
 					echo "<table border='1'> <tbody>";
@@ -195,7 +195,7 @@ require('script/conexion.php');
 					if (($rfc_autor_error == "")) {
 						if($rfc_autor_limite == ""){
 								echo "<tr><td>".$rfc_autor."</td><td>".$requiere."</td></tr>";
-								
+								 
 						}
 					}
 					if (($rfc_coautor1_error == "")) {
@@ -354,7 +354,7 @@ require('script/conexion.php');
 	<fieldset>
 		<legend>Esta es la información que actualizo:</legend>
 		<legend>Desea continuar:</legend>
-	<input type='submit' name='enviar' value='enviar'>
+	<input type='submit' name='enviar' value='enviar' >
 	</form>
 		<legend>Regresar a la edición de ponencia:</legend>
 	<form method='post' action='editar_ponencia.php'>

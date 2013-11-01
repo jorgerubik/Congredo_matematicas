@@ -1,4 +1,4 @@
-		<a href="pdf/convocatoria.pdf">Versi&oacute;n para descargar</a><br/><br/><br/>
+		<a href="pdf/convocatoria.pdf" target="_blank">Versi&oacute;n para descargar</a><br/><br/><br/>
 	
 		<object type="application/pdf" data="pdf/convocatoria.pdf#toolbar=1&navpanes=1&scrollbar=1" width="570" height="570" id="pdf"> 
 		<p style="text-align:center; width: 5%;">Adobe Reader no se encuentra o la versi&oacute;n no es compatible, utiliza el icono para ir a la p&aacute;gina de descarga <br /> 

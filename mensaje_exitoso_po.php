@@ -117,7 +117,7 @@ body {
           <font color="black"><h3>Clave de la ponencia oral: '.$codigo_ponencia_oral.'</h3></font>
         <font color="black"><h3> No se han registrado coautores en el trabajo, podr&aacute; registrarlos posteriormente
          en el apartado de<br>edici&oacute;n de trabajos, dentro de Editar Perfil</h3></font><br>
-         <font color="black"><h3>Nota: por favor no olviden estar atentos a las fechas de revisi&oacute;n de trabajos y env&iacute;o de resultados. Los res&uacute;menes registrados podrán ser editados hasta el día 29 de Noviembre de 2013.</h3></font><br><br>
+         <font color="black"><h3>Nota: por favor no olviden estar atentos a las fechas de revisi&oacute;n de trabajos y env&iacute;o de resultados. Los res&uacute;menes registrados podr&aacute;n ser editados hasta el d&iacute;a 29 de Noviembre de 2013.</h3></font><br><br>
                     </td></tr>                 
                     </table></td></tr>
               <td class="bottom">&nbsp;</td></tr>
@@ -175,7 +175,7 @@ body {
           <br></br>
       '.$rfc_coautor4.'
           <br>
-         <font color="black"><h3>Nota: por favor no olviden estar atentos a las fechas de revisi&oacute;n de trabajos y env&iacute;o de resultados.</h3></font><br><br>
+         <font color="black"><h3>Nota: por favor no olviden estar atentos a las fechas de revisi&oacute;n de trabajos y env&iacute;o de resultados. Los res&uacute;menes registrados podr&aacute;n ser editados hasta el d&iacute;a 29 de Noviembre de 2013.</h3></font><br><br>
                     </td></tr>                 
                     </table></td></tr>
               <td class="bottom">&nbsp;</td></tr>

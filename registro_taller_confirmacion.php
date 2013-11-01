@@ -111,7 +111,7 @@ require('script/conexion.php');
 						echo " ";
 						
 					}
-					echo "<form action = 'registro_taller_exitoso.php' method='post'><fieldset>";
+					echo "<form action = 'registro_taller_exitoso.php' method='post' id='formulario'><fieldset>";
 					echo "<legend>Confirmación de datos</legend>";
 					echo "<legend>AUTORES:</legend> ";
 					echo "<table border='1'> <tbody>";
@@ -197,12 +197,12 @@ require('script/conexion.php');
 					if (($rfc_autor_error != "")||($rfc_autor_limite != "")||($rfc_autor_taller_curso != "")){
 						$rfc_autor = "";
 						$requiere = "";
-					echo "<tr><td><input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."'></td>";
-					echo "<td><input type='radio' name='requiere_autor' id='constancia' value='SI'>SI </td> <td><input type='radio' name='requiere_autor' id='constancia' value='NO'>NO</td></tr>";
+					echo "<tr><td><input type='text' name='rfc_autor_conf' id='id_ponente1' value='".$rfc_autor."' maxlength='13'></td>";
+					echo "<td><input type='radio' name='requiere_autor' id='constancia' value='SI'>SI <input type='radio' name='requiere_autor' id='constancia' value='NO'>NO</td></tr>";
 					}
 					else{
 						if (($rfc_autor_error == "")||($rfc_autor_limite == "")||($rfc_autor_taller_curso == "")){
-						echo "<tr><td><input type='text' name='rfc_autor_conf' id='autores' value='".$rfc_autor."'></td>";
+						echo "<tr><td><input type='text' name='rfc_autor_conf' id='id_ponente1' value='".$rfc_autor."' maxlength='13'></td>";
 							if($requiere == "SI"){
 								echo "<td><input type='radio' name='requiere_autor' id='constancia' value='".$requiere."' checked>SI<input type='radio' name='requiere_autor' id='constancia' value='NO'>NO</td></tr>";
 							}
@@ -215,12 +215,12 @@ require('script/conexion.php');
 					if (($rfc_coautor1_error != "")||($rfc_coautor1_limite != "")||($rfc_coautor1_taller_curso != "")) {
 						$rfc_coautor1 = "";
 						$requiere1 = "";
-					echo "<tr><td><input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."'></td>";
+					echo "<tr><td><input type='text' name='rfc_coautor1_conf' id='id_ponente2' value='".$rfc_coautor1."' maxlength='13'></td>";
 					echo "<td><input type='radio' name='requiere_coautor1' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO</td></tr>";
 					}
 					else{
 						if (($rfc_coautor1_error == "")||($rfc_coautor1_limite == "")||($rfc_coautor1_taller_curso == "")) {
-						echo "<tr><td><input type='text' name='rfc_coautor1_conf' id='autores1' value='".$rfc_coautor1."' ></td>";
+						echo "<tr><td><input type='text' name='rfc_coautor1_conf' id='id_ponente2' value='".$rfc_coautor1."' maxlength='13'></td>";
 							if($requiere1 == "SI"){
 								echo "<td><input type='radio' name='requiere_coautor1' id='constancia' value='".$requiere1."' checked>SI <input type='radio' name='requiere_coautor1' id='constancia' value='NO'>NO</td></tr>";
 							}
@@ -237,12 +237,12 @@ require('script/conexion.php');
 					if (($rfc_coautor2_error != "")||($rfc_coautor2_limite != "")||($rfc_coautor2_taller_curso != "")) {
 						$rfc_coautor2 = "";
 						$requiere2 = "";
-					echo "<tr><td><input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' ></td>";
+					echo "<tr><td><input type='text' name='rfc_coautor2_conf' id='id_ponente3' value='".$rfc_coautor2."' maxlength='13'></td>";
 					echo "<td><input type='radio' name='requiere_coautor2' id='constancia' value='SI'>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO</td></tr>";
 					}
 					else{
 						if (($rfc_coautor2_error == "")||($rfc_coautor2_limite == "")||($rfc_coautor2_taller_curso == "")){
-						echo "<tr><td><input type='text' name='rfc_coautor2_conf' id='autores2' value='".$rfc_coautor2."' ></td>";
+						echo "<tr><td><input type='text' name='rfc_coautor2_conf' id='id_ponente3' value='".$rfc_coautor2."' maxlength='13'></td>";
 							if($requiere1 == "SI"){
 								echo "<td><input type='radio' name='requiere_coautor2' id='constancia' value='".$requiere2."' checked>SI <input type='radio' name='requiere_coautor2' id='constancia' value='NO'>NO</td></tr>";
 							}
@@ -258,7 +258,7 @@ require('script/conexion.php');
 					echo "</fieldset>";
 					echo "<input type='button' value='Editar' id='BotonEditar' OnClick='MostrarElemento();'>";
 
-					echo "<input type='submit' name='enviar' value='enviar'></form>";
+					echo "<input type='submit' name='enviar' value='enviar' id='registro4'></form>";
 	mysql_close();
 
 ?>
