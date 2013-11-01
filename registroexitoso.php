@@ -54,7 +54,7 @@ require('script/conexion.php');
 	// $user = "root";
 	// $pass = "0515delux!";
 	// $db = "congresomat";
-	// $fecha = date('Y-m-j');
+	$fecha = date('Y-m-j');
 	require('script/bd.php');
 //conectar con el servidor
 	$conn = mysql_connect("$host", "$user", "$pass");
