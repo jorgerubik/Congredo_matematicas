@@ -560,7 +560,7 @@ require('script/conexion.php');
 						}
 					}				
 					echo "</table></fieldset><input type='button' value='Editar' id='BotonEditar' onClick='MostrarElemento();'>";			
-					echo "<input type='submit' name='enviar' value='enviar' id='registro3'</form>";
+					echo "<input type='submit' name='enviar' value='enviar' id='registro3'></form>";
 
 	mysql_close();
 

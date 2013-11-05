@@ -98,7 +98,7 @@
 			});
 		});
 
-		
+//////Validación en registro de cartel y ponenca		
 		$(document).ready(function(){
 			$("#registro").click(function() {
 			var autor = $("#id_ponente1").val();
@@ -125,7 +125,9 @@
 				return false;
 			} 
 			if( $("#formulario input[name='requiere']:radio").is(':checked')) {  
-			  
+			  if(autor == ""){
+			  alert("Introduzca un RFC al autor");
+			}
 			} else {  
 			alert("No ha seleccionado si el autor requiere constancia"); 
 			return false; 
@@ -136,49 +138,78 @@
 					alert ("El o los RFC que introdujo son identicos, favor de rectificar");
 					return false;
 				}
-				if( $("#formulario input[name='requiere1']:radio").is(':checked')) {  
-				  
-				} else {  
-				alert("No ha seleccionado si el coautor1 requiere constancia"); 
-				return false; 
-				}  	
 			}
+				if( $("#formulario input[name='requiere1']:radio").is(':checked')) {  
+				  if (coautor1 == ""){
+				  alert("Por favor, introduzca un RFC al coautor1.");
+				  return false;
+				  }
+				  if (coautor1 != ""){}
+				} else {  
+					if (coautor1 != "") {
+						alert("No ha seleccionado si el coautor1 requiere constancia"); 
+						return false; 
+						
+					};
+				}  	
 			//verificación de coautor2
 			if (coautor2 != "") {
 				if (coautor2 == coautor3 || coautor2 == coautor4) {
 					alert("El o los RFC que introdujo son identicos, favor de rectificar");
 					return false;
 				};
-				if($("#formulario input[name='requiere2']:radio").is(':checked')){
-
-				}else{
-					alert("No ha seleccionado si el coautor2 requiere constancia");
-					return false
-				}
 			};
+				if($("#formulario input[name='requiere2']:radio").is(':checked')){
+					if (coautor2 == "") {
+						alert("Por favor, introduzca un RFC al coautor2.");
+						return false;
+					};
+					if (coautor2 != "") {};
+				}else{
+					if (coautor2 != "") {
+						alert("No ha seleccionado si el coautor2 requiere constancia");
+						return false
+						
+					};
+				}
 			//verificación de coautor3
 			if (coautor3 != "") {
 				if (coautor3 == coautor4) {
 					alert("El o los RFC que introdujo son identicos, favor de rectificar");
 					return false;
 				};
+			};
 				if ($("#formulario input[name='requiere3']:radio").is(':checked')) {
+					if (coautor3 == "") {
+						alert("Por favor, introduzca un RFC al coautor3.");
+						return false;
 
+					};
+					if (coautor3 != "") {};
 				}else{
-					alert("No ha seleccionado si el coautor3 requiere constancia");
-					return false;
+					if (coautor3 != "") {
+						alert("No ha seleccionado si el coautor3 requiere constancia");
+						return false;
+						
+					};
 				}
 
-			};
 			//verificación de coautor4
 			if (coautor4 != "") {
-				if ($("#formulario input[name='requiere4']:radio").is(':checked')) {
-
-				}else{
-					alert("No ha seleccionado su el coautor4 requiere constancia");
-					return false;
-				}
 			};
+				if ($("#formulario input[name='requiere4']:radio").is(':checked')) {
+					if (coautor4 == ""){
+						alert("Por favor, introduzca un RFC al coautor4.");
+						return false;
+					}
+					if(coautor4 != ""){}
+				}else{
+					if (coautor4 != "") {
+						alert("No ha seleccionado su el coautor4 requiere constancia");
+						return false;
+						
+					};
+				}
 			
 
 			
@@ -214,23 +245,39 @@
 					alert ("El o los RFC que introdujo son identicos, favor de rectificar");
 					return false;
 				};
-				if($("#formulario input[name='requiere1']:radio").is(':checked')) {  
-				  
-				} else {  
-				alert("No ha seleccionado si el coautor1 requiere constancia"); 
-				return false; 
-				}  	
 			}
+				if($("#formulario input[name='requiere1']:radio").is(':checked')) {  
+					if (coautor1 == "") {
+						alert("Por favor, introduzca un RFC al coautor1.");
+						return false;
+					}; 
+					if (coautor1 != "") {
+
+					}; 
+				} else {  
+					if (coautor1 != "") {
+
+						alert("No ha seleccionado si el coautor1 requiere constancia"); 
+						return false; 
+					};
+				}  	
 			//verificación de coautor2
 			if (coautor2 != "") {
 				
-				if($("#formulario input[name='requiere2']:radio").is(':checked')){
-
-				}else{
-					alert("No ha seleccionado si el coautor2 requiere constancia");
-					return false;
-				}
 			};
+				if($("#formulario input[name='requiere2']:radio").is(':checked')){
+					if(coautor2 == ""){
+						alert("Por favor, introduzca un RFC al coautor2.");
+						return false;
+					}
+					if (coautor2 != "") {};
+				}else{
+					if (coautor2 != "") {
+						alert("No ha seleccionado si el coautor2 requiere constancia");
+						return false;
+						
+					};
+				}
 						
 
 			});

@@ -121,7 +121,7 @@ require('script/conexion.php');
 						echo"</fieldset>";
 						echo"<fieldset>";
 						echo"<legend>Contenido (máximo 300 palabras)</legend>";
-						echo"<textarea rows='6' id='Contenido_area' name='Contenido'  cols='70' required onblur='wordCount();'>".$row['resumen_taller']." </textarea>";
+						echo"<textarea rows='6' id='Contenido_area' name='Contenido'  cols='50' required onblur='wordCount();'>".$row['resumen_taller']." </textarea>";
 						echo"</fieldset>";
 						echo"<fieldset>";
 						echo"<legend>Materiales (máximo 100 palabras)</legend>";
@@ -208,7 +208,9 @@ require('script/conexion.php');
 		
 	mysql_close();
 ?>
+<br>
 	<input type="submit" name="enviar" value="enviar">
+	<br>
 </form>
 	</div>
 	</div>

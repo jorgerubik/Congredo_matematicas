@@ -99,6 +99,7 @@ require('script/conexion.php');
 		print '<script type="text/javascript">';
    		print 'alert("El RFC '.$rfc.' ya se encuenta registrado, por favor verifique que haya introducido el RFC correcto")'; 
 		print '</script>';	
+		
 		}
 	elseif (consulta_tb($querynom) == 1 ){
 	 	print '<script type="text/javascript">';

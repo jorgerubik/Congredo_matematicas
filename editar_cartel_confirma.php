@@ -351,8 +351,8 @@ require('script/conexion.php');
 ?>
 	</fieldset>
 	<fieldset>
-		<legend>Esta es la información que actualizo:</legend>
-		<legend>Deséa continuar</legend>
+		<legend>Esta es la información que actualizó:</legend>
+		<legend>Desea continuar</legend>
 	<input type='submit' name='enviar' value='enviar'>
 	</fieldset>
 </form>

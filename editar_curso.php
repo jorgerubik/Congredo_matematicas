@@ -118,7 +118,7 @@ require('script/conexion.php');
 						echo"<fieldset id='ponencia'><legend>Formulario de registro</legend><legend>Título (máximo 15 palabras)</legend>";
 						echo"<input type='text'  id='titulo_curso' value='".$row['titulo_curso']."' name='titulo_curso' onblur='wordCountf();'>";
 						echo"</fieldset><fieldset><legend>Contenido (máximo 300 palabras)</legend>";
-						echo"<textarea rows='6' id='Contenido_area' name='Contenido' cols='70' required onblur='wordCount();'>".$row['resumen_curso']." </textarea>";
+						echo"<textarea rows='6' id='Contenido_area' name='Contenido' cols='50' required onblur='wordCount();'>".$row['resumen_curso']." </textarea>";
 						echo"</fieldset><fieldset><legend>Materiales (máximo 100 palabras)</legend>";
 						echo"<textarea rows='4' cols='50' required id='Contenido_area1' name='Materiales' onblur='wordCountb();' >".$row['material_curso']."</textarea>";
 						echo"</fieldset><fieldset><legend>Autores</legend><table border='1' id='autores'>";
